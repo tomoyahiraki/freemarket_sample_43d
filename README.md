@@ -31,11 +31,11 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|integer|null: false, foreign_key: true|
-|profecture|integer|null: false, foreign_key: true|
-|city_name|string|null: false, foreign_key: true|
-|city_number|string|null: false, foreign_key: true|
-|building|string|null: false, foreign_key: true|
+|postal_code|integer|null: false|
+|profecture|integer|null: false|
+|city_name|string|null: false|
+|city_number|string|null: false|
+|building|string|null: false|
 
 ### Association
 - has_one :user_address, dependent: destroy
@@ -58,15 +58,13 @@ Things you may want to cover:
 |password|string|null: false|
 |birth|integer|null: false|
 |proceed|integer||
-|provider|string|
-|uid|string|
+|provider|string||
+|uid|string||
 <!-- provider, uidは各アプリへの認証の為 -->
 
 
 ## Association
-- has_many :favorites
 - has_many :products
-- has_many :products, through: :favorites
 
 
 
@@ -78,17 +76,19 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |body|text||
-|title|string|null: false, foreign_key: true|
-|valuation|integer|foreign_keyr|
-|product_old|integer|null: false, foreign_key: true|
-|delivery_fee|integer|null: false, foreign_key: true|
-|area|string|null: false, foreign_key: true|
-|shipment|integer|null: false, foreign_key: true|
-|price|integer|null: false, foreign_key: true|
+|title|string|null: false|
+|product_old|integer|null: false|
+|delivery_fee|integer|null: false|
+|area|string|null: false|
+|shipment|integer|null: false|
+|price|integer|null: false|
 |product_introduce|text|
-|seller_id|integer|null: false, foreign_key: true|
 |buyer_id|integer|null: false, foreign_key: true|
-|product_state|integer|null: false, foreign_key: true|
+|product_state|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|brand_id|integer|null: false, foreign_key: true|
+|size_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 
 
 ### Association
@@ -97,26 +97,6 @@ Things you may want to cover:
 - belongs_to :size
 - belongs_to :category
 - has_many   :images
-- has_many   :favorites
-- has_many   :users, through: :favorites
-
-
-
-
-
-
-## favoriteテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|foreign_key: true|
-|product_id|integer|foreign_key: true|
-
-
-## Association
-- belongs_to :product
-- belongs_to :user
-
-
 
 
 
@@ -127,6 +107,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |image_url|string|foreign_key: true|
+|product_id|integer|foreign_key: true|
 
 
 ## Association
