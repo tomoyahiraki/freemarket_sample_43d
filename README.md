@@ -38,7 +38,7 @@ Things you may want to cover:
 |building|string|null: false|
 
 ### Association
-- has_one :user_address, dependent: destroy
+- has_one :user, dependent: destroy
 
 
 
