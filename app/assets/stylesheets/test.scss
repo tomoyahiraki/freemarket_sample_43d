@@ -1,3 +1,140 @@
-// Place all the styles related to the test controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.mypage_identification_body{
+  background-color:#EEEEEE;
+}
+
+.mypage_identification_main{
+  background-color:white;
+  width:700px;
+  height:1450px;
+  margin:0 auto;
+}
+
+.mypage_identification_header{
+  text-align: center;
+}
+
+.mypage_identification_header_header{
+  font-size:24px;
+  padding:8px 24px;
+  margin:0;
+}
+
+.mypage_identification_header_info{
+  font-size:14px;
+  margin:0;
+}
+
+.mypage_identification_form{
+  padding:64px;
+}
+
+label{
+  font-weight: bold;
+  font-size:14px;
+}
+
+.form-require{
+  font-size: 12px;
+  background-color:red;
+  color: white;
+  padding:2px 4px;
+  border-radius: 2px;
+}
+
+.entry-form{
+  font-size:16px;
+  padding:10px 16px 8px 16px;
+  height:24px;
+  line-height: 24px;
+  width:540px;
+  margin:8px 0;
+  border-radius: 4px;
+  border-style: solid;
+  border-width:1px;
+  border-color:#CCCCCC;
+}
+
+.mypage_identification_form_group{
+  margin-top:40px;
+  display:block;
+}
+
+.form-select{
+  font-size: 12px;
+  background-color:#777777;
+  color: white;
+  padding:2px 4px;
+  border-radius: 2px;
+}
+
+.select-wrapper{
+  display:block;
+}
+
+.select-wrapper_year{
+  width:172px;
+  display:inline-block;
+}
+
+.select-Prefecture{
+  background-color:white;
+  padding:10px 16px 8px 16px;
+  font-size:16px;
+  height:48px;
+  width:574px;
+  margin:8px 0;
+  border-radius: 4px;
+  border-style: solid;
+  border-width:1px;
+  border-color:#CCCCCC;
+}
+
+.select-default{
+  background-color:white;
+  font-size:16px;
+  height:48px;
+  width:140px;
+  margin:8px 0;
+  border-radius: 4px;
+  border-style: solid;
+  border-width:1px;
+  border-color:#CCCCCC;
+}
+
+.year_month_date{
+  font-size:14px;
+}
+
+.select-wrapper_month{
+  width:172px;
+  display:inline-block;
+}
+
+.sell_description{
+  color:#777777;
+  font-size:14px;
+}
+
+.confirmation_button{
+  background-color:red;
+  text-align: center;
+  color:white;
+  height:48px;
+  line-height:48px;
+  margin-top: 40px;
+}
+
+.about-mypage_identification{
+  margin-top:50px;
+  margin-bottom: 0px;
+  padding:0;
+}
+
+.about-mypage_identification_description{
+  float:right;
+  width:155px;
+  font-size: 14px;
+  text-decoration:none;
+  color: #006699;
+}
+
