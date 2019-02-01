@@ -50,10 +50,10 @@ a{
       float:left;
       width:300px;
       height:375px;
-      .main-photo{
+      &-main{
         height:300px;
       }
-      .sub-photo-space{
+      &-sub{
         height:75px;
         display: inline-block;
       }
@@ -83,19 +83,7 @@ a{
       }
       .face-icon{
         display: block;
-        .item-user-ratings-smile{
-          display: inline-block;
-          span{
-            color:black;
-          }
-        }
-        .item-user-ratings-normal{
-          display: inline-block;
-          span{
-            color:black;
-          }
-        }
-        .item-user-ratings-bad{
+        .item-user-ratings{
           display: inline-block;
           span{
             color:black;
@@ -136,7 +124,7 @@ a{
     margin-top:16px;
     display:inline-block;
     width:100%;
-    .item-button-left{
+    &-left{
       float:left;
       .like-button{
         border: none;
@@ -159,15 +147,15 @@ a{
         padding:8px 16px;
         background-color:#EEEEEE;
         border-radius: 20px;
-        .arart-button-text{
+        &-text{
           text-decoration: none;
           color:black;
         }
       }
     }
-    .item-button-right{
+    &-right{
       float:right;
-      .item-button-right-text{
+      &-text{
         text-decoration: none;
         color: #006699;
         font-size:14px;
@@ -181,20 +169,20 @@ a{
 width:700px;
 height:50px;
 margin:0 auto;
-  .nav-item-link-prev-next{
+  .nav-item-link{
     list-style: none;
     margin-top:24px;
     margin-bottom: 0px;
     padding-left: 0px;
-    .nav-item-link-prev{
+    &-prev{
       float: left;
-      .nav-item-link-prev-text{
+      &-text{
         text-decoration: none;
       }
     }
-    .nav-item-link-next{
+    &-next{
       float: right;
-      .nav-item-link-next-text{
+      &-text{
         text-decoration: none;
       }
     }
@@ -213,31 +201,10 @@ margin:0 auto;
     width:500px;
     padding-left:0px;
     display: inline-block;
-    .sns-btn-facebook{
+    .sns-btn{
       list-style: none;
       display: inline-block;
-      .share-btn-facebook{
-        text-decoration: none;
-      }
-    }
-    .sns-btn-twitter{
-      list-style: none;
-      display: inline-block;
-      .share-btn-twitter{
-        text-decoration: none;
-      }
-    }
-    .sns-btn-line{
-      list-style: none;
-      display: inline-block;
-      .share-btn-line{
-        text-decoration: none;
-      }
-    }
-    .sns-btn-pintarest{
-      list-style: none;
-      display: inline-block;
-      .share-btn-pintarest{
+      &-icon{
         text-decoration: none;
       }
     }
