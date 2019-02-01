@@ -168,8 +168,23 @@ html {
                   }
                   .mypage-item-body {
                     margin: 0 40px 0 68px;
+
+                    .mypage-item-text {
+                      overflow: hidden;
+                      max-height: 4.4em;
+                      text-overflow: ellipsis;
+                      line-height: 1.5;
+                    }
+                    time {
+                      display: inline-block;
+                      color: #888;
+
+                      .fa-clock-o {
+                        margin: 0 8px 0 0;
+                      }
+                    }
                   }
-                  .fa {
+                  .fa-chevron-right {
                     position: absolute;
                     top: 50%;
                     right: 16px;
