@@ -1,8 +1,8 @@
-%body.mypage_identification_body
+%body.mypage_identification
   .mypage_identification_main
-    .mypage_identification_header
-      %h3.mypage_identification_header_header 本人情報の登録
-      %p.mypage_identification_header_info お客様のあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております
+    .mypage_identification_main_header
+      %h3.mypage_identification_main_header_header 本人情報の登録
+      %p.mypage_identification_main_header_info お客様のあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております
     .mypage_identification_form
       .mypage_identification_form_group_head
         %label お名前
@@ -89,73 +89,28 @@
           .select-wrapper_year
             %select#year.select-default
               %option{:value => "0"} --
+              - 119.times do |i|
+              - i += 1900 + 1
+                %option{:value => "0"} #{i}
             %span.year_month_date 年
           .select-wrapper_month
-            %select.select-default{:name => "month"}
-              %option{:value => ""} --
-              %option{:value => "1"} 1
-              %option{:value => "2"} 2
-              %option{:value => "3"} 3
-              %option{:value => "4"} 4
-              %option{:value => "5"} 5
-              %option{:value => "6"} 6
-              %option{:value => "7"} 7
-              %option{:value => "8"} 8
-              %option{:value => "9"} 9
-              %option{:value => "10"} 10
-              %option{:value => "11"} 11
-              %option{:value => "12"} 12
+            %select#month.select-default
+              %option{:value => "0"} --
+              - 12.times do |i|
+              - i += 1
+                %option{:value => "0"} #{i}
             %span.year_month_date 月
           .select-wrapper_month
-            %select.select-default{:name => "day"}
-              %option{:value => ""} --
-              %option{:value => "1"} 1
-              %option{:value => "2"} 2
-              %option{:value => "3"} 3
-              %option{:value => "4"} 4
-              %option{:value => "5"} 5
-              %option{:value => "6"} 6
-              %option{:value => "7"} 7
-              %option{:value => "8"} 8
-              %option{:value => "9"} 9
-              %option{:value => "10"} 10
-              %option{:value => "11"} 11
-              %option{:value => "12"} 12
-              %option{:value => "13"} 13
-              %option{:value => "14"} 14
-              %option{:value => "15"} 15
-              %option{:value => "16"} 16
-              %option{:value => "17"} 17
-              %option{:value => "18"} 18
-              %option{:value => "19"} 19
-              %option{:value => "20"} 20
-              %option{:value => "21"} 21
-              %option{:value => "22"} 22
-              %option{:value => "23"} 23
-              %option{:value => "24"} 24
-              %option{:value => "25"} 25
-              %option{:value => "26"} 26
-              %option{:value => "27"} 27
-              %option{:value => "28"} 28
-              %option{:value => "29"} 29
-              %option{:value => "30"} 30
-              %option{:value => "31"} 31
+            %select#day.select-default
+              %option{:value => "0"} --
+              - 31.times do |i|
+              - i += 1
+                %option{:value => "0"} #{i}
             %span.year_month_date 日
-        .sell_description
-          ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
-        .confirmation_button
-          登録する
-        %p.about-mypage_identification
-          %a.about-mypage_identification_description{:href => "#"} 本人情報登録について &gt;
-          %span
-    :javascript
-      var time = new Date();
-      var year = time.getFullYear();
-      for (var i = year; i >= 1900; i--) {
-        createOptionElements(i,'year');
-      }
-      function createOptionElements(num,parentId){
-          var doc = document.createElement('option');
-          doc.value = doc.innerHTML = num;
-          document.getElementById(parentId).appendChild(doc);
-      }
+      .sell_description
+        ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+      .confirmation_button
+        登録する
+      %p.about-mypage_identification
+        %a.about-mypage_identification_description{:href => "#"} 本人情報登録について &gt;
+        %span
