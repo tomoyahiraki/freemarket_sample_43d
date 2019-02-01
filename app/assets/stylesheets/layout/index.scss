@@ -1,0 +1,128 @@
+@media screen and (min-width: 1068px){
+  .top-scroll{
+	height: 390px;
+  }
+  .items-box__price {
+    font-size: 20px;
+  }
+  .pickup__head__container {
+    width: 940px;
+  }
+}
+
+@media screen and (max-width: 1067px){
+  .top-scroll{
+	height: 290px;
+  }
+  .items-box__price {
+    font-size: 16px;
+  }
+  .pickup__head__container {
+    width: 700px;
+  }
+  .items-box__content{
+    width: 100%;
+  }
+}
+
+.white {
+  background: #f5f5f5;
+}
+
+.top-scroll{
+  width: 100%;
+  background-color: #FFFFCC;
+  overflow: hidden;
+}
+
+.pickup{
+  &__container{
+	padding: 40px 0 ;
+  }
+
+  &__head{
+    text-align: center;
+    font-size: 28px;
+
+      &-item{
+        text-align: center;
+        margin: 26px 11px;
+
+          a{
+            font-size: 22px;
+          }
+      }
+
+      &__container{
+        @include clearfix();
+        margin: 0 auto;
+      }
+  }
+}
+
+.items-box {
+  @include clearfix();
+  margin: 0 auto;
+
+    &__contents{
+      position: relative;
+      float: left;
+      margin: 0 0 0 20px;
+      width: 213px;
+
+        a{
+          display: block;
+          color: #333;    
+
+            figure{
+              width: 213px;
+            }
+        }
+    }
+
+    &__photo{
+      padding: 0 0 100%;
+
+        img{
+          position: absolute;
+          width: 100%;
+        }
+    }
+
+    &__body{
+      padding: 16px;
+      background: #FFFFFF;
+
+        &.font-1{
+          font-size: 16px;
+          font-weight: 400;
+          color: #333;
+        }
+    }
+
+    &__num{
+      margin: 8px 0 0;
+      background: #FFFFFF;
+      @include clearfix();
+    }
+
+    &__price{
+      float: left;
+
+        &.font-2{
+          font-weight: 600;
+          color: #333;    
+        }
+    }
+
+    &__tax{
+      font-size: 10px;
+      clear: both;    
+    }
+}
+
+.view-all{
+  text-align: right;
+  padding: 20px 0 30px;
+  width: 99.5%;
+}

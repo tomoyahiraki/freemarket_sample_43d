@@ -1,0 +1,91 @@
+@media screen and (min-width: 1068px){
+  .app-banner__main h2 {
+  font-size: 24px;
+  }
+  .app-banner__main p {
+  font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 1067px){
+  .app-banner__main h2 {
+    font-size: 16px;
+  }
+  .app-banner__main p {
+    font-size: 24px;
+  }
+}
+
+.app-banner{
+  height: 260px;
+  width: 100%;
+  background:#FFFFCC;
+
+  &__main{
+    overflow: hidden;
+    position: relative;
+    width:750px;
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+    background-color:#CCFFFF;
+
+      &-inner{
+        position: absolute;
+        top:20%;
+        background-color:#666666; 
+      }
+
+      h2{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        margin: 0;    
+      }
+
+      p{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        margin: 10px 0 0;
+      }
+
+      &--right{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 300px;
+        height: 100%;
+        background-color:#FFDDFF; 
+      }
+  }
+
+  &__icon{
+    margin: 20px 0 0;
+
+      figure{
+        float: left; 
+      }
+
+      img{
+        vertical-align: middle
+      }
+
+      ul{
+        margin: 0 0 0 24px;
+        line-height: 68px;
+        background-color:#666666;
+        float: left;
+      }
+
+      li{
+        float: left;
+      }
+
+      li:last-child{
+        margin: 0 0 0 16px;
+      }
+
+      a{
+        display: block;
+        line-height: 68px;
+      }
+  }
+}

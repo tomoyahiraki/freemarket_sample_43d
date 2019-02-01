@@ -1,0 +1,52 @@
+%body
+  .default-container
+    = render 'topheader'
+    %main.white{role: "main"}
+      %section.top-scroll (仮)スライド画像ブロック
+      %section.pickup__container
+        %h2.pickup__head ピックアップカテゴリー
+        %section.pickup__head__container.clearfix
+          %h3.pickup__head-item
+            %a{href: "##"} レディース 新着アイテム
+          .items-box.clearfix
+            %section.items-box__contents
+              %a{href: "##"}
+                %figure.items-box__photo
+                  %img.lazyloaded{alt: "", src: "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m34530489595_1.jpg?1545212212"}/
+                .items-box__body
+                  %h3.items-box__name.font-1 ああああ
+                  .items-box__num.clearfix
+                    .items-box__price.font-2 ¥ 800
+                    %p.items-box__tax (税込)
+            %section.items-box__contents
+              %a{href: "##"}
+                %figure.items-box__photo
+                  %img.lazyloaded{alt: "", src: "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m34530489595_1.jpg?1545212212"}/
+                .items-box__body
+                  %h3.items-box__name.font-1 ああああ
+                  .items-box__num.clearfix
+                    .items-box__price.font-2 ¥ 800
+                    %p.items-box__tax (税込)
+            %section.items-box__contents
+              %a{href: "##"}
+                %figure.items-box__photo
+                  %img.lazyloaded{alt: "", src: "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m34530489595_1.jpg?1545212212"}/
+                .items-box__body
+                  %h3.items-box__name.font-1 ああああ
+                  .items-box__num.clearfix
+                    .items-box__price.font-2 ¥ 800
+                    %p.items-box__tax (税込)
+            %section.items-box__contents
+              %a{href: "##"}
+                %figure.items-box__photo
+                  %img.lazyloaded{alt: "", src: "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m34530489595_1.jpg?1545212212"}/
+                .items-box__body
+                  %h3.items-box__name.font-1 ああああ
+                  .items-box__num.clearfix
+                    .items-box__price.font-2 ¥ 800
+                    %p.items-box__tax (税込)
+          .view-all
+            %a{href: "##"} すべての商品を見る
+    = render 'topappbanner'
+    = render 'topfooter'
+    = render 'topcellbtn'
