@@ -16,7 +16,7 @@
                   %p 最大１０枚までアップロード出来ます
                   .product-image-upload
                     = file_field :name, {} ,style: "display: none;", class: "image-upload", id: "image-upload"
-                    .image-upload_text{onClick: "$('#{}image-upload').click();"}
+                    .image-upload_text{onClick: "$('#image-upload').click();"}
                       .word-drop ドラッグアンドドロップ
                       %p またはクリックしてファイルをアップロード
 
