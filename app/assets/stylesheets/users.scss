@@ -1,4 +1,3 @@
-<<<<<<< HEAD:app/assets/stylesheets/test.scss
 html {
     overflow-style: autohiding-scrollbar;
     overflow-y: scroll;
@@ -151,6 +150,10 @@ html {
                   text-decoration: none;
                   padding: 16px;
 
+                  &:hover {
+                    background-color: #f9f9f9;
+                  }
+
                   figure {
                     overflow: hidden;
                     float: left;
@@ -166,9 +169,14 @@ html {
                   .mypage-item-body {
                     margin: 0 40px 0 68px;
                   }
+                  .fa {
+                    position: absolute;
+                    top: 50%;
+                    right: 16px;
+                    color: #333;
+                  }
                 }
               }
-
             }
             .mypage-item-not-found {
               padding: 160px 0 60px;
@@ -249,8 +257,3 @@ html {
 #tab4:checked ~ .tab-content #panel4 {
   display:block;
 }
-=======
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
->>>>>>> nagomuohta/master:app/assets/stylesheets/users.scss
