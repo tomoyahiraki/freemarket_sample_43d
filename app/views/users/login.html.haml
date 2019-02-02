@@ -1,4 +1,4 @@
-%body
+%body.login-all
   = render 'products/productheader'
   %div
     %header.login__header
@@ -9,10 +9,10 @@
           %a.login__main__no-account-a{href: "##"} 新規会員登録
         .login__main__form
           %button#facebook-login.btn__sns.btn__sns-facebook
-            %i.fa.fa-facebook-square
+            %i.fab.fa-facebook-square
             Facebookでログイン
           %button#google-login.btn__sns.btn__sns-google
-            %i.fa.fa-google-plus
+            %i.fab.fa-google-plus
             Googleでログイン
         %form{action: "##", method: "POST"}
           .login__main__form-inner
@@ -22,7 +22,7 @@
               %input.login__main__form-inner-text-default{name: "password", placeholder: "パスワード", type: "password", value: ""}/
             .login__main__form-inner-group
               .g-recaptcha.login-captcha{"data-sitekey" => "##"}
-                = image_tag "ロボット認証.png", class: "robot-image-tag"
+                = image_tag "5c7b76fcedd32eeb62e6109e5f166c87.png", class: "robot-image-tag"
             %button.login-submit.btn-default{type: "submit"} ログイン
             %a.login-password-less{href: "##"} パスワードをお忘れの方
     %footer.login__footer
