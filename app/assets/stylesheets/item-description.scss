@@ -67,20 +67,20 @@ a{
       font-style: normal;
       border-collapse: collapse;
       border:1px solid #CCCCCC;
-      th{
-      width:118px;
-      padding:0px;
-      border-collapse: collapse;
-      border:1px solid #CCCCCC;
-      background-color:#EEEEEE;
-      }
-      td{
-      width:182px;
-      border-collapse: collapse;
-      padding:8px;
-      border:1px solid #CCCCCC;
-      text-decoration: none;
-      }
+        th{
+        width:118px;
+        padding:0px;
+        border-collapse: collapse;
+        border:1px solid #CCCCCC;
+        background-color:#EEEEEE;
+        }
+        td{
+        width:182px;
+        border-collapse: collapse;
+        padding:8px;
+        border:1px solid #CCCCCC;
+        text-decoration: none;
+        }
       .face-icon{
         display: block;
         .item-user-ratings{
@@ -95,14 +95,14 @@ a{
   .item-price-box{
     margin-top:24px;
     text-align: center;
-    .item-price{
+    &-price{
       font-size:50px;
       font-weight: bold;
     }
-    .item-tax{
+    &-tax{
       font-size:10px;
     }
-    .item-shipping-fee{
+    &-shipping-fee{
       font-size:16px;
     }
   }
