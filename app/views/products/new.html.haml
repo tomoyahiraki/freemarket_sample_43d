@@ -1,32 +1,32 @@
-%body
+%body.products_new
   %main.contents
     = render 'productheader'
 
-    .content-main
+    .content-main_products_new
       %section.content-delete-side.buy-item-content
         .sell-content
-          %div{"data-reactroot" => ""}
+          %div.sell-content_div{"data-reactroot" => ""}
             .content_inside
               %h2.title 商品の情報を入力
               .content-update-form
 
                 .content-update-box
-                  %label.content-update-head 出品画像
+                  %label.product_new_name_label.content-update-head 出品画像
                   %span.form-require 必須
-                  %p 最大１０枚までアップロード出来ます
+                  %p.product_new_word 最大１０枚までアップロード出来ます
                   .product-image-upload
                     = file_field :name, {} ,style: "display: none;", class: "image-upload", id: "image-upload"
                     .image-upload_text{onClick: "$('#image-upload').click();"}
                       .word-drop ドラッグアンドドロップ
-                      %p またはクリックしてファイルをアップロード
+                      %p.product_new_word またはクリックしてファイルをアップロード
 
                 .content-category
                   #productname.content-category-group
-                    %label 商品名
+                    %label.product_new_name_label 商品名
                     %span.form-require 必須
                   %input#product-name.input-default{:placeholder => "商品名（必須 40文字まで)", :value => ""}/
                   #especially.content-category-group
-                    %label.first 商品の説明
+                    %label.product_new_name_label.first 商品の説明
                     %span.form-require 必須
                   %textarea.textarea-default{:placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => "5"}
 
@@ -34,7 +34,7 @@
                   %h3.content-category-head 商品の詳細
                   .content-category-box
                     .content-category-group
-                      %label カテゴリー
+                      %label.product_new_name_label カテゴリー
                       %span.form-require 必須
                       .select-wrap
                         %select.select-default
@@ -54,7 +54,7 @@
                           %option{:value => ""} その他
                         %i.icon-arrow-bottom
                     .content-category-group
-                      %label 商品の状態
+                      %label.product_new_name_label 商品の状態
                       %span.form-require 必須
                       .select-wrap
                         %select.select-default
@@ -72,7 +72,7 @@
                   = link_to '?', "/jp/help_center/article/68/", {:class => "form-question", :target => "_blank"}
                   .content-category-box
                     .content-category-group
-                      %label 配送料の負担
+                      %label.product_new_name_label 配送料の負担
                       %span.form-require 必須
                       .select-wrap
                         %select.select-default
@@ -82,7 +82,7 @@
                         %i.icon-arrow-bottom
 
                       .content-category-group
-                        %label 発送元の地域
+                        %label.product_new_name_label 発送元の地域
                         %span.form-require 必須
                         .select-wrap
                           %select.select-default
@@ -138,7 +138,7 @@
                           %i.icon-arrow-bottom
 
                       .content-category-group
-                        %label 発送までの日数
+                        %label.product_new_name_label 発送までの日数
                         %span.form-require 必須
                         .select-wrap
                           %select.select-default
@@ -154,9 +154,9 @@
                   .content-category-group
                     %ul.item-price-box
                       %li.price-box-group
-                        .clearfix
+                        .clearfix.products_new_clearfix
                           .left-box
-                            %label 価格
+                            %label.product_new_name_label 価格
                             %span.form-require 必須
                           .middle-box ¥
                           .right-box
@@ -164,16 +164,16 @@
                         .clearfix-middle
                           .left-box.middle 販売手数料（10%）
                           .right-box.middle -
-                        .bold
+                        .bold-products_new
                           .left-box-under 販売利益
                           .right-box-under _
 
                 .modal{:role => "dialog", :tabindex => "-1"}
                   .modal-inner
                 .content-category.content-btn-box
-                  %p 禁止されている出品、行為を必ずご確認ください。
-                  %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
-                  %p また、出品をもちまして加盟店規約に同意したことになります。
+                  %p.product_new_word 禁止されている出品、行為を必ずご確認ください。
+                  %p.product_new_word またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+                  %p.product_new_word また、出品をもちまして加盟店規約に同意したことになります。
                 %button.btn-default.btn-red{:type => "submit"} 出品する
                 %button.btn-default.btn-gray もどる
 
