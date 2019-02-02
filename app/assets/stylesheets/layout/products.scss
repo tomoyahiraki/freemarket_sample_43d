@@ -1,4 +1,4 @@
-body {
+body.products_new {
   position: relative;
   min-height: 100%;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
@@ -7,11 +7,11 @@ body {
   line-height: 1;
   background: rgb(245, 245, 245);
 }
-label {
+label.product_new_name_label {
   font-weight: 600;
 }
 
-p {
+p.product_new_word {
   margin: 8px 0 10px 0;
   line-height: 1.5;
 }
@@ -25,7 +25,7 @@ p {
   margin-top: 50px;
 }
 
-  .content-main {
+  .content-main_products_new {
     display: block;
   }
       .content-delete-side {
@@ -38,7 +38,7 @@ p {
             margin: 0;
             padding: 0;
                }
-              h2 {
+              h2.title {
                 padding: 35px 8px 24px 8px;
                 font-size: 22px;
                 line-height: 1.5;
@@ -51,7 +51,7 @@ p {
     width: 620px;
     padding: 40px;
     }
-    label.content-update-head{
+    label.product_new_name_label.content-update-head{
       font-size: 16;
       font-weight: 600;
     }
@@ -115,7 +115,7 @@ p {
         margin-top: 40px;
         float: left;
 
-        label {
+        label.product_new_name_label {
           font-weight: 600;
         }
         span.form-require {
@@ -240,7 +240,7 @@ p {
         border: 0;
         width: 400px;
         height: 48px;
-        .clearfix {
+        .clearfix.products_new_clearfix {
           background-repeat: no-repeat;
           margin: 0;
           padding: 0;
@@ -297,7 +297,7 @@ p {
       font-size: 20px;
     }
   }
-  .bold{
+  .bold-products_new{
     background-repeat: no-repeat;
     margin: 0;
     width: 90%;
