@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   root 'products#index'
   resources :products, only: [:new, :show]
-  resources :users, only: [:index, :edit, :update]
+  resources :users, only: [:index, :edit, :update] do
+  collection do
+    get 'login'
+  end
+ end
+
 end
