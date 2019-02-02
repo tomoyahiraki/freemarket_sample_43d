@@ -3,17 +3,18 @@
 
     .products_new_content-header {
       text-align: center;
+      height: 128px;
 
         h1.products_new_word_h1 {
           display: inline-block;
-          margin: 11px 0 12px;
+          margin: 40px 0 0;
 
             a.products_new_content_a_header {
             display: inline-block;
-            width: 120px;
-            height: 33px;
+            width: 185px;
+            height: 49px;
+            line-height: 49px;
             margin: 0 8px 0 0;
-            line-height: 33px;
             }
         }
     }
