@@ -1,0 +1,20 @@
+.contents {
+  padding: 0;
+
+    .content-header {
+      text-align: center;
+
+        h1 {
+          display: inline-block;
+          margin: 11px 0 12px;
+
+            a {
+            display: inline-block;
+            width: 120px;
+            height: 33px;
+            margin: 0 8px 0 0;
+            line-height: 33px;
+            }
+        }
+    }
+}

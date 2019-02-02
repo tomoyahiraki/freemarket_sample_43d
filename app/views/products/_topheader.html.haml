@@ -1,0 +1,44 @@
+%header.header
+  .header__all
+    .clearfix
+      %h1.l-left
+        %a{href: "#"}
+          %img{alt: "logo", height: "36", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3407889314", width: "134"}/
+      %form.header__form.l-right{action: "#"}
+        %input.input-default{name: "keyword", placeholder: "キーワードから探す", type: "search", value: ""}/
+        %i.fa.fa-search
+    .header__nav-box.clearfix
+      %nav.l-left
+        %ul.header__nav
+          %li
+            %h2
+              %a.header__nav-root{href: "##"} カテゴリーから探す
+            %ul.header__nav-parent-wrap{"data-mega" => "1"}
+              %li
+          %li
+            %h2
+              %a.header__nav-root{href: "##"} ブランドから探す
+              %ul.header__nav-parent-wrap
+                %li
+      .l-right
+        %ul.header__user-nav
+          %li
+            %a.header__nav-root{href: "users"}
+              %figure
+                %div
+                  %img{alt: "aa", src: "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", width: "32"}/
+              .header__nav-root-mypage マイページ
+            %div
+          %li
+            %a.header__nav-root{href: "##"}
+              %i.fa.fa-bell-o
+              %span お知らせ
+              .header__nav-count
+            %ul
+              %li
+          %li
+            %a.header__nav-root{href: "##"}
+              %i.fa.fa-check
+              %span やることリスト
+            %ul.header__user-box
+              %li

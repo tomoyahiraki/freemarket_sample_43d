@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FreemarketSample43d
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{href: "wide.css", media: "screen and (min-width:1068px)", rel: "stylesheet"}/
+    %link{href: "small.css", media: "screen and (max-width:1067px)", rel: "stylesheet"}/
+  %body
+    = yield
