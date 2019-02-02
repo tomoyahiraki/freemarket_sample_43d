@@ -1,0 +1,29 @@
+%body
+  = render 'products/productheader'
+  %div
+    %header.login__header
+    %main.login__main
+      .login__main__panel
+        .login__main__no-account
+          %p.login__main__no-account-p アカウントをお持ちでない方こちら
+          %a.login__main__no-account-a{href: "##"} 新規会員登録
+        .login__main__form
+          %button#facebook-login.btn__sns.btn__sns-facebook
+            %i.fa.fa-facebook-square
+            Facebookでログイン
+          %button#google-login.btn__sns.btn__sns-google
+            %i.fa.fa-google-plus
+            Googleでログイン
+        %form{action: "##", method: "POST"}
+          .login__main__form-inner
+            .login__main__form-inner-group
+              %input.login__main__form-inner-text-default{name: "email", placeholder: "メールアドレス", type: "email", value: ""}/
+            .login__main__form-inner-group
+              %input.login__main__form-inner-text-default{name: "password", placeholder: "パスワード", type: "password", value: ""}/
+            .login__main__form-inner-group
+              .g-recaptcha.login-captcha{"data-sitekey" => "##"}
+                = image_tag "ロボット認証.png", class: "robot-image-tag"
+            %button.login-submit.btn-default{type: "submit"} ログイン
+            %a.login-password-less{href: "##"} パスワードをお忘れの方
+    %footer.login__footer
+      = render 'products/productfooter'
