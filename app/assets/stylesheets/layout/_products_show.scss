@@ -29,11 +29,12 @@ a{
 
 .item_information{
   background-color:#EEEEEE;
+  padding-top:40px;
   &_main{
     background-color:white;
     width:700px;
     height:100%;
-    margin:0 auto;
+    margin: 0 auto;
     padding:24px 40px 40px 40px;
     box-sizing: border-box;
     .item-name{
