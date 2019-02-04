@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       get 'login'
       get 'logout'
+      get 'password_less'
     end
   end
 
