@@ -1,0 +1,28 @@
+.signinone-body
+  = render 'users/headersigninform'
+
+  %main.signinone-main
+    %section.signinone-contents
+      %h2.signintwo-content-head 電話番号の確認
+
+    %form.signinone-form
+      .signinone-content
+        .signinone-form-group#signinformgroup
+          %label.product_new_name_label.content-update-head 携帯電話の番号
+          %input.input-default.signin-input{:name => "nickname", :placeholder => "携帯電話の番号を入力", :type => "text", :value => ""}/
+
+          %p.signinone-form-group-text-two
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+
+          %button.signinone-red-botton-two{:type => "submit"} SMSを送信する
+
+          %p.signinone-form-group-text-two
+            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+
+          .signinone-form-group-text-right
+            %p.signinone-text-information
+              %a.signinone-text-decration{:href => "/jp/help_center/article/423/", :target => "_blank"}
+              電話番号の確認が必要な理由
+              %i.icon-arrow-right
+
+  = render '/products/productfooter'

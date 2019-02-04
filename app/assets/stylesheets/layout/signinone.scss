@@ -1,0 +1,209 @@
+body.signinone-body{
+  position: relative;
+  min-height: 100%;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+  line-height: 1;
+  background: rgb(245, 245, 245);
+}
+
+.signinone-form-group#signinformgroup{
+  padding:0px;
+  margin:0px;
+}
+
+h2.signinone-content-head{
+    padding: 32px 16px;
+    font-size: 22px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.signin-input{
+  margin-top:8px;
+}
+
+h3.content-sub-head{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+}
+
+p.signinone-form-group-text{
+  color: #888;
+  margin-top:8px;
+}
+
+h3.content-sub-head.signinone-h3{
+  margin-bottom: 8px;
+}
+
+
+
+.signinone-main {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+
+  section.signinone-contents{
+    text-align: center;
+
+    h2.signinone-content-head{
+      padding: 32px 16px;
+      font-size: 22px;
+    }
+  }
+}
+
+form.signinone-form{
+  padding: 64px;
+
+    .signinone-content{
+      max-width: 320px;
+      margin: 0 auto;
+
+      .signinone-form-group{
+        margin: 40px 0 0;
+        border-style: solid;
+        border-width: 0;
+      }
+    }
+}
+
+    .mypage_identification_form{
+      padding:64px;
+      &_group{
+        margin-top:40px;
+        display:block;
+        label{
+          font-weight: bold;
+          font-size:14px;
+        }
+        .form-require{
+          font-size: 12px;
+          background-color:red;
+          color: white;
+          padding:2px 4px;
+          border-radius: 2px;
+        }
+        .select-Prefecture{
+          background-color:white;
+          padding:10px 16px 8px 16px;
+          font-size:16px;
+          height:48px;
+          width:574px;
+          margin:8px 0;
+          border-radius: 4px;
+          border-style: solid;
+          border-width:1px;
+          border-color:#CCCCCC;
+        }
+        .entry-form{
+          font-size:16px;
+          padding:10px 16px 8px 16px;
+          height:24px;
+          line-height: 24px;
+          width:540px;
+          margin:8px 0;
+          border-radius: 4px;
+          border-style: solid;
+          border-width:1px;
+          border-color:#CCCCCC;
+        }
+        .form-select{
+          font-size: 12px;
+          background-color:#777777;
+          color: white;
+          padding:2px 4px;
+          border-radius: 2px;
+        }
+        .select-wrapper{
+          display:block;
+          &_year{
+            width:172px;
+            display:inline-block;
+            .select-default{
+              background-color:white;
+              font-size:16px;
+              height:48px;
+              width:140px;
+              margin:8px 0;
+              border-radius: 4px;
+              border-style: solid;
+              border-width:1px;
+              border-color:#CCCCCC;
+            }
+            .year_month_date{
+              font-size:14px;
+            }
+          }
+          &_month{
+            width:172px;
+            display:inline-block;
+            .select-default{
+              background-color:white;
+              font-size:16px;
+              height:48px;
+              width:140px;
+              margin:8px 0;
+              border-radius: 4px;
+              border-style: solid;
+              border-width:1px;
+              border-color:#CCCCCC;
+            }
+            .year_month_date{
+              font-size:14px;
+            }
+          }
+        }
+      }
+    }
+
+.signinone-form-group-second{
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.signinone-text-center{
+  text-align: center;
+  margin-top: 40px;
+}
+
+button.signinone-red-botton{
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  margin: 40px 0;
+}
+
+.signinone-form-group-text-right{
+    margin: 40px 0 0;
+    text-align: right;
+
+  p.signinone-text-information{
+    margin: 0;
+    padding: 0;
+    color: #0099e8;
+    text-decoration: none;
+
+    a.signinone-text-decration{
+
+    }
+
+      i.icon-arrow-right{
+        display: inline-block;
+        font-family: 'icon-font';
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+      }
+  }
+}
