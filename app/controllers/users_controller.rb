@@ -3,10 +3,10 @@ class UsersController < ApplicationController
   def index
   end
 
-  def update
+  def edit
   end
 
-  def new
+  def update
   end
 
   def login

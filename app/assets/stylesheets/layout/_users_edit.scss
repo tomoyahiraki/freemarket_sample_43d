@@ -1,10 +1,57 @@
 .mypage_identification{
   background-color:#EEEEEE;
+  padding:40px 210px 40px 210px;
+  &_l-side{
+    float: left;
+    width: 280px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    .mypage-nav-head {
+      margin: 40px 0 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .mypage-nav {
+      .mypage-nav-list {
+        padding-inline-start: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        li {
+          border-top: 1px solid #eee;
+          list-style: none;
+          transform: none;
+          a:hover {
+            background-color: #f9f9f9;
+          }
+          a:hover > .fa {
+            transform:translateX(5px);
+            color: #333;
+          }
+          .mypage-nav-list-item {
+            position: relative;
+            display: block;
+            min-height: 16px;
+            padding: 16px;
+            background: #fff;
+            color: #333;
+            text-decoration: none;
+            transform: none;
+            .fa {
+              position: absolute;
+              top: 18px;
+              right: 16px;
+              color: #ccc;
+            }
+          }
+        }
+      }
+    }
+  }
   &_main{
     background-color:white;
     width:700px;
     height:1450px;
-    margin:0 auto;
+    float:right;
     &_header{
     text-align: center;
       &_header{
@@ -129,5 +176,8 @@
         }
       }
     }
+  }
+  .clear{
+    clear:both;
   }
 }
