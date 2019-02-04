@@ -1,0 +1,80 @@
+= render 'products/topheader'
+.mypage_identification
+  .mypage_identification_l-side
+    = render 'user-sidebar'
+  .mypage_identification_main
+    .mypage_identification_main_header
+      %h3.mypage_identification_main_header_header 本人情報の登録
+      %p.mypage_identification_main_header_info お客様のあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております
+    .mypage_identification_form
+      .mypage_identification_form_group
+        %label お名前
+        %span.form-require 必須
+        %input.entry-form{:name => "First_Name", :type => "text"}/
+        %input.entry-form{:name => "Last_Name", :type => "text"}/
+      .mypage_identification_form_group
+        %label お名前カナ
+        %span.form-require 必須
+        %input.entry-form{:name => "First_Name", :type => "text"}/
+        %input.entry-form{:name => "Last_Name", :type => "text"}/
+      .mypage_identification_form_group
+        %label 郵便番号
+        %span.form-select 任意
+        %input.entry-form{:name => "postnumber", :type => "text"}/
+      .mypage_identification_form_group
+        %label 都道府県
+        %span.form-require 必須
+        %select.select-Prefecture{:name => "Prefecture"}
+          %option{:value => ""} --
+          = require 'yaml'
+          = config = YAML.load_file("Prefecture.yml")
+          - config["Prefectures"].each do |prefecture|
+            %option #{prefecture}
+      .mypage_identification_form_group
+        %label 市区町村
+        %span.form-require 必須
+        %input.entry-form{:name => "city_name", :type => "text"}/
+      .mypage_identification_form_group
+        %label 番地
+        %span.form-require 必須
+        %input.entry-form{:name => "city_name", :type => "text"}/
+      .mypage_identification_form_group
+        %label 建物名
+        %span.form-select 任意
+        %input.entry-form{:name => "city_name", :type => "text"}/
+      .mypage_identification_form_group
+        %label 生年月日
+        %span.form-require 必須
+        .select-wrapper
+          .select-wrapper_year
+            %select#year.select-default
+              %option{:value => "0"} --
+              - 119.times do |i|
+              - i += 1900 + 1
+                %option{:value => "0"} #{i}
+            %span.year_month_date 年
+          .select-wrapper_month
+            %select#month.select-default
+              %option{:value => "0"} --
+              - 12.times do |i|
+              - i += 1
+                %option{:value => "0"} #{i}
+            %span.year_month_date 月
+          .select-wrapper_month
+            %select#day.select-default
+              %option{:value => "0"} --
+              - 31.times do |i|
+              - i += 1
+                %option{:value => "0"} #{i}
+            %span.year_month_date 日
+      .sell_description
+        ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+      .confirmation_button
+        登録する
+      %p.about-mypage_identification
+        %a.about-mypage_identification_description{:href => "#"} 本人情報登録について &gt;
+        %span
+  .clear
+= render 'products/topappbanner'
+= render 'products/topfooter'
+= render 'products/topcellbtn'

@@ -1,0 +1,21 @@
+.products_new_contents_header {
+  padding: 0;
+
+    .products_new_content-header {
+      text-align: center;
+      height: 128px;
+
+        h1.products_new_word_h1 {
+          display: inline-block;
+          margin: 40px 0 0;
+
+            a.products_new_content_a_header {
+            display: inline-block;
+            width: 185px;
+            height: 49px;
+            line-height: 49px;
+            margin: 0 8px 0 0;
+            }
+        }
+    }
+}

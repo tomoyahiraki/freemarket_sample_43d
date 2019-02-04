@@ -1,0 +1,183 @@
+.mypage_identification{
+  background-color:#EEEEEE;
+  padding:40px 210px 40px 210px;
+  &_l-side{
+    float: left;
+    width: 280px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    .mypage-nav-head {
+      margin: 40px 0 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .mypage-nav {
+      .mypage-nav-list {
+        padding-inline-start: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        li {
+          border-top: 1px solid #eee;
+          list-style: none;
+          transform: none;
+          a:hover {
+            background-color: #f9f9f9;
+          }
+          a:hover > .fa {
+            transform:translateX(5px);
+            color: #333;
+          }
+          .mypage-nav-list-item {
+            position: relative;
+            display: block;
+            min-height: 16px;
+            padding: 16px;
+            background: #fff;
+            color: #333;
+            text-decoration: none;
+            transform: none;
+            .fa {
+              position: absolute;
+              top: 18px;
+              right: 16px;
+              color: #ccc;
+            }
+          }
+        }
+      }
+    }
+  }
+  &_main{
+    background-color:white;
+    width:700px;
+    height:1450px;
+    float:right;
+    &_header{
+    text-align: center;
+      &_header{
+      font-size:24px;
+      padding:8px 24px;
+      margin:0;
+      }
+      &_info{
+      font-size:14px;
+      margin:0;
+      }
+    }
+    .mypage_identification_form{
+      padding:64px;
+      &_group{
+        margin-top:40px;
+        display:block;
+        label{
+          font-weight: bold;
+          font-size:14px;
+        }
+        .form-require{
+          font-size: 12px;
+          background-color:red;
+          color: white;
+          padding:2px 4px;
+          border-radius: 2px;
+        }
+        .select-Prefecture{
+          background-color:white;
+          padding:10px 16px 8px 16px;
+          font-size:16px;
+          height:48px;
+          width:574px;
+          margin:8px 0;
+          border-radius: 4px;
+          border-style: solid;
+          border-width:1px;
+          border-color:#CCCCCC;
+        }
+        .entry-form{
+          font-size:16px;
+          padding:10px 16px 8px 16px;
+          height:24px;
+          line-height: 24px;
+          width:540px;
+          margin:8px 0;
+          border-radius: 4px;
+          border-style: solid;
+          border-width:1px;
+          border-color:#CCCCCC;
+        }
+        .form-select{
+          font-size: 12px;
+          background-color:#777777;
+          color: white;
+          padding:2px 4px;
+          border-radius: 2px;
+        }
+        .select-wrapper{
+          display:block;
+          &_year{
+            width:172px;
+            display:inline-block;
+            .select-default{
+              background-color:white;
+              font-size:16px;
+              height:48px;
+              width:140px;
+              margin:8px 0;
+              border-radius: 4px;
+              border-style: solid;
+              border-width:1px;
+              border-color:#CCCCCC;
+            }
+            .year_month_date{
+              font-size:14px;
+            }
+          }
+          &_month{
+            width:172px;
+            display:inline-block;
+            .select-default{
+              background-color:white;
+              font-size:16px;
+              height:48px;
+              width:140px;
+              margin:8px 0;
+              border-radius: 4px;
+              border-style: solid;
+              border-width:1px;
+              border-color:#CCCCCC;
+            }
+            .year_month_date{
+              font-size:14px;
+            }
+          }
+        }
+      }
+      .sell_description{
+        color:#777777;
+        font-size:14px;
+      }
+      .confirmation_button{
+        background-color:red;
+        text-align: center;
+        color:white;
+        height:48px;
+        line-height:48px;
+        margin-top: 40px;
+      }
+      .about-mypage_identification{
+        margin-top:50px;
+        margin-bottom: 0px;
+        padding:0;
+        &_description{
+          float:right;
+          width:155px;
+          font-size: 14px;
+          text-decoration:none;
+          color: #006699;
+        }
+      }
+    }
+  }
+  .clear{
+    clear:both;
+  }
+}

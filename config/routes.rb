@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'test#index'
+
+  root 'products#index'
+  resources :products, only: [:new, :show] do
+    collection do
+      get 'buy_confirm'
+    end
+  end
+
+  resources :users, only: [:index, :edit, :update] do
+    collection do
+      get 'login'
+      get 'logout'
+    end
+  end
+
 end

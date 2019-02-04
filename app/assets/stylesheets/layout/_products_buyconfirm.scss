@@ -1,0 +1,159 @@
+.products_buyconfirm{
+  background-color: #EEEEEE;
+  width:100%;
+  height: 100%;
+  &_header{
+    height:128px;
+  }
+  &_content{
+    height:100%;
+    width:700px;
+    margin:0 auto;
+    background-color:white;
+    h2{
+      text-align: center;
+      font-size:22px;
+      padding:32px 16px;
+      border-bottom:solid 0.1px #EEEEEE;
+    }
+    &_item{
+      width:525px;
+      height:480px;
+      padding:24px 87.5px 0px 87.5px;
+      &_image{
+        width:320px;
+        height:148px;
+        margin: 0 auto;
+        text-align: center;
+        &_content{
+          max-width: 148px;
+          max-height: 148px;
+        }
+      }
+      &_name{
+        width:320px;
+        text-align: center;
+        margin:0 auto;
+        margin-top: 8px;
+        font-size:16px;
+        font-weight: bold;
+      }
+      &_form{
+        width:320px;
+        height:270px;
+        text-align: center;
+        margin:0 auto;
+        &_price{
+          margin-top: 8px;
+          font-size:28px;
+          font-weight: bold;
+          &_ship{
+            font-weight: normal;
+            font-size:14px;
+          }
+        }
+        &_point{
+          width:286px;
+          font-size:14px;
+          text-align: center;
+          margin: 0 auto;
+          padding:16px;
+          background-color:#CCCCCC;
+          margin-top: 15px;
+        }
+        &_total{
+          height:60px;
+          &_left{
+            float:left;
+            font-size:28px;
+            line-height: 60px;
+            font-weight: bold;
+          }
+          &_right{
+            float:right;
+            font-size:24px;
+            line-height: 60px;
+            font-weight: bold;
+          }
+        }
+        &_message{
+          padding-top:8px;
+          color:red;
+          font-size:14px;
+        }
+        &_buybtn{
+          width:286px;
+          font-size:14px;
+          text-align: center;
+          margin: 0 auto;
+          padding:16px;
+          background-color:#666666;
+          margin-top: 15px;
+          color: white;
+          font-weight: bold;
+        }
+      }
+    }
+    &_address{
+      width: 525px;
+      height:125px;
+      padding:24px 87.5px 0px 87.5px;
+      margin: 40px auto 0px;
+      border-top:solid 0.1px #EEEEEE;
+      &_box{
+        width:320px;
+        margin:0 auto;
+        h3{
+          font-size:14px;
+          font-weight:bold;
+        }
+        address{
+          width: 320px;
+          font-size:14px;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo' ;
+        }
+        p{
+          margin-top: 8px;
+        }
+        a{
+          width: 320px;
+          span{
+            float: right;
+          }
+        }
+      }
+    }
+    &_howbuy{
+      width: 525px;
+      height:125px;
+      padding:24px 87.5px 0px 87.5px;
+      margin: 40px auto 0px;
+      border-top:solid 0.1px #EEEEEE;
+      &_box{
+        width:320px;
+        margin:0 auto;
+        h3{
+          font-size:14px;
+          font-weight:bold;
+        }
+        div{
+          width: 320px;
+          font-size:14px;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo' ;
+        }
+        p{
+          margin-top: 8px;
+        }
+        a{
+          width: 320px;
+          span{
+            float: right;
+          }
+        }
+      }
+    }
+  }
+  &_footer{
+    height:128px;
+  }
+}

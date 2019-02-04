@@ -1,0 +1,67 @@
+%main.contents
+  = render 'products/topheader'
+
+%main.l-container.clearfix
+  .l-content
+    %section.mypage-user-icon
+      %a.user-icon{:href => "https://www.mercari.com/jp/u/750582472/"}
+        %figure.user-image
+          %img.user-image_top{:alt => "", :height => "60", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+        %h2.mypage-user-name yuko
+        .mypage-number
+          .mypage-number_detail
+            評価
+            %span.bold 1
+          .mypage-number_detail
+            出品数
+            %span.bold 0
+    %section.mypage-tab-container
+      %input#tab1.mypage-tab{:checked => "checked", :name => "tab_btn", :type => "radio"}/
+      %input#tab2.mypage-tab{:name => "tab_btn", :type => "radio"}/
+      .mypage-tabs
+        %label.tab_label.tab1_label{:for => "tab1"} お知らせ
+        %label.tab_label.tab2_label{:for => "tab2"} やることリスト
+      .tab-content
+        %ul#panel1.mypage-item-list.tab-pane
+          %li
+            %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", :height => "48px", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", :width => "48px"}/
+              .mypage-item-body
+                .mypage-item-text
+                  明日、5%割引クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                %time
+                  %i.fa.fa-clock-o.fa-lg
+                  %span 1 日前
+              %i.fa.fa-chevron-right
+          %li.mypage-item-links
+            %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+              %figure
+                %img.lazyloaded{:alt => "", "data-src" => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text
+                  2日後、5%割引クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                %time
+                  %i.fa.fa-clock-o.fa-lg
+                  %span 2 日前
+              %i.fa.fa-chevron-right
+          %li.mypage-go-list
+            %a.mypage-go{:href => "/jp/mypage/notification/"} 一覧を見る
+        %ul#panel2.mypage-item-list.tab-pane
+          %li.mypage-item-not-found.bold 現在、やることリストはありません
+    %section.mypage-tab-container
+      %input#tab3.mypage-tab{:checked => "checked", :name => "tab_btn2", :type => "radio"}/
+      %input#tab4.mypage-tab{:name => "tab_btn2", :type => "radio"}/
+      %h2.mypage-tab-head 購入した商品
+      %ul.mypage-tabs
+        %label.tab_label.tab3_label{:for => "tab3"} 取引中
+        %label.tab_label.tab4_label{:for => "tab4"} 過去の取引
+      .tab-content
+        %ul#panel3.mypage-item-list.tab-pane
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+        %ul#panel4.mypage-item-list.tab-pane
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+  .l-side
+    = render 'user-sidebar'
+
+= render 'products/topfooter'

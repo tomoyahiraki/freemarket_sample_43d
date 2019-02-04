@@ -1,0 +1,118 @@
+= render 'topheader'
+.item_information
+  .item_information_main
+    %h1.item-name 火星 新品 大特価 一点限り 買えるのは今だけ！！！
+    .item-main-content
+      .item-photo
+        .item-photo-main
+          %img{:height => "300", :src => "assets/kasei.jpg", :width => "300"}/
+        .item-photo-main-sub
+          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
+          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
+          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
+          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
+      %table.item-detail-table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              %a{:href => "#"} 神
+              .face-icon
+                .item-user-ratings.my-pink
+                  %i.fas.fa-grin
+                  %span 805
+                .item-user-ratings.my-yellow
+                  %i.fas.fa-meh
+                  %span 25
+                .item-user-ratings.my-skyblue
+                  %i.fas.fa-frown-open
+                  %span 3
+          %tr
+            %th カテゴリー
+            %td
+              %a{:href => "#"}
+                %div 宇宙
+              %a{:href => "#"}
+                .item-detail-table-sub-sub-category
+                  %i.fas.fa-angle-right.my-skyblue
+                  惑星
+              %a{:href => "#"}
+                .item-detail-table-sub-sub-category
+                  %i.fas.fa-angle-right.my-skyblue
+                  太陽系
+          %tr
+            %th ブランド
+            %td
+              %a{:href => "#"}
+                %div 太陽系
+          %tr
+            %th 商品の状態
+            %td 暑いです
+          %tr
+            %th 配送料の負担
+            %td 送料込み(出品者負担)
+          %tr
+            %th 配送の方法
+            %td らくらくメルカリ便
+          %tr
+            %th 配送元地域
+            %td
+              %a{:href => "#"} 宇宙
+          %tr
+            %th 発送日の目安
+            %td 1万~2万日で発送
+    .item-price-box
+      %span.item-price-box-price ¥ 999,999,999
+      %span.item-price-box-tax (税込)
+      %span.item-price-box-shipping-fee 送料込み
+    .buy-btn
+      購入画面に進む
+    .item-description
+      火星です。
+      %br/
+      住めます。
+      %br/
+    .item-button-container
+      .item-button-container-left
+        %button.like-button{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m34676765116", "data-toggle" => "like", :name => "like!", :type => "button"}
+          %i.far.fa-heart
+          %span いいね!
+          %span.fade-in-down{"data-num" => "like"} 0
+        .arart-button
+          %a.arart-button-text{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
+            %i.far.fa-flag
+            %span 不適切な商品の報告
+      .item-button-container-right
+        %a.item-button-right-text{:href => "https://www.mercari.com/jp/safe/description/", :target => "_blank"}
+          %i.fas.fa-lock
+          %span あんしん・あんぜんへの取り組み
+  .next-item-wrapper
+    %ul.nav-item-link
+      %li.nav-item-link-prev
+        %a.nav-item-link-prev-text{:href => "https://item.mercari.com/jp/m98983858938/"}
+          %i.fas.fa-angle-left>
+          ドラえもん
+      %li.nav-item-link-next
+        %a.nav-item-link-next-text{:href => "https://item.mercari.com/jp/m11056183429/"}
+          おまんじゅう
+          %i.fas.fa-angle-right
+  .sns-btn-wrapper
+    %ul.social-media-box
+      %li.sns-btn
+        %a.sns-btn-icon{"data-window-name" => "facebook_window", :href => "#", :target => "_blank"}
+          %i.fab.fa-facebook.fa-3x.my-blue
+      %li.sns-btn
+        %a.sns-btn-icon{"data-window-name" => "twitter_window", :href => "#", :target => "_blank"}
+          %i.fab.fa-twitter-square.fa-3x.my-skyblue
+      %li.sns-btn
+        %a.sns-btn-icon{"data-window-name" => "line_window", :href => "#", :target => "_blank"}
+          %i.fab.fa-line.fa-3x.my-green
+      %li.sns-btn
+        %a.sns-btn-icon{"data-window-name" => "pinterest_window", :href => "#", :target => "_blank"}
+          %i.fab.fa-pinterest-square.fa-3x.my-red
+  .items-in-user-profile
+    %h2 神さんのその他の出品
+= render 'topappbanner'
+= render 'topfooter'
+= render 'topcellbtn'
+
