@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
 
   root 'products#index'
-  resources :products, only: [:new, :show]
-  resources :users, only: [:index, :edit, :update] do
-  collection do
-    get 'login'
-    get 'logout'
+  resources :products, only: [:new, :show] do
+    collection do
+      get 'buy_confirm'
+    end
   end
- end
+
+  resources :users, only: [:index, :edit, :update] do
+    collection do
+      get 'login'
+      get 'logout'
+    end
+  end
 
 end

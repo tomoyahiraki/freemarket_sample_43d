@@ -6,9 +6,6 @@ class UsersController < ApplicationController
   def update
   end
 
-  def new
-  end
-
   def login
   end
 
