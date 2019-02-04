@@ -9,4 +9,7 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def buy_confirm
+  end
+
 end
