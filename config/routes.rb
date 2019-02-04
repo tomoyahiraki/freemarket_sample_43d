@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit, :update, :show] do
     collection do
       get 'purchase'
+      get 'login'
+      get 'logout'
     end
   end
 end
