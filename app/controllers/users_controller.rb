@@ -27,4 +27,20 @@ class UsersController < ApplicationController
   def purchase
   end
 
+
+  def signinone
+  end
+
+  def signintwo
+  end
+
+  def signinthree
+  end
+
+  def signinfore
+  end
+
+  def signinfive
+  end
+
 end

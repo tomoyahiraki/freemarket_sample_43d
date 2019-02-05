@@ -1,5 +1,5 @@
 .signinone-body
-  = render 'users/headersigninform'
+  = render 'users/headersignintwo'
 
   %main.signinone-main
     %section.signinone-contents
@@ -14,7 +14,7 @@
           %p.signinone-form-group-text-two
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
 
-          %button.signinone-red-botton-two{:type => "submit"} SMSを送信する
+          %a.signinone-red-botton{:type => "submit", href: "/users/signinthree"} SMSを送信する
 
           %p.signinone-form-group-text-two
             ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。

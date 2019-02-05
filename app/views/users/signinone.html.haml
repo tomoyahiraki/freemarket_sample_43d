@@ -1,5 +1,5 @@
 .signinone-body
-  = render 'users/headersigninform'
+  = render 'users/headersigninone'
 
   %main.signinone-main
     %section.signinone-contents
@@ -92,7 +92,7 @@
           .signinone-form-group-second
             .signinone-text-center
               「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-            %button.signinone-red-botton{:type => "submit"} 次へ進む
+            %a.signinone-red-botton{type: "submit", href: "/users/signintwo"} 次へ進む
 
           .signinone-form-group-text-right
             %p.signinone-text-information

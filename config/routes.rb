@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       get 'signinone'
       get 'signintwo'
       get 'signinthree'
+      get 'signinfore'
+      get 'signinfive'
 
     end
   end
