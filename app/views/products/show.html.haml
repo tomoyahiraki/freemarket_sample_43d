@@ -5,12 +5,12 @@
     .item-main-content
       .item-photo
         .item-photo-main
-          %img{:height => "300", :src => "assets/kasei.jpg", :width => "300"}/
+          = image_tag('kasei.jpg', :class => "main-image")
         .item-photo-main-sub
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
+          = image_tag('kasei2.png', :class => "sub-image")
+          = image_tag('kasei2.png', :class => "sub-image")
+          = image_tag('kasei2.png', :class => "sub-image")
+          = image_tag('kasei2.png', :class => "sub-image")
       %table.item-detail-table
         %tbody
           %tr
