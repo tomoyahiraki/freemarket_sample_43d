@@ -15,4 +15,14 @@ class UsersController < ApplicationController
   def logout
   end
 
+
+  def signinone
+  end
+
+  def signintwo
+  end
+
+  def signinthree
+  end
+
 end

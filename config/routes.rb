@@ -12,6 +12,10 @@ Rails.application.routes.draw do
       get 'login'
       get 'logout'
       get 'password_less'
+      get 'signinone'
+      get 'signintwo'
+      get 'signinthree'
+
     end
   end
 
