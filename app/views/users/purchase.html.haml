@@ -1,0 +1,98 @@
+%main.contents
+  = render 'products/topheader'
+
+%main.l-container.clearfix
+  .l-content
+    %section.l-chapter-container
+      %h2.l-chapter-head クレジットカード情報入力
+      %form#add-card-form.l-single-inner{:action => "https://www.mercari.com/jp/mypage/card/add/", "data-adyen-id" => "card-form", :method => "POST", :novalidate => "novalidate"}
+        %input{:name => "__csrf_value", :type => "hidden", :value => "7d48af1f90828f7812c10d5e901cc59e673b3d12126187c7fd3dea4e68b74fb3bef22354872e633bf10715401da75f6bafa56a48915e703d715c0f73580e85c12"}/
+        .l-single-content
+          .form-group
+            %label.card-info{:for => "payment_card_no"} カード番号
+            %span.form-require 必須
+            %input#payment_card_no.input-default{"data-input-type" => "card", :maxlength => "19", :placeholder => "半角数字のみ", :type => "text", :value => ""}/
+            %ul#card-no-error-wrapper.has-error-text
+            %ul.signup-card-list
+              %li
+                %img{:alt => "", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3708647559", :width => "49"}/
+              %li
+                %img{:alt => "", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3708647559", :width => "34"}/
+              %li
+                %img{:alt => "", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3708647559", :width => "30"}/
+              %li
+                %img{:alt => "", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3708647559", :width => "32"}/
+              %li
+                %img{:alt => "", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3708647559", :width => "21"}/
+              %li
+                %img{:alt => "", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3708647559", :width => "32"}/
+              %li
+                %img{:alt => "", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3708647559", :width => "32"}/
+          .form-group.signup-form-expire
+            %label.card-info{:for => "payment_card_expire"} 有効期限
+            %span.form-require 必須
+            %br/
+            .select-wrap
+              %select#payment_card_expire_mm.select-default
+                %option{:value => "01"} 01
+                %option{:value => "02"} 02
+                %option{:value => "03"} 03
+                %option{:value => "04"} 04
+                %option{:value => "05"} 05
+                %option{:value => "06"} 06
+                %option{:value => "07"} 07
+                %option{:value => "08"} 08
+                %option{:value => "09"} 09
+                %option{:value => "10"} 10
+                %option{:value => "11"} 11
+                %option{:value => "12"} 12
+              %i.fa.fa-chevron-down
+            %span 月
+            %ul#expire-mm-error-wrapper.has-error-text
+            .select-wrap
+              %select#payment_card_expire_yy.select-default
+                %option{:value => "19"} 19
+                %option{:value => "20"} 20
+                %option{:value => "21"} 21
+                %option{:value => "22"} 22
+                %option{:value => "23"} 23
+                %option{:value => "24"} 24
+                %option{:value => "25"} 25
+                %option{:value => "26"} 26
+                %option{:value => "27"} 27
+                %option{:value => "28"} 28
+                %option{:value => "29"} 29
+              %i.fa.fa-chevron-down
+            %span 年
+            %ul#expire-yy-error-wrapper.has-error-text
+          .form-group.signup-form-expire
+            %label.card-info{:for => "payment_card_security_code"} セキュリティコード
+            %span.form-require 必須
+            %input#payment_card_security_code.input-default{:placeholder => "カード背面4桁もしくは3桁の番号", :type => "number", :value => ""}/
+            %ul#security-code-error-wrapper.has-error-text
+            .signup-seqcode
+              .signup-seqcode-text{"data-js" => "show-tips-toggle"}
+                %span.form-question> ?
+                カード裏面の番号とは？
+              .signup-seqcode-info{"data-js" => "show-tips-content"}
+                カードの裏面をご参照ください。
+                %br/
+                %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?3708647559", :width => "240"}/
+          %input#user_id{:name => "user_id", :type => "hidden", :value => "750582472"}/
+          %input#encrypted_card_data{:name => "encrypted_card_data", :type => "hidden"}/
+          %p#primary-error.has-error-text
+          %input{:name => "after_save_callback", :type => "hidden", :value => ""}/
+          %button#submit-button.btn-default.btn-red{:type => "button"} 追加する
+        %script{:async => "", :src => "https://www.google-analytics.com/plugins/ua/ec.js", :type => "text/javascript"}
+        %script{:async => "", :src => "https://www.google-analytics.com/analytics.js", :type => "text/javascript"}
+        %script{:async => "", :src => "//www.googleadservices.com/pagead/conversion_async.js", :type => "text/javascript"}
+        %script{:async => "", :src => "https://www.googletagmanager.com/gtm.js?id=GTM-KLPT5L5"}
+        %script{:async => "", :src => "https://p01.mul-pay.jp/ext/js/token.js"}
+        %script{:async => "", :src => "//www-mercari-jp.akamaized.net/assets/js/get_gmopg_card_token.js?1494331430"}
+        %script{:src => "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/880621981/?random=1549258528873&cv=9&fst=1549258528873&num=1&guid=ON&resp=GooglemKTybQhCsO&u_h=900&u_w=1440&u_ah=824&u_aw=1440&u_cd=24&u_his=5&u_tz=540&u_java=false&u_nplug=3&u_nmime=4&gtm=2wg1d1&sendb=1&frm=0&url=https%3A%2F%2Fwww.mercari.com%2Fjp%2Fmypage%2Fcard%2Fcreate%2F&ref=https%3A%2F%2Fwww.mercari.com%2Fjp%2Fmypage%2Fcard%2Fcreate%2F&tiba=%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E6%83%85%E5%A0%B1%E5%85%A5%E5%8A%9B%20-%20%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%A7%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93%20%E3%83%95%E3%83%AA%E3%83%9E&async=1&rfmt=3&fmt=4"}
+
+  .l-side
+    = render 'user-sidebar'
+  =render 'products/topcellbtn'
+
+= render 'products/topfooter'
