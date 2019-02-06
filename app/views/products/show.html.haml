@@ -6,12 +6,10 @@
     .item-main-content
       .item-photo
         .item-photo_main
-          .main-image
+          .main-image{:style => "background-image: url(#{@product.images[0].image_url});"}
         .item-photo_sub
-          .sub-image{:style => "background-image: url(#{@product.images[0].image_url});"}
-          .sub-image{:style => "background-image: url(#{@product.images[1].image_url});"}
-          .sub-image{:style => "background-image: url(#{@product.images[2].image_url});"}
-          .sub-image{:style => "background-image: url(#{@product.images[3].image_url});"}
+          = @product.images.each do |image|
+            .sub-image{:style => "background-image: url(#{image.image_url});"}
       %table.item-detail-table
         %tbody
           %tr
