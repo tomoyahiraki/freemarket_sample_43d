@@ -1,0 +1,129 @@
+h2.l-chapter-head2{
+    font-size: 24px;
+    padding: 15px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+}
+
+main.l-container2.clearfix{
+  margin: 0 auto;
+  width: 700px;
+.l-single-inner {
+  padding: 64px;
+  border-top: 1px solid #f5f5f5;
+  .l-single-content {
+    max-width: 320px;
+    margin: 0 auto;
+    .form-group {
+      width: 100%;
+
+      .card-info {
+        font-weight: 600;
+      }
+      .form-require {
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      .input-default {
+        width: 280px;
+        margin: 8px 0 0;
+        cursor: text;
+      }
+      .has-error-text {
+        color: #ea352d;
+        line-height: 1.5;
+        font-size: 14px;
+      }
+      .signup-card-list {
+        margin: 8px 0 0;
+        font-size: 0;
+        li {
+          display: inline-block;
+          margin: 0 0 0 8px;
+          vertical-align: middle;
+        }
+      }
+      .select-wrap {
+        display: inline-block;
+        width: 35%;
+        .select-default {
+          width: 100%;
+          position: relative;
+          z-index: 2;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: 0;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+        }
+        .fa-chevron-down {
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          z-index: 2;
+          color: #888;
+          font-size: 8px;
+          transform: translate(0, -50%);
+        }
+      }
+      .signup-seqcode {
+        position: relative;
+        margin: 8px 0 0;
+        .signup-seqcode-text {
+          text-align: right;
+          color: #0099e8;
+          .form-question {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0099e8;
+            color: #fff;
+            line-height: 14px;
+            font-size: 12px;
+            text-align: center;
+          }
+        }
+        .signup-seqcode-info {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 28px;
+          z-index: 1;
+          padding: 16px;
+          border-radius: 6px;
+          background: #eee;
+          color: #333;
+          line-height: 1.5;
+          text-align: center;
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+    }
+    .signup-form-expire {
+      margin: 40px 0 0;
+    }
+      .btn-default {
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        margin: 40px 0 0;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+      }
+    }
+  }
+}

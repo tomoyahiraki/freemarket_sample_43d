@@ -27,4 +27,20 @@ class UsersController < ApplicationController
   def purchase
   end
 
+
+  def signininformation
+  end
+
+  def signinphonenumber
+  end
+
+  def signinlocation
+  end
+
+  def signincredit
+  end
+
+  def signincomplete
+  end
+
 end
