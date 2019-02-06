@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  MAX_IMAGE_CREATE_LENGTH = 4
+
   belongs_to :user
   belongs_to :brand
   belongs_to :size
@@ -7,8 +9,11 @@ class Product < ApplicationRecord
   belongs_to :product_old
   belongs_to :shipment
   belongs_to :product_state
-  belongs_to :delivery_day
+  belongs_to :deliveryday
+  belongs_to :deliveryfee
   belongs_to :category
   has_many   :images
   has_many   :buys
+
+  validates :images, length: {maximum: MAX_IMAGE_CREATE_LENGTH}
 end
