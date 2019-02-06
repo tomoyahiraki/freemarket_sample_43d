@@ -26,16 +26,13 @@
 @import "layout/password_less";
 @import "layout/purchase";
 
-@import "layout/headersigninone";
-@import "layout/headersignintwo";
-@import "layout/headersigninthree";
-@import "layout/headersigninfive";
+@import "layout/headersignininformation";
+@import "layout/headersigninphonenumber";
+@import "layout/headersigninlocation";
+@import "layout/headersignincomplete";
 
-@import "layout/signinone";
-@import "layout/signintwo";
-@import "layout/signinthree";
-@import "layout/signinfore";
-@import "layout/signinfive";
-
-
-
+@import "layout/signininformation";
+@import "layout/signinphonenumber";
+@import "layout/signinlocation";
+@import "layout/signincredit";
+@import "layout/signincomplete";

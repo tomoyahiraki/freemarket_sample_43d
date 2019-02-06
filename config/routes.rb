@@ -13,7 +13,6 @@ Rails.application.routes.draw do
       get 'login'
       get 'logout'
       get 'password_less'
-
     end
   end
 

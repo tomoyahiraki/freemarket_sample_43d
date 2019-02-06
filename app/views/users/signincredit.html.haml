@@ -1,5 +1,5 @@
 %body.signinone-body
-  = render 'users/headersigninfore'
+  = render 'users/headersignincredit'
   %main.l-container2.clearfix
     .l-content
       %section.l-chapter-container
@@ -81,7 +81,7 @@
             %input#encrypted_card_data{:name => "encrypted_card_data", :type => "hidden"}/
             %p#primary-error.has-error-text
             %input{:name => "after_save_callback", :type => "hidden", :value => ""}/
-            %a.signinone-red-botton{:type => "submit", href: "/users/signinfive"} 追加する
+            %a.signinone-red-botton{:type => "submit", href: "/users/signincomplete"} 追加する
           %script{:async => "", :src => "https://www.google-analytics.com/plugins/ua/ec.js", :type => "text/javascript"}
           %script{:async => "", :src => "https://www.google-analytics.com/analytics.js", :type => "text/javascript"}
           %script{:async => "", :src => "//www.googleadservices.com/pagead/conversion_async.js", :type => "text/javascript"}

@@ -28,19 +28,19 @@ class UsersController < ApplicationController
   end
 
 
-  def signinone
+  def signininformation
   end
 
-  def signintwo
+  def signinphonenumber
   end
 
-  def signinthree
+  def signinlocation
   end
 
-  def signinfore
+  def signincredit
   end
 
-  def signinfive
+  def signincomplete
   end
 
 end
