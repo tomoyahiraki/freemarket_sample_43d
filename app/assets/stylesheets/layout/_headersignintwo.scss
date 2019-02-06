@@ -5,8 +5,8 @@
     margin: 8px auto 0;
     border-radius: 50%;
     background-repeat: no-repeat;
-}
-.users_signin_form_status-red-two::after{
+
+&::after{
     left: 50%;
     bottom: 5px;
     z-index: -1;
@@ -23,9 +23,9 @@
     vertical-align: inherit;
     -webkit-box-sizing: inherit;
     box-sizing: inherit;
+        }
     }
 }
-
 li.users_signin_form_li_active{
     margin: 0 40px 0 0;
     min-width: 60px;
@@ -40,8 +40,8 @@ li.users_signin_form_li_active{
     margin: 8px auto 0;
     border-radius: 50%;
     background-repeat: no-repeat;
-  }
-  .users_signin_form_status-two::before{
+
+  &::before{
     right: 50%;
     bottom: 5px;
     z-index: -1;
@@ -52,7 +52,7 @@ li.users_signin_form_li_active{
     background: #ea352d;
     position: absolute;
   }
-  .users_signin_form_status-two::after{
+  &::after{
     left: 50%;
     bottom: 5px;
     z-index: -1;
@@ -63,6 +63,7 @@ li.users_signin_form_li_active{
     background: #ccc;
     position: absolute;
   }
+}
   :before{
     border-style: solid;
     border-width: 0;

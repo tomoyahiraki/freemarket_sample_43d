@@ -85,8 +85,8 @@ li.users_signin_form_li{
     margin: 8px auto 0;
     border-radius: 50%;
     background-repeat: no-repeat;
-  }
-  .users_signin_form_status::before{
+
+  &::before{
     right: 50%;
     bottom: 5px;
     z-index: -1;
@@ -97,7 +97,7 @@ li.users_signin_form_li{
     background: #ccc;
     position: absolute;
   }
-  .users_signin_form_status::after{
+  &::after{
     left: 50%;
     bottom: 5px;
     z-index: -1;
@@ -123,10 +123,10 @@ li.users_signin_form_li{
     vertical-align: inherit;
     -webkit-box-sizing: inherit;
     box-sizing: inherit;
+      }
     }
   }
 }
-
 .users_signin_form_status-last{
   background: #ccc;
   width: 12px;
@@ -134,8 +134,8 @@ li.users_signin_form_li{
   margin: 8px auto 0;
   border-radius: 50%;
   background-repeat: no-repeat;
-}
-.users_signin_form_status-last::before{
+
+&::before{
   right: 50%;
   bottom: 5px;
   z-index: -1;
@@ -152,5 +152,6 @@ li.users_signin_form_li{
   vertical-align: inherit;
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
+    }
   }
 }
