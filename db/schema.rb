@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190205063827) do
+ActiveRecord::Schema.define(version: 20190206024334) do
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -56,19 +56,13 @@ ActiveRecord::Schema.define(version: 20190205063827) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "creditcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "deliverydays", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "delivery_days", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "delivery_fees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "deliveryfees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -96,7 +90,7 @@ ActiveRecord::Schema.define(version: 20190205063827) do
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                           null: false
     t.integer  "product_old_id",                  null: false
-    t.integer  "delivery_fee_id",                 null: false
+    t.integer  "deliveryfee_id",                  null: false
     t.integer  "area_id",                         null: false
     t.integer  "shipment_id",                     null: false
     t.integer  "price",                           null: false
@@ -106,7 +100,7 @@ ActiveRecord::Schema.define(version: 20190205063827) do
     t.integer  "brand_id",                        null: false
     t.integer  "size_id",                         null: false
     t.integer  "category_id",                     null: false
-    t.integer  "delivery_day_id",                 null: false
+    t.integer  "deliveryday_id",                  null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
