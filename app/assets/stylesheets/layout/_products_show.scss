@@ -50,12 +50,13 @@ a{
         width:300px;
         height:375px;
         font-size:0;
-        &-main{
+        &_main{
           height:300px;
+          width:300px;
         }
-        &-sub{
+        &_sub{
           height:75px;
-          display: inline-block;
+          width:300px;
         }
       }
       .item-detail-table{
@@ -95,6 +96,10 @@ a{
     .item-price-box{
       margin-top:24px;
       text-align: center;
+      &-rate{
+        font-size:50px;
+        font-weight: bold;
+      }
       &-price{
         font-size:50px;
         font-weight: bold;
@@ -167,9 +172,9 @@ a{
 }
 
 .next-item-wrapper{
-width:700px;
-height:50px;
-margin:0 auto;
+  width:700px;
+  height:50px;
+  margin:0 auto;
   .nav-item-link{
     list-style: none;
     margin-top:24px;
@@ -226,4 +231,5 @@ margin:0 auto;
 .sub-image{
   height: 75px;
   width: 75px;
+  display: inline-block;
 }

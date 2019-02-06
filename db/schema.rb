@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190205063827) do
+ActiveRecord::Schema.define(version: 20190206024334) do
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20190205063827) do
   end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "brand_name"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,24 +51,18 @@ ActiveRecord::Schema.define(version: 20190205063827) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
-    t.integer  "parent_id",  null: false
+    t.integer  "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "creditcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "deliverydays", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "delivery_days", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "delivery_fees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "deliveryfees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -95,10 +89,13 @@ ActiveRecord::Schema.define(version: 20190205063827) do
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                           null: false
+    t.integer  "product_old_id",                  null: false
+    t.integer  "deliveryfee_id",                  null: false
+    t.integer  "area_id",                         null: false
+    t.integer  "shipment_id",                     null: false
     t.integer  "price",                           null: false
     t.text     "product_introduce", limit: 65535
-    t.integer  "buyer_id"
-    t.integer  "product_state",                   null: false
+    t.integer  "product_state_id",                null: false
     t.integer  "user_id",                         null: false
     t.integer  "brand_id",                        null: false
     t.integer  "size_id",                         null: false
@@ -115,14 +112,14 @@ ActiveRecord::Schema.define(version: 20190205063827) do
   end
 
   create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "user_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "postal_code", null: false
-    t.integer  "prefecture",  null: false
+    t.integer  "area_id",     null: false
     t.string   "city_name",   null: false
     t.string   "city_number", null: false
     t.string   "building",    null: false
@@ -135,9 +132,12 @@ ActiveRecord::Schema.define(version: 20190205063827) do
     t.string   "last_name",       null: false
     t.string   "kana_name",       null: false
     t.integer  "telphone_number", null: false
-    t.string   "maol_number",     null: false
+    t.string   "mail_number",     null: false
     t.string   "password",        null: false
-    t.integer  "birth",           null: false
+    t.integer  "birth_year_id",   null: false
+    t.integer  "birth_month_id",  null: false
+    t.integer  "birth_day_id",    null: false
+    t.integer  "creditcard_id",   null: false
     t.integer  "proceed"
     t.string   "provider"
     t.string   "uid"
