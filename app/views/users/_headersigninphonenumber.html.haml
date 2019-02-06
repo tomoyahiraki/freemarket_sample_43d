@@ -1,7 +1,7 @@
 %header.users_signin_form_header
   %h1.users_signin_form_h1
-    %a.users_signin_form_a{:href => "https://www.mercari.com/jp/"}
-      %img.users_signin_form_img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3708647559"}/
+    = link_to  "https://www.mercari.com/jp/", class: "users_signin_form_a" do
+      =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3708647559", class: "users_signin_form_img"
   %nav.users_signin_form_nav
     %ol.users_signin_form_ol
       %li.users_signin_form_li_active

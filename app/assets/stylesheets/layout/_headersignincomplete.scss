@@ -6,17 +6,17 @@
   border-radius: 50%;
   background-repeat: no-repeat;
 
-&::before{
-  right: 50%;
-  bottom: 5px;
-  z-index: -1;
-  display: block;
-  content: '';
-  width: 100%;
-  height: 2px;
-  background: #ea352d;
-  position: absolute;
-  }
+    &::before{
+      right: 50%;
+      bottom: 5px;
+      z-index: -1;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 2px;
+      background: #ea352d;
+      position: absolute;
+    }
 }
 :before{
   border-style: solid;
