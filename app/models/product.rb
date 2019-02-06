@@ -14,6 +14,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many   :images
   has_many   :buys
+  has_many :favorites
 
   validates :images, length: {maximum: MAX_IMAGE_CREATE_LENGTH}
 end
