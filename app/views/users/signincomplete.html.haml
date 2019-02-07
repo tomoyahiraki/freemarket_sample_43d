@@ -1,0 +1,16 @@
+.signinone-body
+  = render 'users/headersignincomplete'
+
+  %main.signinone-main
+    %section.signinone-contents
+      %h2.signintwo-content-head 会員登録完了
+
+    %form.signinone-form
+      .signinone-content
+        .signinone-form-group#signinformgroup
+          %p.signinone-form-group-text-two2
+            ありがとうございます
+          %p.signinone-form-group-text-two3
+            会員登録が完了しました
+          = link_to 'メルカリを始める', "/products/", {class: "signinone-red-botton", :type => "submit"}
+  = render '/products/productfooter'

@@ -1,76 +1,85 @@
 = render 'topheader'
 .item_information
   .item_information_main
-    %h1.item-name 火星 新品 大特価 一点限り 買えるのは今だけ！！！
+    %h1.item-name
+      = @product.title
     .item-main-content
       .item-photo
-        .item-photo-main
-          %img{:height => "300", :src => "assets/kasei.jpg", :width => "300"}/
-        .item-photo-main-sub
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
+        .item-photo_main
+          .main-image{:style => "background-image: url(#{@product.images[0].image_url});"}
+        .item-photo_sub
+          = @product.images.each do |image|
+            .sub-image{:style => "background-image: url(#{image.image_url});"}
       %table.item-detail-table
         %tbody
           %tr
             %th 出品者
             %td
-              %a{:href => "#"} 神
+              %a{:href => "#"}
+                = @product.user.first_name
+                = @product.user.last_name
               .face-icon
                 .item-user-ratings.my-pink
                   %i.fas.fa-grin
-                  %span 805
+                  %span xxx
                 .item-user-ratings.my-yellow
                   %i.fas.fa-meh
-                  %span 25
+                  %span xxx
                 .item-user-ratings.my-skyblue
                   %i.fas.fa-frown-open
-                  %span 3
+                  %span xxx
           %tr
             %th カテゴリー
             %td
               %a{:href => "#"}
-                %div 宇宙
+                %div
+                  = @product.category.name
               %a{:href => "#"}
                 .item-detail-table-sub-sub-category
                   %i.fas.fa-angle-right.my-skyblue
-                  惑星
+                  xx
               %a{:href => "#"}
                 .item-detail-table-sub-sub-category
                   %i.fas.fa-angle-right.my-skyblue
-                  太陽系
+                  xxx
           %tr
             %th ブランド
             %td
               %a{:href => "#"}
-                %div 太陽系
+                %div
+                  = @product.brand.name
           %tr
             %th 商品の状態
-            %td 暑いです
+            %td
+              = @product.product_old.name
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td
+              = @product.deliveryfee.name
           %tr
             %th 配送の方法
-            %td らくらくメルカリ便
+            %td
+              = @product.shipment.name
           %tr
             %th 配送元地域
             %td
-              %a{:href => "#"} 宇宙
+              %a{:href => "#"}
+                = @product.area.name
           %tr
             %th 発送日の目安
-            %td 1万~2万日で発送
+            %td
+              = @product.deliveryday.name
+
     .item-price-box
-      %span.item-price-box-price ¥ 999,999,999
+      %span.item-price-box-rate ¥
+      %span.item-price-box-price
+        = @product.price
       %span.item-price-box-tax (税込)
       %span.item-price-box-shipping-fee 送料込み
     .buy-btn
       購入画面に進む
     .item-description
-      火星です。
-      %br/
-      住めます。
+      = @product.product_introduce
       %br/
     .item-button-container
       .item-button-container-left
