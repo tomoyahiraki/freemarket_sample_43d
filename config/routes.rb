@@ -13,7 +13,18 @@ Rails.application.routes.draw do
       get 'login'
       get 'logout'
       get 'password_less'
+# (仮置き)
+      get 'signininformation'
+      get 'signinphonenumber'
+      get 'signinlocation'
+      get 'signincredit'
+      get 'signincomplete'
     end
   end
 
 end
+
+
+
+
+
