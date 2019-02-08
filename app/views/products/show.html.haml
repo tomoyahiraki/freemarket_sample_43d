@@ -7,9 +7,13 @@
       .item-photo
         .item-photo_main
           .main-image{:style => "background-image: url(#{@product.images[0].image_url});"}
+            - if @product.product_state_id ==2
+              = image_tag('sold.png', :class => "sold-image")
+            - else
+              ""
         .item-photo_sub
           = @product.images.each do |image|
-            .sub-image{:style => "background-image: url(#{image.image_url});"}
+            .sub-image{:style => "background-image: url(#{image.image_url});", :src => "#{image.image_url}"}
       %table.item-detail-table
         %tbody
           %tr
@@ -76,8 +80,12 @@
         = @product.price
       %span.item-price-box-tax (税込)
       %span.item-price-box-shipping-fee 送料込み
-    .buy-btn
-      購入画面に進む
+    - if @product.product_state_id ==1
+      .buy-btn-red
+        購入画面に進む
+    - else
+      .buy-btn-gray
+        売り切れ済み
     .item-description
       = @product.product_introduce
       %br/
@@ -97,14 +105,22 @@
           %span あんしん・あんぜんへの取り組み
   .next-item-wrapper
     %ul.nav-item-link
+    - if @product_prev_id!=0
       %li.nav-item-link-prev
-        %a.nav-item-link-prev-text{:href => "https://item.mercari.com/jp/m98983858938/"}
-          %i.fas.fa-angle-left>
-          ドラえもん
+        %a.nav-item-link-prev-text{:href => "/products/#{@product_prev_id}"}
+          %i.fas.fa-angle-left
+          - @product_prev.each do |pcontent|
+            = pcontent.title
+    - else
+
+    - if @product_next_id.present?
       %li.nav-item-link-next
-        %a.nav-item-link-next-text{:href => "https://item.mercari.com/jp/m11056183429/"}
-          おまんじゅう
+        %a.nav-item-link-next-text{:href => "/products/#{@product_next_id}"}
           %i.fas.fa-angle-right
+          - @product_next.each do |ncontent|
+            = ncontent.title
+    - else
+      ""
   .sns-btn-wrapper
     %ul.social-media-box
       %li.sns-btn
@@ -120,7 +136,10 @@
         %a.sns-btn-icon{"data-window-name" => "pinterest_window", :href => "#", :target => "_blank"}
           %i.fab.fa-pinterest-square.fa-3x.my-red
   .items-in-user-profile
-    %h2 神さんのその他の出品
+    %h2
+      = @product.user.first_name
+      = @product.user.last_name
+      %span さんのその他の出品
 = render 'topappbanner'
 = render 'topfooter'
 = render 'topcellbtn'
