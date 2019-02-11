@@ -16,8 +16,23 @@
 @import "layout/productfooter";
 @import "layout/products";
 @import "layout/users-profile";
+
 @import "layout/users_edit";
 @import "layout/products_show";
 @import "layout/products_buyconfirm";
 
 @import "layout/login";
+@import "layout/logout";
+@import "layout/password_less";
+@import "layout/purchase";
+
+@import "layout/headersignininformation";
+@import "layout/headersigninphonenumber";
+@import "layout/headersigninlocation";
+@import "layout/headersignincomplete";
+
+@import "layout/signininformation";
+@import "layout/signinphonenumber";
+@import "layout/signinlocation";
+@import "layout/signincredit";
+@import "layout/signincomplete";

@@ -1,83 +1,109 @@
 = render 'topheader'
 .item_information
   .item_information_main
-    %h1.item-name 火星 新品 大特価 一点限り 買えるのは今だけ！！！
+    %h1.item-name
+      = @product.title
     .item-main-content
       .item-photo
-        .item-photo-main
-          %img{:height => "300", :src => "assets/kasei.jpg", :width => "300"}/
-        .item-photo-main-sub
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
-          %img{:height => "75", :src => "assets/kasei2.png", :width => "75"}/
+        .item-photo_main
+          .main-image{:style => "background-image: url(#{@product.images[0].image_url});"}
+            - if @product.product_state_id ==2
+              = image_tag('sold.png', :class => "sold-image")
+            - else
+              ""
+        .item-photo_sub
+          = @product.images.each do |image|
+            .sub-image{:style => "background-image: url(#{image.image_url});", :src => "#{image.image_url}"}
       %table.item-detail-table
         %tbody
           %tr
             %th 出品者
             %td
-              %a{:href => "#"} 神
+              %a{:href => "#"}
+                = @product.user.nickname
               .face-icon
                 .item-user-ratings.my-pink
                   %i.fas.fa-grin
-                  %span 805
+                  %span xxx
                 .item-user-ratings.my-yellow
                   %i.fas.fa-meh
-                  %span 25
+                  %span xxx
                 .item-user-ratings.my-skyblue
                   %i.fas.fa-frown-open
-                  %span 3
+                  %span xxx
           %tr
             %th カテゴリー
             %td
               %a{:href => "#"}
-                %div 宇宙
+                %div
+                  = @product.category.name
               %a{:href => "#"}
                 .item-detail-table-sub-sub-category
                   %i.fas.fa-angle-right.my-skyblue
-                  惑星
+                  xx
               %a{:href => "#"}
                 .item-detail-table-sub-sub-category
                   %i.fas.fa-angle-right.my-skyblue
-                  太陽系
+                  xxx
           %tr
             %th ブランド
             %td
               %a{:href => "#"}
-                %div 太陽系
+                %div
+                  = @product.brand.name
           %tr
             %th 商品の状態
-            %td 暑いです
+            %td
+              = @product.product_old.name
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td
+              = @product.deliveryfee.name
           %tr
             %th 配送の方法
-            %td らくらくメルカリ便
+            %td
+              = @product.shipment.name
           %tr
             %th 配送元地域
             %td
-              %a{:href => "#"} 宇宙
+              %a{:href => "#"}
+                = @product.area.name
           %tr
             %th 発送日の目安
-            %td 1万~2万日で発送
+            %td
+              = @product.deliveryday.name
+
     .item-price-box
-      %span.item-price-box-price ¥ 999,999,999
+      %span.item-price-box-rate ¥
+      %span.item-price-box-price
+        = @product.price
       %span.item-price-box-tax (税込)
       %span.item-price-box-shipping-fee 送料込み
-    .buy-btn
-      購入画面に進む
+    - if @product.product_state_id ==1
+      .buy-btn-red
+        購入画面に進む
+    - else
+      .buy-btn-gray
+        売り切れ済み
     .item-description
-      火星です。
-      %br/
-      住めます。
+      = @product.product_introduce
       %br/
     .item-button-container
       .item-button-container-left
-        %button.like-button{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m34676765116", "data-toggle" => "like", :name => "like!", :type => "button"}
-          %i.far.fa-heart
-          %span いいね!
-          %span.fade-in-down{"data-num" => "like"} 0
+        - if Favorite.find_by(user_id: current_user.id, product_id: @product.id)
+          %button.like-button
+            = link_to("/favorites/#{@product.id}/destroy", {method: "post"}) do
+              %span.fa.fa-heart.like-btn-unlike
+              %span.iinego いいね!
+              %span.iinegonum
+                = @favorites_count
+        - else
+          %button.like-button
+            = link_to("/favorites/#{@product.id}/create", {method: "post"}) do
+              %span.fa.fa-heart.like-btn
+              %span.iinemae いいね!
+              %span.iinemaenum
+                = @favorites_count
         .arart-button
           %a.arart-button-text{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
             %i.far.fa-flag
@@ -88,14 +114,22 @@
           %span あんしん・あんぜんへの取り組み
   .next-item-wrapper
     %ul.nav-item-link
+    - if @product_prev_id!=0
       %li.nav-item-link-prev
-        %a.nav-item-link-prev-text{:href => "https://item.mercari.com/jp/m98983858938/"}
-          %i.fas.fa-angle-left>
-          ドラえもん
+        %a.nav-item-link-prev-text{:href => "/products/#{@product_prev_id}"}
+          %i.fas.fa-angle-left
+          - @product_prev.each do |pcontent|
+            = pcontent.title
+    - else
+
+    - if @product_next_id.present?
       %li.nav-item-link-next
-        %a.nav-item-link-next-text{:href => "https://item.mercari.com/jp/m11056183429/"}
-          おまんじゅう
+        %a.nav-item-link-next-text{:href => "/products/#{@product_next_id}"}
           %i.fas.fa-angle-right
+          - @product_next.each do |ncontent|
+            = ncontent.title
+    - else
+      ""
   .sns-btn-wrapper
     %ul.social-media-box
       %li.sns-btn
@@ -111,7 +145,9 @@
         %a.sns-btn-icon{"data-window-name" => "pinterest_window", :href => "#", :target => "_blank"}
           %i.fab.fa-pinterest-square.fa-3x.my-red
   .items-in-user-profile
-    %h2 神さんのその他の出品
+    %h2
+      = @product.user.nickname
+      %span さんのその他の出品
 = render 'topappbanner'
 = render 'topfooter'
 = render 'topcellbtn'
