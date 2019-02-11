@@ -90,10 +90,20 @@
       %br/
     .item-button-container
       .item-button-container-left
-      - if Favorite.find_by(user_id: @current_user.id, product_id: @product.id)
-        いいね！済み
-      - else
-        いいね！していません
+        - if Favorite.find_by(user_id: current_user.id, product_id: @product.id)
+          %button.like-button
+            = link_to("/favorites/#{@product.id}/destroy", {method: "post"}) do
+              %span.fa.fa-heart.like-btn-unlike
+              %span.iinego いいね!
+              %span.iinegonum
+                = @favorites_count
+        - else
+          %button.like-button
+            = link_to("/favorites/#{@product.id}/create", {method: "post"}) do
+              %span.fa.fa-heart.like-btn
+              %span.iinemae いいね!
+              %span.iinemaenum
+                = @favorites_count
         .arart-button
           %a.arart-button-text{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
             %i.far.fa-flag
