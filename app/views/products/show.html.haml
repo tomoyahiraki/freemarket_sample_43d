@@ -20,8 +20,7 @@
             %th 出品者
             %td
               %a{:href => "#"}
-                = @product.user.first_name
-                = @product.user.last_name
+                = @product.user.nickname
               .face-icon
                 .item-user-ratings.my-pink
                   %i.fas.fa-grin
@@ -91,10 +90,20 @@
       %br/
     .item-button-container
       .item-button-container-left
-        %button.like-button{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m34676765116", "data-toggle" => "like", :name => "like!", :type => "button"}
-          %i.far.fa-heart
-          %span いいね!
-          %span.fade-in-down{"data-num" => "like"} 0
+        - if Favorite.find_by(user_id: current_user.id, product_id: @product.id)
+          %button.like-button
+            = link_to("/favorites/#{@product.id}/destroy", {method: "post"}) do
+              %span.fa.fa-heart.like-btn-unlike
+              %span.iinego いいね!
+              %span.iinegonum
+                = @favorites_count
+        - else
+          %button.like-button
+            = link_to("/favorites/#{@product.id}/create", {method: "post"}) do
+              %span.fa.fa-heart.like-btn
+              %span.iinemae いいね!
+              %span.iinemaenum
+                = @favorites_count
         .arart-button
           %a.arart-button-text{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
             %i.far.fa-flag
@@ -137,8 +146,7 @@
           %i.fab.fa-pinterest-square.fa-3x.my-red
   .items-in-user-profile
     %h2
-      = @product.user.first_name
-      = @product.user.last_name
+      = @product.user.nickname
       %span さんのその他の出品
 = render 'topappbanner'
 = render 'topfooter'

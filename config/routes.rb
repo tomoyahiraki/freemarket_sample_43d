@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'products#index'
+
   resources :products, only: [:new, :show] do
     collection do
       get 'buy_confirm'
@@ -23,9 +24,9 @@ Rails.application.routes.draw do
     end
   end
 
+  # resources :favorites, only: [:create, :destroy]
+
+  post "favorites/:product_id/create" => "favorites#create"
+  post "favorites/:product_id/destroy" => "favorites#destroy"
+
 end
-
-
-
-
-
