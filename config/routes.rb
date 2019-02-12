@@ -10,16 +10,16 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :edit, :update, :show] do
     collection do
-      get 'purchase'
-      get 'login'
-      get 'logout'
-      get 'password_less'
+      # get 'purchase'
+      # get 'login'
+      # get 'logout'
+      # get 'password_less'
 # (仮置き)
-      get 'signininformation'
-      get 'signinphonenumber'
-      get 'signinlocation'
-      get 'signincredit'
-      get 'signincomplete'
+      get  'signininformation'
+      post 'signinphonenumber'
+      post  'signinlocation'
+      post 'signincredit'
+      get  'signincomplete'
     end
   end
 
