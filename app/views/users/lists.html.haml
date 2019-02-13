@@ -1,0 +1,38 @@
+%main.contents
+  = render 'products/topheader'
+
+%main.l-container.clearfix
+  .l-content
+    %section.mypage-tab-container
+      %input#tab3.mypage-tab{:checked => "checked", :name => "tab_btn2", :type => "radio"}/
+      %input#tab4.mypage-tab{:name => "tab_btn2", :type => "radio"}/
+      %h2.mypage-tab-head 出品した商品
+      %ul.mypage-tabs
+        %label.tab_label.tab3_label{:for => "tab3"} 出品中
+        %label.tab_label.tab4_label{:for => "tab4"} 取引中
+      .tab-content
+        %ul#panel3.mypage-item-list.tab-pane
+          - @selllists.each do |selllist|
+            %li
+              %a.mypage-item-link{:href => "/userproduct/#{selllist.id}/show"}
+                %figure
+                  %img.lazyloaded{:src => "#{selllist.images[0].image_url}"}/
+                .mypage-item-body.show-stock-item
+                  .mypage-item-text
+                    = selllist.title
+                  %div
+                    %span.listing-item-count
+                      %i.icon-like-border
+                      %span 0
+                    %span.listing-item-count
+                      %i.icon-message
+                      %span 0
+                    .mypage-item-status.bold.awaiting
+                      出品中
+                %i.icon-arrow-right
+        %ul#panel4.mypage-item-list.tab-pane
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+  .l-side
+    = render 'user-sidebar'
+
+= render 'products/topfooter'
