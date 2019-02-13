@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
 
-  resources :products, only: [:new, :show] do
+  resources :products, only: [:new, :show, :destroy] do
     collection do
       get 'buy_confirm'
     end
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'login'
       get 'logout'
       get 'password_less'
+      get 'lists'
 # (仮置き)
       get 'signininformation'
       get 'signinphonenumber'
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # resources :favorites, only: [:create, :destroy]
+  get "userproduct/:product_id/show" => "userproduct#show"
 
   post "favorites/:product_id/create" => "favorites#create"
   post "favorites/:product_id/destroy" => "favorites#destroy"
