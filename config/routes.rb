@@ -36,7 +36,6 @@ end
       get 'signinlocation'
       get 'signincredit'
       get 'signincomplete'
->>>>>>> master
     end
   end
 
