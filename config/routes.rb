@@ -29,6 +29,7 @@ end
       get 'login'
       get 'logout'
       get 'password_less'
+
       get 'lists'
     end
   end
