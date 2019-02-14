@@ -1,0 +1,75 @@
+= render '/products/topheader'
+.item_information
+  .item_information_main
+    %h1.item-name
+      = @product.title
+    .item-main-content
+      .item-photo
+        .item-photo_main
+          .main-image{:style => "background-image: url(#{@product.images[0].image_url});"}
+      %table.item-detail-table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              %a{:href => "#"}
+                = @product.user.nickname
+          %tr
+            %th カテゴリー
+            %td
+              %a{:href => "#"}
+                %div
+                  = @product.category.name
+              %a{:href => "#"}
+                .item-detail-table-sub-sub-category
+                  %i.fas.fa-angle-right.my-skyblue
+                  xx
+              %a{:href => "#"}
+                .item-detail-table-sub-sub-category
+                  %i.fas.fa-angle-right.my-skyblue
+                  xxx
+          %tr
+            %th ブランド
+            %td
+              %a{:href => "#"}
+                %div
+                  = @product.brand.name
+          %tr
+            %th 商品の状態
+            %td
+              = @product.product_old.name
+          %tr
+            %th 配送料の負担
+            %td
+              = @product.deliveryfee.name
+          %tr
+            %th 配送の方法
+            %td
+              = @product.shipment.name
+          %tr
+            %th 配送元地域
+            %td
+              %a{:href => "#"}
+                = @product.area.name
+          %tr
+            %th 発送日の目安
+            %td
+              = @product.deliveryday.name
+
+    .item-price-box
+      %span.item-price-box-rate ¥
+      %span.item-price-box-price
+        = @product.price
+      %span.item-price-box-tax (税込)
+      %span.item-price-box-shipping-fee 送料込み
+
+  .edit-btn-wrapper
+    .edit-btn-wrapper_edit 商品の編集
+    .edit-btn-wrapper_or or
+    .edit-btn-wrapper_stop 出品を停止する
+    .edit-btn-wrapper_delete
+      = link_to 'この商品を削除する',"/products/#{@product.id}", method: :delete, :style=>"color:white;"
+
+= render '/products/topappbanner'
+= render '/products/topfooter'
+= render '/products/topcellbtn'

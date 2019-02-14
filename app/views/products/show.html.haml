@@ -148,6 +148,19 @@
     %h2
       = @product.user.nickname
       %span さんのその他の出品
+    .items-box.clearfix
+      - @useritem.each do |item|
+        %section.items-box__contents
+          %a{href: "/products/#{item.id}"}
+            %figure.items-box__photo
+              .lazyloaded{:style => "background-image: url(#{item.images[0].image_url})"}
+            .items-box__body
+              %h3.items-box__name.font-1
+                = item.title
+              .items-box__num.clearfix
+                .items-box__price.font-2
+                  = item.price
+                %p.items-box__tax (税込)
 = render 'topappbanner'
 = render 'topfooter'
 = render 'topcellbtn'
