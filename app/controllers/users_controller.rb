@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+# before_action :move_to_index, except: :index
+
   def index
   end
 
@@ -31,19 +33,11 @@ class UsersController < ApplicationController
     @selllists = Product.where(user_id:"1")
   end
 
-  def signininformation
-  end
 
-  def signinphonenumber
-  end
+  # private
 
-  def signinlocation
-  end
-
-  def signincredit
-  end
-
-  def signincomplete
-  end
+  #    def move_to_index
+  #     redirect_to action: :index unless user_signed_in?
+  #   end
 
 end
