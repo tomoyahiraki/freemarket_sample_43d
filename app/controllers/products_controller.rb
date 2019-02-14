@@ -30,4 +30,8 @@ class ProductsController < ApplicationController
   def buy_confirm
   end
 
+  def search
+    @products = Product.where('title LIKE(?)', "%#{params[:keyword]}%")
+  end
+
 end
