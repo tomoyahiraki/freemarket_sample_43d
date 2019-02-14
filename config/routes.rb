@@ -28,14 +28,7 @@ end
       get 'login'
       get 'logout'
       get 'password_less'
-
       get 'lists'
-# (仮置き)
-      get 'signininformation'
-      get 'signinphonenumber'
-      get 'signinlocation'
-      get 'signincredit'
-      get 'signincomplete'
     end
   end
 
