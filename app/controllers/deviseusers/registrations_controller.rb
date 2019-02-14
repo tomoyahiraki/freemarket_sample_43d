@@ -8,7 +8,6 @@ class Deviseusers::RegistrationsController < Devise::RegistrationsController
   end
 
   def signinphonenumber
-    # binding.pry
     @users = User.new
     session[:nickname] = params[:user][:nickname]
     session[:email] = params[:user][:email]
@@ -23,7 +22,6 @@ class Deviseusers::RegistrationsController < Devise::RegistrationsController
   end
 
   def signinlocation
-    # binding.pry
     @user_address = UserAddress.new
     session[:telphone_number] = params[:user][:telphone_number]
   end
@@ -39,7 +37,6 @@ class Deviseusers::RegistrationsController < Devise::RegistrationsController
   end
 
   def signincomplete
-    binding.pry
     # Userテーブル
     User.create!(nickname: session[:nickname], email: session[:email], password: session[:password], first_name: session[:first_name], last_name: session[:last_name], kana_first_name: session[:kana_first_name], kana_last_name: session[:kana_last_name], birth_year_id: session[:birth_year_id], birth_month_id: session[:birth_month_id], birth_day_id: session[:birth_day_id], telphone_number: session[:telphone_number], creditcard_id: params[:user][:creditcard_id])
     # UserAddressテーブル
