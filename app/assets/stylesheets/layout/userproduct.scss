@@ -1,0 +1,38 @@
+.edit-btn-wrapper{
+  box-sizing: border-box;
+  background-color: white;
+  width:700px;
+  height:250px;
+  margin:24px auto;
+  padding:8px 16px;
+  &_edit{
+    width:666px;
+    height:48px;
+    line-height: 48px;
+    background-color:red;
+    text-align: center;
+    color:white;
+    margin:16px 0px;
+  }
+  &_or{
+    text-align: center;
+  }
+  &_stop{
+    width:666px;
+    height:48px;
+    line-height: 48px;
+    background-color:gray;
+    text-align: center;
+    color:white;
+    margin:16px 0px;
+  }
+  &_delete{
+    width:666px;
+    height:48px;
+    line-height: 48px;
+    background-color:gray;
+    text-align: center;
+    color:white;
+    margin:16px 0px;
+  }
+}

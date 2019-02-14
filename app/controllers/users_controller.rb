@@ -29,6 +29,9 @@ class UsersController < ApplicationController
   def purchase
   end
 
+  def lists
+    @selllists = Product.where(user_id:"1")
+  end
 
 
   # private
