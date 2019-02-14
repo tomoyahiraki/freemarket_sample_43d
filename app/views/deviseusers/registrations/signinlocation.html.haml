@@ -8,18 +8,14 @@
       .mypage_identification2_form_group
         %label 郵便番号
         %span.form-select 任意
-        = form_for @user_address, url: signincredit_users_path, method: :post do |f|
+        = form_for @user_address, url: deviseusers_registrations_signincredit_path, method: :post do |f|
           = f.text_field :postal_code, class: "entry-form", placeholder: "例) 123-4567", type: "text"
 
           .mypage_identification2_form_group
             %label 都道府県
             %span.form-require 必須
-            %select.select-Prefecture{name: "Prefecture"}
-              %option{value: ""} --
-              = require 'yaml'
-              = config = YAML.load_file("Prefecture.yml")
-              - config["Prefectures"].each do |prefecture|
-                %option #{prefecture}
+            = f.collection_select :area_id, Area.all, :id, :name, {prompt: "---"}, {class: "select-Prefecture"}
+
           .mypage_identification2_form_group
             %label 市区町村
             %span.form-require 必須

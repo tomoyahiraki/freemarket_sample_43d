@@ -10,7 +10,7 @@
         .signinone-form-group#signinformgroup
           %label.product_new_name_label.content-update-head ニックネーム
           %span.form-require 必須
-          = form_for @users, url: signinphonenumber_users_path, method: :post do |f|
+          = form_for @users, url: deviseusers_registrations_signinphonenumber_path, method: :post do |f|
             = f.text_field :nickname, class: "input-default signin-input", placeholder: "例) メルカリ太郎", type: "text", required: true
 
             .signinone-form-group
@@ -59,25 +59,13 @@
                 %span.form-require 必須
                 .select-wrapper
                   .select-wrapper_year
-                    %select#year.select-default
-                      %option{value: "0"} --
-                      - 119.times do |i|
-                      - i += 1900 + 1
-                        %option{value: "0"} #{i}
+                    = f.collection_select :birth_year_id, BirthYear.all, :id, :name, {prompt: "---"}, {class: 'select-default', id: 'year'}
                     %span.year_month_date 年
                   .select-wrapper_month
-                    %select#month.select-default
-                      %option{value: "0"} --
-                      - 12.times do |i|
-                      - i += 1
-                        %option{value: "0"} #{i}
+                    = f.collection_select :birth_month_id, BirthMonth.all, :id, :name, {prompt: "---"}, {class: 'select-default', id: 'month'}
                     %span.year_month_date 月
                   .select-wrapper_month
-                    %select#day.select-default
-                      %option{value: "0"} --
-                      - 31.times do |i|
-                      - i += 1
-                        %option{value: "0"} #{i}
+                    = f.collection_select :birth_day_id, BirthDay.all, :id, :name, {prompt: "---"}, {class: 'select-default', id: 'day'}
                     %span.year_month_date 日
               %p.signinone-form-group-text
                 ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
