@@ -19,6 +19,7 @@ end
   resources :products, only: [:new, :show, :destroy] do
     collection do
       get 'buy_confirm'
+      get 'search'
     end
   end
 

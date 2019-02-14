@@ -4,9 +4,11 @@
       %h1.l-left
         %a{href: "#"}
           %img{alt: "logo", height: "36", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3407889314", width: "134"}/
-      %form.header__form.l-right{action: "#"}
-        %input.input-default{name: "keyword", placeholder: "キーワードから探す", type: "search", value: ""}/
-        %i.fa.fa-search
+      = form_tag('/products/search', method: :get, class: "search-form") do
+        %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "text", :value => ""}/
+        %button.btn-search{:title => "検索", :type => "submit"}
+          %i.fa.fa-search
+      %form.header__form.l-right{"accept-charset" => "utf-8", :action => "/products/search", :method => "get"}
     .header__nav-box.clearfix
       %nav.l-left
         %ul.header__nav
