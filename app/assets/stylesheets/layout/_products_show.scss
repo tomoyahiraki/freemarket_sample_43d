@@ -286,3 +286,10 @@ li.nav-item-link-prev{
 .sub-image:hover{
   opacity:1;
 }
+
+.items-box-show {
+  @include clearfix();
+  margin: 0 auto;
+  position: relative;
+}
+
