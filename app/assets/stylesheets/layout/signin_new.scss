@@ -2,11 +2,12 @@
     background: rgb(245, 245, 245);
 }
 
-.login__main{
+.login__main-2{
   display: block;
+  width: 700px;
+  margin: 0 auto;
 
-  &__panel{
-    width: 456px;
+  &__panel-2{
     margin:0 auto;
     background: #FFF;
   }
@@ -15,8 +16,9 @@
     padding: 40px 64px;
     text-align: center;
 
-    &-p{
-      font-size: 14px;
+    &-p-2{
+      font-size: 22px;
+      font-weight: 600;
     }
 
     &-a{
@@ -33,20 +35,20 @@
     padding: 32px 64px;
     border-top: 1px solid #eee;
 
-    .btn__sns{
+    .btn__sns-2{
       position: relative;
       display: block;
-      width: 100%;
+      width: 318px;
       line-height: 48px;
       font-size: 14px;
       border: 1px solid transparent;
       cursor: pointer;
       text-align: center;
+      margin: 0 auto 16px;
 
-      &-facebook{
+      &-facebook-2{
         background: #385185;
         color: #fff;
-        margin: 0;
 
         .fa-facebook-square{
           color: #fff;
@@ -59,8 +61,7 @@
         }
       }
 
-      &-google{
-        margin: 16px 0 0;
+      &-google-2{
         background: #dc4e41;
         color: #fff;
 
@@ -138,12 +139,25 @@
     }
 }
 
-.registrations_users{
+.btn-mail {
+    position: relative;
+    background: #eee;
+    color: #000;
+}
+.btn-default {
     display: block;
-    margin: 8px 0 0;
-    border: 1px solid #0099e8;
-    background: #0099e8;
-    color: #fff;
-    line-height: 40px;
+    width: 318px;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 auto 16px;
 }
 
+.login__main.signin__main{
+  width: 700px;
+  margin: 0 auto;
+}
