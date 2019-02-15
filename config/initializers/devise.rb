@@ -30,7 +30,10 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
+
   require 'devise/orm/active_record'
+  # 'devise/orm/YOUR_ORM'
+  # require 'devise/orm/YOUR_ORM'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -176,7 +179,7 @@ Devise.setup do |config|
   # config.timeout_in = 30.minutes
 
   # ==> Configuration for :lockable
-  # Defines which strategy will be used to lock an account.
+  # Defines which strategy will be used to lock an account.1
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
   # config.lock_strategy = :failed_attempts
@@ -266,7 +269,7 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
-
+  config.secret_key = '8a6bccdf76872bb63fa7bebb55232471ca01d41c5fa54aae419762d0cd3914cd1edcffade9676a285822de5a0a5fc87b326ffcafe533a79b1d0daacb6005621e'
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.

@@ -19,6 +19,16 @@ h2.signinone-content-head{
     border-bottom: 1px solid #f5f5f5;
 }
 
+.input-default{
+  border-radius: 4px;
+  border:1px solid #ccc;
+  width:100%;
+  width:840px;
+  height: 36px;
+  padding: 9px 32px 9px 8px;
+  background: #fafafa;
+}
+
 .signin-input{
   margin-top:8px;
 }
@@ -54,7 +64,7 @@ h3.content-sub-head.signinone-h3{
   }
 }
 
-form.signinone-form{
+.signinone-form{
   padding: 64px;
 
     .signinone-content{
@@ -167,7 +177,7 @@ form.signinone-form{
   }
 }
 
-a.signinone-red-botton{
+.signinone-red-botton{
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
@@ -188,7 +198,7 @@ a.signinone-red-botton{
     color: #0099e8;
     text-decoration: none;
 
-    a.signinone-text-decration{
+    .signinone-text-decration{
 
     }
 
