@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   MAX_IMAGE_CREATE_LENGTH = 4
 
-  belongs_to :user
+  # belongs_to :user
   belongs_to :brand
   belongs_to :size
   belongs_to :category
@@ -17,4 +17,5 @@ class Product < ApplicationRecord
   has_many :favorites
 
   validates :images, length: {maximum: MAX_IMAGE_CREATE_LENGTH}
+  accepts_nested_attributes_for :images
 end
