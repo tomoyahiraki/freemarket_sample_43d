@@ -16,7 +16,7 @@ end
 
   root 'products#index'
 
-  resources :products, only: [:new, :show, :destroy] do
+  resources :products, only: [:new, :show, :destroy, :create] do
     collection do
       get 'buy_confirm'
       get 'search'
