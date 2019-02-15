@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
   def buy_confirm
   end
 
+<<<<<<< HEAD
   def create
     @products = Product.create(products_params)
     # binding.pry
@@ -46,4 +47,10 @@ class ProductsController < ApplicationController
        params.require(:product).permit(:product_state_id, :title, :product_old_id, :deliveryfee_id, :area_id, :price, :product_introduce, :shipment_id, :user_id, :brand_id, :size_id, :category_id, :deliveryday_id, images_attributes:[:image_url])
     end
 
+=======
+  def search
+    @products = Product.where('title LIKE(?)', "%#{params[:keyword]}%")
+  end
+
+>>>>>>> nagomuohta/master
 end

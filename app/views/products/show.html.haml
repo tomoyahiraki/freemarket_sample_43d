@@ -148,7 +148,7 @@
     %h2
       = @product.user.nickname
       %span さんのその他の出品
-    .items-box.clearfix
+    .items-box-show.clearfix
       - @useritem.each do |item|
         %section.items-box__contents
           %a{href: "/products/#{item.id}"}

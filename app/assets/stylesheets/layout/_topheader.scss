@@ -18,19 +18,29 @@
   float: right;
 }
 
-.input-default{
+.input-default2{
   border-radius: 4px;
   border:1px solid #ccc;
-  width:100%;
+  width:840px;
   height: 36px;
   padding: 9px 32px 9px 8px;
   background: #fafafa;
+  box-sizing: border-box;
+}
+
+.search-form{
+  float:right;
+}
+
+.btn-search{
+  float:right;
+  width:36px;
+  height: 36px;
+  background: #fafafa;
+  border-radius: 4px;
 }
 
 .fa-search{
-  position: absolute;
-  top: 0;
-  right: 0;
   width: 36px;
   line-height: 36px;
   cursor: pointer;

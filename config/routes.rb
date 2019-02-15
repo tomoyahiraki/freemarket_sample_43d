@@ -19,6 +19,7 @@ end
   resources :products, only: [:new, :show, :destroy, :create] do
     collection do
       get 'buy_confirm'
+      get 'search'
     end
   end
 
@@ -28,6 +29,7 @@ end
       get 'login'
       get 'logout'
       get 'password_less'
+
       get 'lists'
     end
   end
