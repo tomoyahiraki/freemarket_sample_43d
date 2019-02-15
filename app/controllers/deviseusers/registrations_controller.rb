@@ -2,8 +2,10 @@
 
 class Deviseusers::RegistrationsController < Devise::RegistrationsController
 
-
   def new
+  end
+
+  def signininformation
     @users = User.new
   end
 

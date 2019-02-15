@@ -1,90 +1,21 @@
-.signinone-body
-  = render 'users/headersignininformation'
-
-  %main.signinone-main
-    %section.signinone-contents
-      %h2.signinone-content-head 会員情報入力
-
-    .signinone-form
-      .signinone-content
-        .signinone-form-group#signinformgroup
-          %label.product_new_name_label.content-update-head ニックネーム
-          %span.form-require 必須
-          = form_for @users, url: deviseusers_registrations_signinphonenumber_path, method: :post do |f|
-            = f.text_field :nickname, class: "input-default signin-input", placeholder: "例) メルカリ太郎", type: "text", required: true
-
-            .signinone-form-group
-              %label.product_new_name_label.content-update-head メールアドレス
-              %span.form-require 必須
-              = f.email_field :email, class: "input-default signin-input", placeholder: "PC・携帯どちらでも可", type: "text", pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$", required: ""
-
-            .signinone-form-group
-              %label.product_new_name_label.content-update-head パスワード
-              %span.form-require 必須
-              = f.password_field :password, class: "input-default signin-input", placeholder: "6文字以上", type: "text", pattern: "^[a-zA-Z\d]{6,}$", required: ""
-
-            .signinone-form-group
-              %label.product_new_name_label.content-update-head パスワード（確認）
-              %span.form-require 必須
-              = f.password_field :password, class: "input-default signin-input", placeholder: "6文字以上", type: "text", pattern: "^[a-zA-Z\d]{6,}$", required: ""
-
-            .signinone-form-group
-              %h3.content-sub-head.signinone-h3 本人確認
-              %p.signinone-form-group-text-first
-                安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-
-            .signinone-form-group
-              %label.product_new_name_label.content-update-head 姓（全角）
-              %span.form-require 必須
-              = f.text_field :first_name, class: "input-default signin-input", placeholder: "例) 山田", type: "text", required: true
-
-            .signinone-form-group
-              %label.product_new_name_label.content-update-head 名 (全角)
-              %span.form-require 必須
-              = f.text_field :last_name, class: "input-default signin-input", placeholder: "例) 彩", type: "text", required: true
-
-            .signinone-form-group
-              %label.product_new_name_label.content-update-head 姓カナ (全角)
-              %span.form-require 必須
-              = f.text_field :kana_first_name, class: "input-default signin-input", placeholder: "例) ヤマダ", type: "text", required: true
-
-            .signinone-form-group
-              %label.product_new_name_label.content-update-head 名カナ (全角)
-              %span.form-require 必須
-              = f.text_field :kana_last_name, class: "input-default signin-input", placeholder: "例) アヤ", type: "text", required: true
-
-            .signinone-form-group
-              .mypage_identification_form_group
-                %label 生年月日
-                %span.form-require 必須
-                .select-wrapper
-                  .select-wrapper_year
-                    = f.collection_select :birth_year_id, BirthYear.all, :id, :name, {prompt: "---"}, {class: 'select-default', id: 'year'}
-                    %span.year_month_date 年
-                  .select-wrapper_month
-                    = f.collection_select :birth_month_id, BirthMonth.all, :id, :name, {prompt: "---"}, {class: 'select-default', id: 'month'}
-                    %span.year_month_date 月
-                  .select-wrapper_month
-                    = f.collection_select :birth_day_id, BirthDay.all, :id, :name, {prompt: "---"}, {class: 'select-default', id: 'day'}
-                    %span.year_month_date 日
-              %p.signinone-form-group-text
-                ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-
-            .signinone-content
-              %input.signin-input{name: "after_save_callback", type: "hidden", value: ""}/
-              .signinone-form-group
-                .g-recaptcha.signup-recaptcha{"data-sitekey" => "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
-                  %div{style: "width: 304px; height: 78px;"}
-                    %div
-                      %iframe{frameborder: "0", height: "78", name: "a-jov7aoxhnxwv", role: "presentation", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", scrolling: "no", src: "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1548052318968&size=normal&cb=drfgcsl11d6k", width: "304"}
-              .signinone-form-group-second
-                .signinone-text-center
-                  「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-              = f.submit '次へ進む', {class: "signinone-red-botton"}
-
-              .signinone-form-group-text-right
-                %p.signinone-text-information
-                  = link_to '本人情報の登録について', "/jp/help_center/article/423/", {class: "signinone-text-decration", target: "_blank"}
-                  %i.icon-arrow-right
-
-  = render '/products/productfooter'
+%body.login-all
+  = render 'products/productheader'
+  %div
+    %header.login__header
+    %main.login__main.signin__main
+      .login__main__panel
+        .login__main__no-account
+          %p.login__main__no-account-p-2
+            新規会員登録
+        .login__main__form
+          %a.btn-default.btn-mail{href: "/deviseusers/registrations/signininformation"}
+            %i.icon-mail
+            メールアドレスで登録
+          %button#facebook-login.btn__sns.btn__sns-facebook
+            %i.fab.fa-facebook-square
+            Facebookで登録
+          %button#google-login.btn__sns.btn__sns-google
+            %i.fab.fa-google-plus
+            Googleで登録
+    %footer.login__footer
+      = render 'products/productfooter'

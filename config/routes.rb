@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   registrations: 'deviseusers/registrations'
 }
   devise_scope :user do
-  get '/deviseusers/registrations/new', to: 'deviseusers_registrations#signinphonenumber'
+  get '/deviseusers/registrations/new', to: 'deviseusers_registrations#signininformation'
 
   get      '/deviseusers/registrations/new' => 'registrations#new'
+  get     '/deviseusers/registrations/signininformation' => 'deviseusers/registrations#signininformation'
   post     '/deviseusers/registrations/signinphonenumber' => 'deviseusers/registrations#signinphonenumber'
   post     '/deviseusers/registrations/signinlocation'    => 'deviseusers/registrations#signinlocation'
   post     '/deviseusers/registrations/signincredit'      => 'deviseusers/registrations#signincredit'
