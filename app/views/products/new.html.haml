@@ -9,64 +9,66 @@
             .content_inside
               %h2.title 商品の情報を入力
               .content-update-form
-
+              = form_for(@products) do |f|
                 .content-update-box
                   %label.product_new_name_label.content-update-head 出品画像
                   %span.form-require 必須
                   %p.product_new_word 最大１０枚までアップロード出来ます
-                  .product-image-upload
-                    = file_field :name, {} ,style: "display: none;", class: "image-upload", id: "image-upload"
-                    .image-upload_text{onClick: "$('#image-upload').click();"}
-                      .word-drop ドラッグアンドドロップ
-                      %p.product_new_word またはクリックしてファイルをアップロード
+                  = f.fields_for :images do |i|
+                    = i.file_field :image_url ,style: 'display: none;', class: 'image-upload', id: 'image_upload'
+                    .product-image-upload{onClick: "$('#image_upload').click()"}
+                      .image__upload__imagebox
+                        .image__upload__imagebox-1
+                      .image-upload_text
+                        .word-drop.drug-drop-text ドラッグアンドドロップ
+                        %p.product_new_word.drug-drop-text またはクリックしてファイルをアップロード
 
                 .content-category
                   #productname.content-category-group
                     %label.product_new_name_label 商品名
                     %span.form-require 必須
-                  %input#product-name.input-default{:placeholder => "商品名（必須 40文字まで)", :value => ""}/
+                  = f.text_field :title ,placeholder:"商品名（必須 40文字まで)" ,id:'product-name' ,class:'input-default'
                   #especially.content-category-group
                     %label.product_new_name_label.first 商品の説明
                     %span.form-require 必須
-                  %textarea.textarea-default{:placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => "5"}
+                  = f.text_area(:product_introduce, rows: 5,class: 'textarea-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。')
 
                 .content-category.clearfix.first
                   %h3.content-category-head 商品の詳細
                   .content-category-box
                     .content-category-group
-                      %label.product_new_name_label カテゴリー
-                      %span.form-require 必須
-                      .select-wrap
-                        %select.select-default
-                          %option{:value => ""} ---
-                          %option{:value => ""} レディース
-                          %option{:value => ""} メンズ
-                          %option{:value => ""} ベビー・キッズ
-                          %option{:value => ""} インテリア・住まい・小物
-                          %option{:value => ""} 本・音楽・ゲーム
-                          %option{:value => ""} おもちゃ・ホビー・グッズ
-                          %option{:value => ""} コスメ・香水・美容
-                          %option{:value => ""} 家電・スマホ・カメラ
-                          %option{:value => ""} スポーツ・レジャー
-                          %option{:value => ""} ハンドメイド
-                          %option{:value => ""} チケット
-                          %option{:value => ""} 自動車・オートバイ
-                          %option{:value => ""} その他
-                        %i.icon-arrow-bottom
+                      .category__select
+                        %label.product_new_name_label カテゴリー
+                        %span.form-require 必須
+                        .select-wrap
+                          = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'first-select'}
+                          %i.icon-arrow-bottom
+                        .category__select__second
+                          .select-wrap
+                            = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'second-select'}
+                            %i.icon-arrow-bottom
+                        .category__select__third
+                          .select-wrap
+                            = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'third-select'}
+                            %i.icon-arrow-bottom
+                      .category__select__size
+                        %label.product_new_name_label サイズ
+                        %span.form-require 必須
+                        .select-wrap
+                          = f.collection_select :size_id, Size.all, :id, :name, {}, {class: 'select-default'}
+                          %i.icon-arrow-bottom
+                      .category__select__brand
+                        %label.product_new_name_label ブランド
+                        %span.form-require-two 任意
+                        .select-wrap
+                          = f.collection_select :brand_id, Brand.all, :id, :name, {}, {class: 'select-default'}
+                          %i.icon-arrow-bottom
                     .content-category-group
                       %label.product_new_name_label 商品の状態
                       %span.form-require 必須
                       .select-wrap
-                        %select.select-default
-                          %option{:value => ""} ---
-                          %option{:value => ""} 新品、未使用
-                          %option{:value => ""} 未使用に近い
-                          %option{:value => ""} 目立った傷や汚れなし
-                          %option{:value => ""} やや傷や汚れあり
-                          %option{:value => ""} 傷や汚れあり
-                          %option{:value => ""} 全体的に状態が悪い
+                        = f.collection_select :product_old_id, ProductOld.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
                         %i.icon-arrow-bottom
-
                 .content-category.clearfix.second
                   %h3.content-category-head 配送について
                   = link_to '?', "/jp/help_center/article/68/", {:class => "form-question", :target => "_blank"}
@@ -75,82 +77,40 @@
                       %label.product_new_name_label 配送料の負担
                       %span.form-require 必須
                       .select-wrap
-                        %select.select-default
-                          %option{:value => ""} ---
-                          %option{:value => "1"} 送料込み（出品者負担）
-                          %option{:value => "2"} 着払い（購入者負担）
+                        = f.collection_select :deliveryfee_id, Deliveryfee.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
                         %i.icon-arrow-bottom
+
+                      .content-category-group
+                        %label.product_new_name_label 配送の方法
+                        %span.form-require 必須
+                        .select-wrap
+                          = f.collection_select :shipment_id, Shipment.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
+                          %i.icon-arrow-bottom
 
                       .content-category-group
                         %label.product_new_name_label 発送元の地域
                         %span.form-require 必須
                         .select-wrap
-                          %select.select-default
-                            %option{:value => ""} ---
-                            %option{:value => "1"} 北海道
-                            %option{:value => "2"} 青森県
-                            %option{:value => "3"} 岩手県
-                            %option{:value => "4"} 宮城県
-                            %option{:value => "5"} 秋田県
-                            %option{:value => "6"} 山形県
-                            %option{:value => "7"} 福島県
-                            %option{:value => "8"} 茨城県
-                            %option{:value => "9"} 栃木県
-                            %option{:value => "10"} 群馬県
-                            %option{:value => "11"} 埼玉県
-                            %option{:value => "12"} 千葉県
-                            %option{:value => "13"} 東京都
-                            %option{:value => "14"} 神奈川県
-                            %option{:value => "15"} 新潟県
-                            %option{:value => "16"} 富山県
-                            %option{:value => "17"} 石川県
-                            %option{:value => "18"} 福井県
-                            %option{:value => "19"} 山梨県
-                            %option{:value => "20"} 長野県
-                            %option{:value => "21"} 岐阜県
-                            %option{:value => "22"} 静岡県
-                            %option{:value => "23"} 愛知県
-                            %option{:value => "24"} 三重県
-                            %option{:value => "25"} 滋賀県
-                            %option{:value => "26"} 京都府
-                            %option{:value => "27"} 大阪府
-                            %option{:value => "28"} 兵庫県
-                            %option{:value => "29"} 奈良県
-                            %option{:value => "30"} 和歌山県
-                            %option{:value => "31"} 鳥取県
-                            %option{:value => "32"} 島根県
-                            %option{:value => "33"} 岡山県
-                            %option{:value => "34"} 広島県
-                            %option{:value => "35"} 山口県
-                            %option{:value => "36"} 徳島県
-                            %option{:value => "37"} 香川県
-                            %option{:value => "38"} 愛媛県
-                            %option{:value => "39"} 高知県
-                            %option{:value => "40"} 福岡県
-                            %option{:value => "41"} 佐賀県
-                            %option{:value => "42"} 長崎県
-                            %option{:value => "43"} 熊本県
-                            %option{:value => "44"} 大分県
-                            %option{:value => "45"} 宮崎県
-                            %option{:value => "46"} 鹿児島県
-                            %option{:value => "47"} 沖縄県
-                            %option{:value => "99"} 未定
+                          = f.collection_select :area_id, Area.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
                           %i.icon-arrow-bottom
 
                       .content-category-group
                         %label.product_new_name_label 発送までの日数
                         %span.form-require 必須
                         .select-wrap
-                          %select.select-default
-                            %option{:value => ""} ---
-                            %option{:value => "1"} １〜２日で発送
-                            %option{:value => "2"} ２〜３日で発送
-                            %option{:value => "3"} ４〜７日で発送
+                          = f.collection_select :deliveryday_id, Deliveryday.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
+
+                        %label.product_new_name_label User_id
+                        .select-wrap
+                          = f.text_field :user_id ,class:'select-default'
+
+                        .select-wrap
+                          = f.collection_select :product_state_id, ProductState.all, :id, :name, {}, {class: 'select-default-none'}
 
                 .content-category.clearfix.third
                   .word-box
                     %h3.content-sub-head 販売価格（300~9,999,999）
-                    = link_to '?', "/jp/help_center/article/68/", {:class => "form-question", :target => "_blank"}
+                    = link_to '?', "/jp/help_center/article/68/", {class: "form-question", target: "_blank"}
                   .content-category-group
                     %ul.item-price-box
                       %li.price-box-group
@@ -160,21 +120,21 @@
                             %span.form-require 必須
                           .middle-box ¥
                           .right-box
-                            %input.input-under{:placeholder => "例）300", :value => ""}/
+                            = f.text_field :price ,class:'input-under', id:'input-price'
                         .clearfix-middle
                           .left-box.middle 販売手数料（10%）
-                          .right-box.middle -
+                          #output-price-tax.right-box.middle -
                         .bold-products_new
                           .left-box-under 販売利益
-                          .right-box-under _
+                          #output-price.right-box-under _
 
-                .modal{:role => "dialog", :tabindex => "-1"}
+                .modal{role: "dialog", tabindex: "-1"}
                   .modal-inner
                 .content-category.content-btn-box
                   %p.product_new_word 禁止されている出品、行為を必ずご確認ください。
                   %p.product_new_word またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
                   %p.product_new_word また、出品をもちまして加盟店規約に同意したことになります。
-                %button.btn-default.btn-red{:type => "submit"} 出品する
+                = f.submit "出品する" ,class:'btn-default-red'
                 %button.btn-default.btn-gray もどる
 
     = render 'productfooter'
