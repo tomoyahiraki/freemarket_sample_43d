@@ -95,6 +95,6 @@
         電話番号の確認
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-nav-list-item{:href => "/users/sign_out", method: :delete}
+      = link_to destroy_user_session_path, method: :delete, class: "mypage-nav-list-item" do
+        .fa.fa-chevron-right
         ログアウト
-        %i.fa.fa-chevron-right

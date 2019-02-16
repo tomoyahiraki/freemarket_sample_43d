@@ -1,20 +1,20 @@
-// %h2 Log in
-// = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-//   .field
-//     = f.label :email
-//     %br/
-//     = f.email_field :email, autofocus: true, autocomplete: "email"
-//   .field
-//     = f.label :password
-//     %br/
-//     = f.password_field :password, autocomplete: "current-password"
-//   - if devise_mapping.rememberable?
-//     .field
-//       = f.check_box :remember_me
-//       = f.label :remember_me
-//   .actions
-//     = f.submit "Log in"
-// = render "devise/shared/links"
+/ %h2
+/ = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+/   .field
+/     = f.label :email
+/     %br/
+/     = f.email_field :email, autofocus: true, autocomplete: "email"
+/   .field
+/     = f.label :password
+/     %br/
+/     = f.password_field :password, autocomplete: "current-password"
+/   - if devise_mapping.rememberable?
+/     .field
+/       = f.check_box :remember_me
+/       = f.label :remember_me
+/   .actions
+/     = f.submit "Log in"
+/ = render "devise/shared/links"
 
 %body.login-all
   = render 'products/productheader'
@@ -24,7 +24,7 @@
       .login__main__panel
         .login__main__no-account
           %p.login__main__no-account-p アカウントをお持ちでない方こちら
-          = link_to '新規会員登録', "/deviseusers/registrations/signininformation", class: "registrations_users"
+          = link_to '新規会員登録', "/users/signininformation", class: "registrations_users"
         .login__main__form
           %button#facebook-login.btn__sns.btn__sns-facebook
             %i.fab.fa-facebook-square
@@ -35,13 +35,14 @@
         %form{action: "##", method: "POST"}
           .login__main__form-inner
             .login__main__form-inner-group
-              %input.login__main__form-inner-text-default{name: "email", placeholder: "メールアドレス", type: "email", value: ""}/
-            .login__main__form-inner-group
-              %input.login__main__form-inner-text-default{name: "password", placeholder: "パスワード", type: "password", value: ""}/
-            .login__main__form-inner-group
-              .g-recaptcha.login-captcha{"data-sitekey" => "##"}
-                = image_tag "5c7b76fcedd32eeb62e6109e5f166c87.png", class: "robot-image-tag"
-            %button.login-submit.btn-default{type: "submit"} ログイン
+            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: "login__main__form-inner-text-default", placeholder: "メールアドレス"
+              .login__main__form-inner-group
+              = f.password_field :password, autocomplete: "current-password", class: "login__main__form-inner-text-default", placeholder: "パスワード"
+              .login__main__form-inner-group
+                .g-recaptcha.login-captcha{"data-sitekey" => "##"}
+                  = image_tag "5c7b76fcedd32eeb62e6109e5f166c87.png", class: "robot-image-tag"
+              = f.submit "ログイン", class: "login-submit btn-default"
             %a.login-password-less{href: "##"} パスワードをお忘れの方
     %footer.login__footer
       = render 'products/productfooter'
