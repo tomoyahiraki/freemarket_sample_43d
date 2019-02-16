@@ -1,18 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: {
-  sessions:      'deviseusers/sessions',
-  registrations: 'deviseusers/registrations'
-}
-  devise_scope :user do
-  get '/deviseusers/registrations/new', to: 'deviseusers_registrations#signinphonenumber'
-
-  get      '/deviseusers/registrations/new' => 'registrations#new'
-  post     '/deviseusers/registrations/signinphonenumber' => 'deviseusers/registrations#signinphonenumber'
-  post     '/deviseusers/registrations/signinlocation'    => 'deviseusers/registrations#signinlocation'
-  post     '/deviseusers/registrations/signincredit'      => 'deviseusers/registrations#signincredit'
-  post     '/deviseusers/registrations/signincomplete'    => 'deviseusers/registrations#signincomplete'
-end
+  devise_for :users
 
   root 'products#index'
 
@@ -29,8 +17,13 @@ end
       get 'login'
       get 'logout'
       get 'password_less'
-
       get 'lists'
+
+      get 'signininformation'
+      post 'signinphonenumber'
+      post 'signinlocation'
+      post 'signincredit'
+
     end
   end
 
