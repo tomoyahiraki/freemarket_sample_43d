@@ -36,32 +36,63 @@
 
   require 'csv'
 
-  csv_data = CSV.read('db/csv/categories.csv', headers: true)
+  # csv_data = CSV.read('db/csv/categories.csv', headers: true)
+  # csv_data.each do |data|
+  #   Category.create(data.to_hash)
+  # end
+
+  #   csv_data = CSV.read('db/csv/size_table.csv', headers: true)
+  # csv_data.each do |data|
+  #   Size.create(data.to_hash)
+  # end
+
+  # csv_data = CSV.read('db/csv/prefectures.csv', headers: true)
+  # csv_data.each do |data|
+  #   Area.create(data.to_hash)
+  # end
+
+  # csv_data = CSV.read('db/csv/birth_years.csv', headers: true)
+  # csv_data.each do |data|
+  #   BirthYear.create(data.to_hash)
+  # end
+
+  # csv_data = CSV.read('db/csv/birth_months.csv', headers: true)
+  # csv_data.each do |data|
+  #   BirthMonth.create(data.to_hash)
+  # end
+
+  # csv_data = CSV.read('db/csv/birth_days.csv', headers: true)
+  # csv_data.each do |data|
+  #   BirthDay.create(data.to_hash)
+  # end
+
+
+  csv_data = CSV.read('db/csv/brand.csv', headers: true)
   csv_data.each do |data|
-    Category.create(data.to_hash)
+    Brand.create(data.to_hash)
   end
 
-    csv_data = CSV.read('db/csv/size_table.csv', headers: true)
+  csv_data = CSV.read('db/csv/deliverydays.csv', headers: true)
   csv_data.each do |data|
-    Size.create(data.to_hash)
+    Deliveryday.create(data.to_hash)
   end
 
-  csv_data = CSV.read('db/csv/prefectures.csv', headers: true)
+  csv_data = CSV.read('db/csv/deliveryfee.csv', headers: true)
   csv_data.each do |data|
-    Area.create(data.to_hash)
+    Deliveryfee.create(data.to_hash)
   end
 
-  csv_data = CSV.read('db/csv/birth_years.csv', headers: true)
+  csv_data = CSV.read('db/csv/productsold.csv', headers: true)
   csv_data.each do |data|
-    BirthYear.create(data.to_hash)
+    ProductOld.create(data.to_hash)
   end
 
-  csv_data = CSV.read('db/csv/birth_months.csv', headers: true)
+  csv_data = CSV.read('db/csv/productstatus.csv', headers: true)
   csv_data.each do |data|
-    BirthMonth.create(data.to_hash)
+    ProductState.create(data.to_hash)
   end
 
-  csv_data = CSV.read('db/csv/birth_days.csv', headers: true)
+  csv_data = CSV.read('db/csv/shipment.csv', headers: true)
   csv_data.each do |data|
-    BirthDay.create(data.to_hash)
+    Shipment.create(data.to_hash)
   end
