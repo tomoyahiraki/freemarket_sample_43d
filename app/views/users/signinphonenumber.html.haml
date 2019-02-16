@@ -9,7 +9,7 @@
       .signinone-content
         .signinone-form-group#signinformgroup
           %label.product_new_name_label.content-update-head 携帯電話の番号
-          = form_for @users, url: deviseusers_registrations_signinlocation_path do |f|
+          = form_for @users, url: "/users/signinlocation" do |f|
             = f.text_field :telphone_number, class: "input-default signin-input", placeholder: "携帯電話の番号を入力", type: "text"
 
             %p.signinone-form-group-text-two
