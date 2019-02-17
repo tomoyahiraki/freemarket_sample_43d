@@ -11,6 +11,7 @@
               %label.card-info{for: "payment_card_no"} カード番号
               %span.form-require 必須
               %input#payment_card_no.input-default{"data-input-type" => "card", maxlength: "19", placeholder: "半角数字のみ", type: "text", value: ""}/
+              / = form_for @users, url: "/users", method: :post do |f|
               = form_for @users, url: "/users", method: :post do |f|
                 = f.hidden_field :nickname
                 = f.hidden_field :email
@@ -23,6 +24,12 @@
                 = f.hidden_field :birth_month_id
                 = f.hidden_field :birth_day_id
                 = f.hidden_field :telphone_number
+                = f.hidden_field :postal_code
+                = f.hidden_field :area_id
+                = f.hidden_field :city_name
+                = f.hidden_field :city_number
+                = f.hidden_field :building
+
 
 
                 = f.text_field :creditcard_id, class: "input-default", placeholder: "半角数字のみ", type: "text", id: "payment_card_no"

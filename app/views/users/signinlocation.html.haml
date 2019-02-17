@@ -8,7 +8,7 @@
       .mypage_identification2_form_group
         %label 郵便番号
         %span.form-select 任意
-        = form_for @user_address, url: "/users/signincredit", method: :post do |f|
+        = form_for @users, url: "/users/signincredit", method: :post do |f|
           = f.text_field :postal_code, class: "entry-form", placeholder: "例) 123-4567", type: "text"
 
           .mypage_identification2_form_group
