@@ -14,7 +14,7 @@
           .mypage_identification2_form_group
             %label 都道府県
             %span.form-require 必須
-            = f.collection_select :area_id, Area.all, :id, :name, {prompt: "---"}, {class: "select-Prefecture"}
+            = f.collection_select :area_id, Area.all, :id, :name, {prompt: "---"}, {class: "select-Prefecture", required: ""}
 
           .mypage_identification2_form_group
             %label 市区町村

@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-# before_action :move_to_index, except: :index
-
   def index
   end
 
@@ -39,7 +37,6 @@ class UsersController < ApplicationController
 
   def signininformation
     @users = User.new
-    binding.pry
   end
 
   def signinphonenumber
@@ -54,13 +51,11 @@ class UsersController < ApplicationController
     session[:birth_year_id] = params[:user][:birth_year_id]
     session[:birth_month_id] = params[:user][:birth_month_id]
     session[:birth_day_id] = params[:user][:birth_day_id]
-    # binding.pry
   end
 
   def signinlocation
     @users = User.new
     session[:telphone_number] = params[:user][:telphone_number]
-    # binding.pry
   end
 
   def signincredit
@@ -69,7 +64,6 @@ class UsersController < ApplicationController
     session[:city_name] = params[:user][:city_name]
     session[:city_number] = params[:user][:city_number]
     session[:building] = params[:user][:building]
-    # binding.pry
     @users = User.new(nickname: session[:nickname], email: session[:email], password: session[:password], first_name: session[:first_name], last_name: session[:last_name], kana_first_name: session[:kana_first_name], kana_last_name: session[:kana_last_name], birth_year_id: session[:birth_year_id], birth_month_id: session[:birth_month_id], birth_day_id: session[:birth_day_id], telphone_number: session[:telphone_number], postal_code: session[:postal_code], area_id: session[:area_id], city_name: session[:city_name], city_number: session[:city_number], building: session[:building])
   end
 
@@ -81,12 +75,5 @@ class UsersController < ApplicationController
   def users_params
     params.require(:user).permit(:nickname, :email, :password, :first_name, :last_name, :kana_first_name, :kana_last_name, :birth_year_id, :birth_month_id, :birth_day_id, :telphone_number, :postal_code, :area_id, :city_name, :city_number, :building, :creditcard_id)
   end
-
-
-  # private
-
-  #    def move_to_index
-  #     redirect_to action: :index unless user_signed_in?
-  #   end
 
 end
