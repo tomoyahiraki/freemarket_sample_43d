@@ -80,32 +80,26 @@ require "payjp"
   end
 
   def signinlocation
-    @user_address = UserAddress.new
+    @users = User.new
     session[:telphone_number] = params[:user][:telphone_number]
-    binding.pry
   end
 
   def signincredit
-    @users = User.new(nickname: session[:nickname], email: session[:email], password: session[:password], first_name: session[:first_name], last_name: session[:last_name], kana_first_name: session[:kana_first_name], kana_last_name: session[:kana_last_name], birth_year_id: session[:birth_year_id], birth_month_id: session[:birth_month_id], birth_day_id: session[:birth_day_id], telphone_number: session[:telphone_number])
-    @user_address = UserAddress.new
-    session[:postal_code] = params[:user_address][:postal_code]
-    session[:area_id] = params[:user_address][:area_id]
-    session[:city_name] = params[:user_address][:city_name]
-    session[:city_number] = params[:user_address][:city_number]
-    session[:building] = params[:user_address][:building]
+    session[:postal_code] = params[:user][:postal_code]
+    session[:area_id] = params[:user][:area_id]
+    session[:city_name] = params[:user][:city_name]
+    session[:city_number] = params[:user][:city_number]
+    session[:building] = params[:user][:building]
+    @users = User.new(nickname: session[:nickname], email: session[:email], password: session[:password], first_name: session[:first_name], last_name: session[:last_name], kana_first_name: session[:kana_first_name], kana_last_name: session[:kana_last_name], birth_year_id: session[:birth_year_id], birth_month_id: session[:birth_month_id], birth_day_id: session[:birth_day_id], telphone_number: session[:telphone_number], postal_code: session[:postal_code], area_id: session[:area_id], city_name: session[:city_name], city_number: session[:city_number], building: session[:building])
   end
 
-  # def signincomplete
-  #   # Userテーブル
-  #   User.create!(nickname: session[:nickname], email: session[:email], password: session[:password], first_name: session[:first_name], last_name: session[:last_name], kana_first_name: session[:kana_first_name], kana_last_name: session[:kana_last_name], birth_year_id: session[:birth_year_id], birth_month_id: session[:birth_month_id], birth_day_id: session[:birth_day_id], telphone_number: session[:telphone_number], creditcard_id: params[:user][:creditcard_id])
-  #   # UserAddressテーブル
-  #   UserAddress.create!(postal_code: session[:postal_code], area_id: session[:area_id], city_name: session[:city_name], city_number: session[:city_number], building: session[:building])
-  # end
+  def signincomplete
+  end
 
   private
 
   def users_params
-    params.require(:user).permit(:nickname, :email, :password, :first_name, :last_name, :kana_first_name, :kana_last_name, :birth_year_id, :birth_month_id, :birth_day_id, :telphone_number, :postal_code, :area_id, :city_name, :city_number, :building, :creditcard_id)
+    params.require(:user).permit(:nickname, :email, :password, :first_name, :last_name, :kana_first_name, :kana_last_name, :birth_year_id, :birth_month_id, :birth_day_id, :telphone_number, :postal_code, :area_id, :city_name, :city_number, :building, :customer_id)
   end
 
 end
