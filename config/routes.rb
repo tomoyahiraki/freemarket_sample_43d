@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       post 'signinphonenumber'
       post 'signinlocation'
       post 'signincredit'
+      post 'signincomplete'
 
     end
   end
