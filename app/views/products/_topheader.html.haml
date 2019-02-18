@@ -18,17 +18,20 @@
               - @categories.each.with_index(0) do |category,i|
                 - if category.parent_id == 0
                   %li.submenu2-trigger
-                    = category.name
+                    %a{href: "/products/#{category.id}/category"}
+                      = category.name
                     %ul
                       - @categories.each.with_index(0) do |child,e|
                         - if @categories[i].id == child.parent_id
                           %li.submenu3-trigger
-                            = child.name
+                            %a{href: "/products/#{child.id}/category"}
+                              = child.name
                             %ul
                               - @categories.each do |grandchild|
                                 - if @categories[e].id == grandchild.parent_id
                                   %li.submenu4-trigger
-                                    = grandchild.name
+                                    %a{href: "/products/#{grandchild.id}/category"}
+                                      = grandchild.name
       .l-right
         %ul.header__user-nav
           %li

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
   before_action :set_current_user
+  before_action :category
   protect_from_forgery with: :exception
 
 # デバイス用
@@ -19,6 +20,10 @@ class ApplicationController < ActionController::Base
 
   def set_current_user
     @current_user = User.find_by(id: session[:user_id])
+  end
+
+  def category
+    @categories = Category.all
   end
 
 end

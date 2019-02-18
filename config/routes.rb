@@ -21,6 +21,7 @@ end
       get 'buy_confirm'
       get 'search'
       get '_topheader'
+      get ':id/category' => 'products#category'
     end
   end
 

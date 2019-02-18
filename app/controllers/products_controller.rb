@@ -41,7 +41,8 @@ class ProductsController < ApplicationController
     redirect_to action: 'index'
   end
 
-  def _topheader
+  def category
+    @products = Product.where(category_id: "#{params[:id]}")
     @categories = Category.all
   end
 
