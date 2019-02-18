@@ -108,11 +108,4 @@ require "payjp"
     params.require(:user).permit(:nickname, :email, :password, :first_name, :last_name, :kana_first_name, :kana_last_name, :birth_year_id, :birth_month_id, :birth_day_id, :telphone_number, :postal_code, :area_id, :city_name, :city_number, :building, :creditcard_id)
   end
 
-
-  # private
-
-  #    def move_to_index
-  #     redirect_to action: :index unless user_signed_in?
-  #   end
-
 end
