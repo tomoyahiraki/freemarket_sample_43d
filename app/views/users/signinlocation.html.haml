@@ -8,13 +8,13 @@
       .mypage_identification2_form_group
         %label 郵便番号
         %span.form-select 任意
-        = form_for @user_address, url: "/users/signincredit", method: :post do |f|
-          = f.text_field :postal_code, class: "entry-form", placeholder: "例) 123-4567", type: "text"
+        = form_for @users, url: "/users/signincredit", method: :post do |f|
+          = f.text_field :postal_code, class: "entry-form", placeholder: "例) 123-4567", type: "text", required: ""
 
           .mypage_identification2_form_group
             %label 都道府県
             %span.form-require 必須
-            = f.collection_select :area_id, Area.all, :id, :name, {prompt: "---"}, {class: "select-Prefecture"}
+            = f.collection_select :area_id, Area.all, :id, :name, {prompt: "---"}, {class: "select-Prefecture", required: ""}
 
           .mypage_identification2_form_group
             %label 市区町村
