@@ -62,6 +62,14 @@ class ProductsController < ApplicationController
     redirect_to action: 'index'
   end
 
+  def brand_search
+    @brands = Brand.where('name LIKE(?)', "#{params[:keyword]}%")
+    # binding.pry
+    respond_to do |format|
+      format.json
+    end
+  end
+
   private
 
     def products_params
