@@ -14,13 +14,12 @@ $(function() {
 
   $(".select-default-brand").on("keyup", function() {
     var input = $(".select-default-brand").val();
-    // console.log(input);
       $.ajax({
       type: 'GET',
       url: '/products/brand_search',
       data: { keyword: input },
       dataType: 'json'
-    })
+    });
 
     .done(function(brands) {
       $(".brand-search-result").empty();
@@ -32,19 +31,18 @@ $(function() {
       else {
         appendNoBrand("一致するブランドはありません");
       }
-    })
+    });
   });
 
     $(".brand-search-result").on("click", ".brand-search-result-list", function() {
       var selected_brand_id = $(this).attr('data-brand-id');
       var selected_brand_name = $(this).attr('data-brand-name');
-      // console.log(selected_brand_id)
       var new_html =`<div class="select-default-brand select-default-brand-hidden">${selected_brand_name}</div>
                     <input type="hidden" name="brand_id" value="${selected_brand_id}">`
       $("input.select-default-brand").remove();
       $(".icon-arrow-bottom-brand").remove();
       $(".brand-search-result").remove();
       $("#brand-result").append(new_html);
-    })
+    });
 
 });
