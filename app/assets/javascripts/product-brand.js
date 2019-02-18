@@ -20,7 +20,7 @@ $(function() {
       url: '/products/brand_search',
       data: { keyword: input },
       dataType: 'json'
-    })
+    });
 
     .done(function(brands) {
       $(".brand-search-result").empty();
@@ -32,7 +32,7 @@ $(function() {
       else {
         appendNoBrand("一致するブランドはありません");
       }
-    })
+    });
   });
 
     $(".brand-search-result").on("click", ".brand-search-result-list", function() {
@@ -45,6 +45,6 @@ $(function() {
       $(".icon-arrow-bottom-brand").remove();
       $(".brand-search-result").remove();
       $("#brand-result").append(new_html);
-    })
+    });
 
 });

@@ -11,5 +11,5 @@ $(function(){
     var profit = num - commission;
     output.text('¥'+profit);
     outputTax.text('¥'+commission);
-  })
-})
+  });
+});
