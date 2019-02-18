@@ -12,9 +12,35 @@
     .header__nav-box.clearfix
       %nav.l-left
         %ul.header__nav
+          %li.submenu-trigger
+            カテゴリ一覧
+            %ul
+              - @categories.each.with_index(0) do |category,i|
+                - if category.parent_id == 0
+                  %li.submenu2-trigger
+                    %a{href: "/products/#{category.id}/category"}
+                      = category.name
+                    %ul
+                      - @categories.each.with_index(0) do |child,e|
+                        - if @categories[i].id == child.parent_id
+                          %li.submenu3-trigger
+                            %a{href: "/products/#{child.id}/category"}
+                              = child.name
+                            %ul
+                              - @categories.each do |grandchild|
+                                - if @categories[e].id == grandchild.parent_id
+                                  %li.submenu4-trigger
+                                    %a{href: "/products/#{grandchild.id}/category"}
+                                      = grandchild.name
+      .l-right
+        %ul.header__user-nav
           %li
-            %h2
-              %a.header__nav-root{href: "##"} カテゴリーから探す
+            %a.header__nav-root{href: "users"}
+              %figure
+                %div
+                  %img{alt: "aa", src: "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", width: "32"}/
+              .header__nav-root-mypage マイページ
+            %div
           %li
             %h2
               %a.header__nav-root{href: "##"} ブランドから探す
@@ -49,3 +75,7 @@
             %li
               %a.sp-header-btn.header-login{:href => "/users/sign_up"} 新規会員登録
 
+- unless (controller_name == "products" && action_name == "index") || (controller_name == "products" && action_name == "search")
+  .bread-crumbs-header
+    %ul
+      = breadcrumbs separator: " &#12297 "

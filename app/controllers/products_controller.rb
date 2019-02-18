@@ -64,6 +64,10 @@ before_action :authenticate_user!, except: [:index]
     redirect_to action: 'index'
   end
 
+  def category
+    @products = Product.where(category_id: "#{params[:id]}")
+    @categories = Category.all
+
   def brand_search
     @brands = Brand.where('name LIKE(?)', "#{params[:keyword]}%")
     # binding.pry
@@ -77,5 +81,7 @@ before_action :authenticate_user!, except: [:index]
     def products_params
        params.require(:product).permit(:product_state_id, :title, :product_old_id, :deliveryfee_id, :area_id, :price, :product_introduce, :shipment_id, :user_id, :brand_id, :size_id, :category_id, :deliveryday_id, images_attributes:[:image_url])
     end
+
+
 
 end
