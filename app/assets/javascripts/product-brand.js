@@ -19,7 +19,7 @@ $(function() {
       url: '/products/brand_search',
       data: { keyword: input },
       dataType: 'json'
-    });
+    })
 
     .done(function(brands) {
       $(".brand-search-result").empty();
