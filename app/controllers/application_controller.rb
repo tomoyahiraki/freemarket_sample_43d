@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 # デバイス用
   before_action :configure_permitted_parameters, if: :devise_controller?
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :email, :first_name, :last_name, :kana_first_name, :kana_last_name, :telphone_number, :birth_year_id, :birth_month_id, :birth_day_id, :postal_code, :area_id, :city_name, :city_number, :building, :creditcard_id, :proceed, :provider, :uid])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :email, :first_name, :last_name, :kana_first_name, :kana_last_name, :telphone_number, :birth_year_id, :birth_month_id, :birth_day_id, :postal_code, :area_id, :city_name, :city_number, :building, :token_id, :customer_id, :proceed, :provider, :uid])
     end
 
   private

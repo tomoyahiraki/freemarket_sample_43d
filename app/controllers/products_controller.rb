@@ -12,6 +12,7 @@ before_action :authenticate_user!, except: [:index]
   def new
     @products = Product.new
     @products.images.new
+    # @categories = Category.find_by(parent_id: 0)
   end
 
   def show
@@ -63,18 +64,16 @@ before_action :authenticate_user!, except: [:index]
     redirect_to action: 'index'
   end
 
-<<<<<<< HEAD
   def category
     @products = Product.where(category_id: "#{params[:id]}")
     @categories = Category.all
-=======
+
   def brand_search
     @brands = Brand.where('name LIKE(?)', "#{params[:keyword]}%")
     # binding.pry
     respond_to do |format|
       format.json
     end
->>>>>>> nagomuohta/master
   end
 
   private
