@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       get ':id/buy_confirm' => 'products#buy_confirm'
       patch ':id/buy' => 'products#buy'
       get 'search'
+      get '_topheader'
+      get ':id/category' => 'products#category'
       get 'brand_search'
     end
   end
