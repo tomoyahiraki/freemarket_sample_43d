@@ -3,8 +3,8 @@
 
 %main.l-container.clearfix
   .l-content
-    %section.mypage-user-icon
-      %a.user-icon{:href => "https://www.mercari.com/jp/u/750582472/"}
+    %section{class: "mypage-user-icon", style: "background-image:url(#{asset_path "user-background.jpg"})"}
+      %a.user-icon{:href => ""}
         %figure.user-image
           %img.user-image_top{:alt => "", :height => "60", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", :width => "60"}/
         %h2.mypage-user-name yuko

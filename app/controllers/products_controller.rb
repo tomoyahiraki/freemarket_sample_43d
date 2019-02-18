@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+before_action :authenticate_user!, except: [:index]
+
   def index
     @ladys = Product.where(category_id:"1").order('id DESC').limit(4)
     @mens = Product.where(category_id:"2").order('id DESC').limit(4)
@@ -30,6 +32,26 @@ class ProductsController < ApplicationController
   end
 
   def buy_confirm
+    @product = Product.find(params[:id])
+    @user = User.find(current_user.id)
+    @token = @user.token_id
+    if @token.present?
+      Payjp.api_key = PAYJP_SECRET_KEY
+      @cards = Payjp::Token.retrieve(@token)
+    end
+  end
+
+  def buy
+    @product = Product.find(params[:id])
+    @user = User.find(current_user.id)
+    Payjp.api_key = PAYJP_SECRET_KEY
+    charge = Payjp::Charge.create(
+    amount: @product.price,
+    customer: @user.customer_id,
+    currency: 'jpy',
+    )
+    @product.update(product_state_id: 2)
+    redirect_to action: 'index'
   end
 
   def search
@@ -41,9 +63,18 @@ class ProductsController < ApplicationController
     redirect_to action: 'index'
   end
 
+<<<<<<< HEAD
   def category
     @products = Product.where(category_id: "#{params[:id]}")
     @categories = Category.all
+=======
+  def brand_search
+    @brands = Brand.where('name LIKE(?)', "#{params[:keyword]}%")
+    # binding.pry
+    respond_to do |format|
+      format.json
+    end
+>>>>>>> nagomuohta/master
   end
 
   private

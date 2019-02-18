@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20190218032324) do
+=======
+ActiveRecord::Schema.define(version: 20190218085156) do
+>>>>>>> nagomuohta/master
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -124,16 +128,6 @@ ActiveRecord::Schema.define(version: 20190218032324) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "postal_code", null: false
-    t.integer  "area_id",     null: false
-    t.string   "city_name",   null: false
-    t.string   "city_number", null: false
-    t.string   "building",    null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -145,16 +139,22 @@ ActiveRecord::Schema.define(version: 20190218032324) do
     t.string   "last_name",                           null: false
     t.string   "kana_first_name",                     null: false
     t.string   "kana_last_name",                      null: false
-    t.string   "telphone_number",                     null: false
+    t.string   "telphone_number",        default: "", null: false
     t.integer  "birth_year_id"
     t.integer  "birth_month_id"
     t.integer  "birth_day_id"
-    t.integer  "creditcard_id"
     t.integer  "proceed"
     t.string   "provider"
     t.string   "uid"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "postal_code",                         null: false
+    t.integer  "area_id",                             null: false
+    t.string   "city_name",                           null: false
+    t.string   "city_number",                         null: false
+    t.string   "building",                            null: false
+    t.string   "customer_id"
+    t.string   "token_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

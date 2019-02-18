@@ -1,38 +1,36 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: {
-  sessions:      'deviseusers/sessions',
-  registrations: 'deviseusers/registrations'
-}
-  devise_scope :user do
-  get '/deviseusers/registrations/new', to: 'deviseusers_registrations#signinphonenumber'
-
-  get      '/deviseusers/registrations/new' => 'registrations#new'
-  post     '/deviseusers/registrations/signinphonenumber' => 'deviseusers/registrations#signinphonenumber'
-  post     '/deviseusers/registrations/signinlocation'    => 'deviseusers/registrations#signinlocation'
-  post     '/deviseusers/registrations/signincredit'      => 'deviseusers/registrations#signincredit'
-  post     '/deviseusers/registrations/signincomplete'    => 'deviseusers/registrations#signincomplete'
-end
+  devise_for :users
 
   root 'products#index'
 
   resources :products, only: [:new, :show, :destroy, :create] do
     collection do
-      get 'buy_confirm'
+      get ':id/buy_confirm' => 'products#buy_confirm'
+      patch ':id/buy' => 'products#buy'
       get 'search'
       get '_topheader'
       get ':id/category' => 'products#category'
+      get 'brand_search'
     end
   end
 
   resources :users, only: [:index, :edit, :update, :show] do
     collection do
       get 'purchase'
+      patch 'purchase' => 'users#save'
+      delete ':id' => 'users#delete'
       get 'login'
       get 'logout'
       get 'password_less'
-
       get 'lists'
+
+      get 'signininformation'
+      post 'signinphonenumber'
+      post 'signinlocation'
+      post 'signincredit'
+      post 'signincomplete'
+
     end
   end
 

@@ -1,0 +1,41 @@
+.mypage_identification2
+  = render 'users/headersigninlocation'
+  .mypage_identification2_main
+    .mypage_identification2_main_header
+      %h3.mypage_identification2_main_header_header 本人情報の登録
+      %p.mypage_identification2_main_header_info お客様のあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております
+    .mypage_identification2_form
+      .mypage_identification2_form_group
+        %label 郵便番号
+        %span.form-select 任意
+        = form_for @users, url: "/users/signincredit", method: :post do |f|
+          = f.text_field :postal_code, class: "entry-form", placeholder: "例) 123-4567", type: "text", required: ""
+
+          .mypage_identification2_form_group
+            %label 都道府県
+            %span.form-require 必須
+            = f.collection_select :area_id, Area.all, :id, :name, {prompt: "---"}, {class: "select-Prefecture", required: ""}
+
+          .mypage_identification2_form_group
+            %label 市区町村
+            %span.form-require 必須
+            = f.text_field :city_name, class: "entry-form", placeholder: "例) 横浜市緑区", type: "text", required: true
+
+
+          .mypage_identification2_form_group
+            %label 番地
+            %span.form-require 必須
+            = f.text_field :city_number, class: "entry-form", placeholder: "例) 青山1-1-1", type: "text", required: true
+
+          .mypage_identification2_form_group
+            %label 建物名
+            %span.form-select 任意
+            = f.text_field :building, class: "entry-form", placeholder: "例) 柳ビル", type: "text"
+
+          .sell_description
+            ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+            = f.submit '登録する', {class: "signinone-red-botton"}
+          %p.about-mypage_identification2
+            = link_to '本人情報登録について >', "#", {class: "about-mypage_identification2_description"}
+            %span
+    = render '/products/productfooter'

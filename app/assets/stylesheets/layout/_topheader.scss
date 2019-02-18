@@ -147,6 +147,7 @@
   }
 }
 
+<<<<<<< HEAD
 .submenu-trigger{
   position:relative;
   width:126px;
@@ -209,4 +210,36 @@
 .submenu2-trigger:hover > ul,
 .submenu3-trigger:hover > ul,{
   display:block;
+=======
+// if user_signed_in?
+.pc-header-login-nav>li {
+    display: inline-block;
+    margin: 0 0 0 8px;
+}
+
+a.sp-header-btn.btn-red-login{
+    padding: 0 10px;
+    line-height: 30px;
+    display: inline-block;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 26px;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    font-size: 14px;
+}
+
+a.sp-header-btn.header-login {
+    display: block;
+    border: 1px solid #0099e8;
+    background: #fff;
+    color: #0099e8;
+    display: inline-block;
+    padding: 0 6px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+>>>>>>> nagomuohta/master
 }

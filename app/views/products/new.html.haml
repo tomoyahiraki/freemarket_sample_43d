@@ -14,14 +14,49 @@
                   %label.product_new_name_label.content-update-head 出品画像
                   %span.form-require 必須
                   %p.product_new_word 最大１０枚までアップロード出来ます
-                  = f.fields_for :images do |i|
-                    = i.file_field :image_url ,style: 'display: none;', class: 'image-upload', id: 'image_upload'
-                    .product-image-upload{onClick: "$('#image_upload').click()"}
+                  .content-update__container
+                    = f.fields_for :images do |i|
+                      = i.file_field :image_url ,style: 'display: none;', class: 'image-upload', id: 'image_upload',multiple: true
+                    .content-update__container-items
                       .image__upload__imagebox
-                        .image__upload__imagebox-1
-                      .image-upload_text
-                        .word-drop.drug-drop-text ドラッグアンドドロップ
-                        %p.product_new_word.drug-drop-text またはクリックしてファイルをアップロード
+                        %ul.image__upload__imagebox-ul
+                          %li.image__upload__imagebox-ul-one
+                            .image__upload__imagebox-container
+                              %img.image__upload__imagebox-container-1{src:'',style: ""}
+                            .image__upload__imagebox-button
+                              = link_to '編集', "##", {class: "image__upload__imagebox-button-edit"}
+                              = link_to '削除', "##", {class: "image__upload__imagebox-button-delete"}
+                          %li.image__upload__imagebox-ul-two
+                            .image__upload__imagebox-container
+                              %img.image__upload__imagebox-container-2{src:'',style: ""}
+                            .image__upload__imagebox-button
+                              = link_to '編集', "##", {class: "image__upload__imagebox-button-edit"}
+                              = link_to '削除', "##", {class: "image__upload__imagebox-button-delete"}
+                          %li.image__upload__imagebox-ul-three
+                            .image__upload__imagebox-container
+                              %img.image__upload__imagebox-container-3{src:'',style: ""}
+                            .image__upload__imagebox-button
+                              = link_to '編集', "##", {class: "image__upload__imagebox-button-edit"}
+                              = link_to '削除', "##", {class: "image__upload__imagebox-button-delete"}
+                          %li.image__upload__imagebox-ul-four
+                            .image__upload__imagebox-container
+                              %img.image__upload__imagebox-container-4{src:'',style: ""}
+                            .image__upload__imagebox-button
+                              = link_to '編集', "##", {class: "image__upload__imagebox-button-edit"}
+                              = link_to '削除', "##", {class: "image__upload__imagebox-button-delete"}
+
+                    .content-update__container-uploadbox
+                      .product-image-upload{onClick: "$('#image_upload').click()"}
+                        .image-upload_text
+                          .word-drop.drug-drop-text ドラッグアンドドロップ
+                          %p.product_new_word.drug-drop-text またはクリックしてファイルをアップロード
+
+                    .content-update__container-uploadbox-2
+                      .product-image-upload{onClick: "$('#image_upload').click()"}
+                        .image-upload_text
+                          .word-drop.drug-drop-text ドラッグアンドドロップ
+                          %p.product_new_word.drug-drop-text またはクリックしてファイルをアップロード
+
 
                 .content-category
                   #productname.content-category-group
@@ -41,7 +76,7 @@
                         %label.product_new_name_label カテゴリー
                         %span.form-require 必須
                         .select-wrap
-                          = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'first-select'}
+                          = f.collection_select :category_id, Category.where(parent_id: 0), :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'first-select'}
                           %i.icon-arrow-bottom
                         .category__select__second
                           .select-wrap
@@ -61,17 +96,20 @@
                         %label.product_new_name_label ブランド
                         %span.form-require-two 任意
                         .select-wrap
-                          = f.collection_select :brand_id, Brand.all, :id, :name, {}, {class: 'select-default'}
+                          #brand-result
+                          %input.select-default-brand{placeholder:"例)シャネル", type:'text', name:'keyword'}
+                          %i.icon-arrow-bottom.icon-arrow-bottom-brand
+                        %ul.brand-search-result
+
+                      .category__select__old
+                        %label.product_new_name_label 商品の状態
+                        %span.form-require 必須
+                        .select-wrap
+                          = f.collection_select :product_old_id, ProductOld.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
                           %i.icon-arrow-bottom
-                    .content-category-group
-                      %label.product_new_name_label 商品の状態
-                      %span.form-require 必須
-                      .select-wrap
-                        = f.collection_select :product_old_id, ProductOld.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
-                        %i.icon-arrow-bottom
                 .content-category.clearfix.second
                   %h3.content-category-head 配送について
-                  = link_to '?', "/jp/help_center/article/68/", {:class => "form-question", :target => "_blank"}
+                  = link_to '?', "/jp/help_center/article/68/", {class: "form-question", target: "_blank"}
                   .content-category-box
                     .content-category-group
                       %label.product_new_name_label 配送料の負担
@@ -99,10 +137,6 @@
                         %span.form-require 必須
                         .select-wrap
                           = f.collection_select :deliveryday_id, Deliveryday.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
-
-                        %label.product_new_name_label User_id
-                        .select-wrap
-                          = f.text_field :user_id ,class:'select-default'
 
                         .select-wrap
                           = f.collection_select :product_state_id, ProductState.all, :id, :name, {}, {class: 'select-default-none'}
