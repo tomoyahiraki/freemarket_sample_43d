@@ -82,15 +82,26 @@
           font-size:14px;
         }
         &_buybtn{
-          width:286px;
+          width:320px;
           font-size:14px;
           text-align: center;
           margin: 0 auto;
           padding:16px;
-          background-color:#666666;
+          background-color:#ea352d;
           margin-top: 15px;
           color: white;
           font-weight: bold;
+          &_not {
+            width:320px;
+            font-size:14px;
+            text-align: center;
+            margin: 0 auto;
+            padding:16px;
+            background-color:#666666;
+            margin-top: 15px;
+            color: white;
+            font-weight: bold;
+            }
         }
       }
     }

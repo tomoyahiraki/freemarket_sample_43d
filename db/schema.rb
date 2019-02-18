@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190215124530) do
+ActiveRecord::Schema.define(version: 20190216110321) do
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -132,29 +132,31 @@ ActiveRecord::Schema.define(version: 20190215124530) do
     t.string   "building",    null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                                default: "", null: false
+    t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string   "nickname",                            null: false
-    t.string   "first_name",                          null: false
-    t.string   "last_name",                           null: false
-    t.string   "kana_first_name",                     null: false
-    t.string   "kana_last_name",                      null: false
-    t.string   "telphone_number",        default: "", null: false
+    t.string   "nickname",                                          null: false
+    t.string   "first_name",                                        null: false
+    t.string   "last_name",                                         null: false
+    t.string   "kana_first_name",                                   null: false
+    t.string   "kana_last_name",                                    null: false
+    t.string   "telphone_number",                      default: "", null: false
     t.integer  "birth_year_id"
     t.integer  "birth_month_id"
     t.integer  "birth_day_id"
-    t.integer  "creditcard_id"
     t.integer  "proceed"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.text     "token_id",               limit: 65535
+    t.string   "customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
