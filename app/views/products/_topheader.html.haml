@@ -44,3 +44,7 @@
               %span やることリスト
             %ul.header__user-box
               %li
+- unless (controller_name == "products" && action_name == "index") || (controller_name == "products" && action_name == "search")
+  .bread-crumbs-header
+    %ul
+      = breadcrumbs separator: " &#12297 "
