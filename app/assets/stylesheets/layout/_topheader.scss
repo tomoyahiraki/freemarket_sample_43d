@@ -80,14 +80,15 @@
 
   &__nav{
 	&-box{
-	  margin: 8px 0 0;
-	  @include clearfix();
+	  // margin: 8px 0 0;
+	  // @include clearfix();
     }
     li{
-	  position: relative;
-	  display: inline-block;
-	  padding: 0 0 0 16px;
-	  vertical-align: middle;
+	  // position: relative;
+	  // display: inline-block;
+	  // padding: 0 0 0 16px;
+	  // vertical-align: middle;
+    max-height: 38px;
 	}
 
 	a{
@@ -116,6 +117,7 @@
 	}
 	&-nav{
 	  margin: 0;
+    max-height: 38px;
 		li:first-child {
 		  padding: 0;
 		}
@@ -143,4 +145,68 @@
 	}
 
   }
+}
+
+.submenu-trigger{
+  position:relative;
+  width:126px;
+  height:38px;
+  line-height:38px;
+}
+
+.submenu2-trigger{
+  width:200px;
+  height:38px;
+  line-height:38px;
+  padding-left: 16px;
+}
+
+.submenu3-trigger{
+  width:200px;
+  height:38px;
+  line-height:38px;
+  padding-left: 16px;
+}
+
+.submenu4-trigger{
+  width:200px;
+  height:38px;
+  line-height:38px;
+  padding-left: 16px;
+}
+
+.submenu-trigger > ul{
+  background-color:white;
+  min-height:570px;
+  min-width:200px;
+}
+
+.submenu2-trigger > ul{
+  position:absolute;
+  left:200px;
+  top:38px;
+  background-color:white;
+  min-height:570px;
+  min-width:200px;
+}
+
+.submenu3-trigger > ul{
+  position:absolute;
+  left:200px;
+  top:0px;
+  background-color:white;
+  min-height:570px;
+  min-width:200px;
+}
+
+.submenu-trigger > ul,
+.submenu2-trigger > ul,
+.submenu3-trigger > ul{
+  display:none;
+}
+
+.submenu-trigger:hover > ul,
+.submenu2-trigger:hover > ul,
+.submenu3-trigger:hover > ul,{
+  display:block;
 }

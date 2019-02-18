@@ -12,16 +12,23 @@
     .header__nav-box.clearfix
       %nav.l-left
         %ul.header__nav
-          %li
-            %h2
-              %a.header__nav-root{href: "##"} カテゴリーから探す
-            %ul.header__nav-parent-wrap{"data-mega" => "1"}
-              %li
-          %li
-            %h2
-              %a.header__nav-root{href: "##"} ブランドから探す
-              %ul.header__nav-parent-wrap
-                %li
+          %li.submenu-trigger
+            カテゴリ一覧
+            %ul
+              - @categories.each.with_index(0) do |category,i|
+                - if category.parent_id == 0
+                  %li.submenu2-trigger
+                    = category.name
+                    %ul
+                      - @categories.each.with_index(0) do |child,e|
+                        - if @categories[i].id == child.parent_id
+                          %li.submenu3-trigger
+                            = child.name
+                            %ul
+                              - @categories.each do |grandchild|
+                                - if @categories[e].id == grandchild.parent_id
+                                  %li.submenu4-trigger
+                                    = grandchild.name
       .l-right
         %ul.header__user-nav
           %li

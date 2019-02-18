@@ -20,6 +20,7 @@ end
     collection do
       get 'buy_confirm'
       get 'search'
+      get '_topheader'
     end
   end
 
