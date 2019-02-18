@@ -10,7 +10,7 @@
         .signinone-form-group#signinformgroup
           %label.product_new_name_label.content-update-head 携帯電話の番号
           = form_for @users, url: "/users/signinlocation" do |f|
-            = f.text_field :telphone_number, class: "input-default signin-input", placeholder: "携帯電話の番号を入力", type: "text"
+            = f.text_field :telphone_number, class: "input-default signin-input", placeholder: "携帯電話の番号を入力", type: "text", required: ""
 
             %p.signinone-form-group-text-two
               本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。

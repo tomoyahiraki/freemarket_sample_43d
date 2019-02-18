@@ -15,32 +15,37 @@
           %li
             %h2
               %a.header__nav-root{href: "##"} カテゴリーから探す
-            %ul.header__nav-parent-wrap{"data-mega" => "1"}
-              %li
           %li
             %h2
               %a.header__nav-root{href: "##"} ブランドから探す
-              %ul.header__nav-parent-wrap
+      - if user_signed_in?
+        .l-right
+          %ul.header__user-nav
+            %li
+              %a.header__nav-root{href: "users"}
+                %figure
+                  %div
+                    %img{alt: "aa", src: "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", width: "32"}/
+                .header__nav-root-mypage マイページ
+              %div
+            %li
+              %a.header__nav-root{href: "##"}
+                %i.fa.fa-bell-o
+                %span お知らせ
+                .header__nav-count
+              %ul
                 %li
-      .l-right
-        %ul.header__user-nav
-          %li
-            %a.header__nav-root{href: "users"}
-              %figure
-                %div
-                  %img{alt: "aa", src: "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", width: "32"}/
-              .header__nav-root-mypage マイページ
-            %div
-          %li
-            %a.header__nav-root{href: "##"}
-              %i.fa.fa-bell-o
-              %span お知らせ
-              .header__nav-count
-            %ul
-              %li
-          %li
-            %a.header__nav-root{href: "##"}
-              %i.fa.fa-check
-              %span やることリスト
-            %ul.header__user-box
-              %li
+            %li
+              %a.header__nav-root{href: "##"}
+                %i.fa.fa-check
+                %span やることリスト
+              %ul.header__user-box
+                %li
+      - else
+        .l-right
+          %ul.pc-header-login-nav
+            %li
+              %a.sp-header-btn.btn-red-login{:href => "/users/sign_in"} ログイン
+            %li
+              %a.sp-header-btn.header-login{:href => "/users/sign_up"} 新規会員登録
+
