@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       get 'buy_confirm'
       get 'search'
+      get 'brand_search'
     end
   end
 
