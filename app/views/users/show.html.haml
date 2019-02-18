@@ -11,13 +11,40 @@
             %h3.l-chapter-sub-head クレジットカード一覧
           %ul.settings-payment-list
         %section.settings-add-card
-          .l-single-content
-            %a.btn-default.btn-red.submit_button{href: "/users/purchase"}
-              %i.fa.fa-credit-card クレジットカードを追加する
+          - if @token.present?
+            %ul.settings-payment-list
+              %li
+              = form_tag("/users/show", method: "DELETE", id: "add-card-form", class: "l-single-content") do
+                %figure
+                - if (@cards[:card][:brand] == "Visa")
+                  %img{:alt => "Visa", :height => "15", :src => "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?4192743052", :width => "49"}/
+                - if (@cards[:card][:brand] == "MasterCard")
+                  %img{:alt => "MasterCard", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3708647559", :width => "34"}
+                - if (@cards[:card][:brand] == "saison-card")
+                  %img{:alt => "saison-card", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3708647559", :width => "30"}/
+                - if (@cards[:card][:brand] == "JCB")
+                  %img{:alt => "JCB", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3708647559", :width => "32"}/
+                - if (@cards[:card][:brand] == "American Express")
+                  %img{:alt => "American Express", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3708647559", :width => "21"}/
+                - if (@cards[:card][:brand] == "Diners Club")
+                  %img{:alt => "Diners Club", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3708647559", :width => "32"}/
+                - if (@cards[:card][:brand] == "Discover")
+                  %img{:alt => "Discover", :height => "20", :src => "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3708647559", :width => "32"}/
+
+                .settings-payment-num
+                  = ("***********" + @cards[:card][:last4])
+                .settings-payment-num
+                  = "#{@cards[:card][:exp_month]}月 / #{@cards[:card][:exp_year]}年"
+                %input{:name => "method", :type => "hidden", :value => "card"}/
+                %button.settings-payment-remove{:type => "submit"}
+                  削除する
+          - else
+            .l-single-content
+              %a.btn-default.btn-red.submit_button{href: "/users/purchase"}
+                %i.fa.fa-credit-card クレジットカードを追加する
         .settings-not-regist
           %a.go-help-center{href: "/jp/help_center/category/6/", target: "_blank"}
             %span 支払い方法について
-            %i.fa.fa-chevron-right
 
   .l-side
     = render 'user-sidebar'

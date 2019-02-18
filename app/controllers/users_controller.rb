@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
 # before_action :move_to_index, except: :index
+require "payjp"
 
   def index
   end
@@ -17,16 +18,39 @@ class UsersController < ApplicationController
   def logout
   end
 
-  def show
-  end
-
   def login
   end
 
   def logout
   end
 
+  def show
+    @users = User.find(current_user.id)
+    @token = @users.token_id
+    Payjp.api_key = PAYJP_SECRET_KEY
+    if @token.present?
+      @cards = Payjp::Token.retrieve(@token)
+    end
+  end
+
+  def delete
+    @users = User.find(current_user.id)
+    Payjp.api_key = PAYJP_SECRET_KEY
+    customer = Payjp::Customer.retrieve(@users.customer_id)
+    customer.delete
+    @users.update_attributes(token_id: nil, customer_id: nil)
+    redirect_to :back
+  end
+
   def purchase
+  end
+
+  def save
+    @users = User.where(id: current_user.id)
+    Payjp.api_key = PAYJP_SECRET_KEY
+    customer = Payjp::Customer.create(card: params[:payjp_token])
+    @users.update_all(token_id: params[:payjp_token], customer_id: customer.id)
+    redirect_to users_path
   end
 
   def lists

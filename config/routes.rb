@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   resources :products, only: [:new, :show, :destroy, :create] do
     collection do
-      get 'buy_confirm'
+      get ':id/buy_confirm' => 'products#buy_confirm'
+      patch ':id/buy' => 'products#buy'
       get 'search'
     end
   end
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit, :update, :show] do
     collection do
       get 'purchase'
+      patch 'purchase' => 'users#save'
+      delete ':id' => 'users#delete'
       get 'login'
       get 'logout'
       get 'password_less'
