@@ -79,12 +79,16 @@
         = @product.price
       %span.item-price-box-tax (税込)
       %span.item-price-box-shipping-fee 送料込み
-    - if @product.product_state_id ==1
-      .buy-btn-red
-        購入画面に進む
-    - else
+    - if @product.product_state_id == 1
+      %button.buy-btn-red
+        = link_to (':id/buy_confirm') do
+          %p{style: "color: black;"} 購入画面に進む
+    - elsif @product.product_state_id == 2
       .buy-btn-gray
         売り切れ済み
+    - else
+      .buy-btn-gray
+        出品停止中
     .item-description
       = @product.product_introduce
       %br/
