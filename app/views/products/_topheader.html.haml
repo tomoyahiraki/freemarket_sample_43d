@@ -49,3 +49,7 @@
             %li
               %a.sp-header-btn.header-login{:href => "/users/sign_up"} 新規会員登録
 
+- unless (controller_name == "products" && action_name == "index") || (controller_name == "products" && action_name == "search")
+  .bread-crumbs-header
+    %ul
+      = breadcrumbs separator: " &#12297 "

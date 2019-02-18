@@ -1,19 +1,7 @@
 .logout-body
   .logout__default-container
+    - breadcrumb :logout
     = render 'products/topheader'
-    %nav.logout__container__bread-crumbs
-      %ul
-        %li
-          %a{href: "##"}
-            %span メルカリ
-          %i.fa.fa-chevron-right
-        %li
-          %a{href: "##"}
-            %span ログイン
-          %i.fa.fa-chevron-right
-        %li
-          %a{href: "##"}
-            %span ログアウト
     %main.logout__container__main.clearfix
       .logout__container__main-content
         %form.logout__container__main-content-inner{action: "##", method: "POST"}
