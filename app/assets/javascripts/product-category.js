@@ -11,7 +11,7 @@ $('#first-select').change(function(){
     $('#third-select').change(function(){
       $('.category__select__size').show();
       $('.category__select__brand').show();
-      })
-    })
-  })
+      });
+    });
+  });
 });

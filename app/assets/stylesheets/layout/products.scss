@@ -181,7 +181,6 @@ p.product_new_word {
                         line-height: 1.5;
                         cursor: pointer;
                         margin-bottom: 30px;
-
                       }
                       .select-default-two{
                         width: 100%;
@@ -526,3 +525,41 @@ span.form-require-two {
   }
 }
 
+.category__select__brand{
+  .select-default-brand{
+    width: 365px;
+    z-index: 2;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+
+    &-hidden{
+      line-height: 50px;
+    }
+  }
+}
+
+.brand-search-result{
+  overflow: auto;
+  position: absolute;
+  z-index: 10;
+  max-height: 280px;
+  background: #fff;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.64);
+  width: 400px;
+
+  &-list{
+    cursor: pointer;
+    padding: 16px 8px;
+    font-size: 14px;
+  }
+}
+
+.category__select__old{
+  margin-top: 30px;
+}
