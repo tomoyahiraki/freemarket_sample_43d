@@ -7,11 +7,9 @@ $(function(){
   $('.content-update__container-uploadbox-2').css('display', 'none');
 
   $('#image_upload').change(function(e){
-    //ファイルオブジェクトを取得する
     var file = e.target.files[0];
     var reader = new FileReader();
- 
-    //アップロードした画像を設定する
+
     reader.onload = (function(file){
       return function(e){
         $('.image__upload__imagebox-ul-one').show();
@@ -23,6 +21,6 @@ $(function(){
         $('.image__upload__imagebox-container-1').attr("src", e.target.result);
       };
     })(file);
-    reader.readAsDataURL(file); 
-  })
-})
+    reader.readAsDataURL(file);
+  });
+});
