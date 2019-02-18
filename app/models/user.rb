@@ -9,4 +9,5 @@ class User < ApplicationRecord
   belongs_to :birth_year
   belongs_to :birth_month
   belongs_to :birth_day
+  has_one :user_address
 end

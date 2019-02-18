@@ -96,14 +96,17 @@
                         %label.product_new_name_label ブランド
                         %span.form-require-two 任意
                         .select-wrap
-                          = f.collection_select :brand_id, Brand.all, :id, :name, {}, {class: 'select-default'}
+                          #brand-result
+                          %input.select-default-brand{placeholder:"例)シャネル", type:'text', name:'keyword'}
+                          %i.icon-arrow-bottom.icon-arrow-bottom-brand
+                        %ul.brand-search-result
+
+                      .category__select__old
+                        %label.product_new_name_label 商品の状態
+                        %span.form-require 必須
+                        .select-wrap
+                          = f.collection_select :product_old_id, ProductOld.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
                           %i.icon-arrow-bottom
-                    .content-category-group
-                      %label.product_new_name_label 商品の状態
-                      %span.form-require 必須
-                      .select-wrap
-                        = f.collection_select :product_old_id, ProductOld.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
-                        %i.icon-arrow-bottom
                 .content-category.clearfix.second
                   %h3.content-category-head 配送について
                   = link_to '?', "/jp/help_center/article/68/", {class: "form-question", target: "_blank"}
@@ -134,10 +137,6 @@
                         %span.form-require 必須
                         .select-wrap
                           = f.collection_select :deliveryday_id, Deliveryday.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
-
-                        %label.product_new_name_label User_id
-                        .select-wrap
-                          = f.text_field :user_id ,class:'select-default'
 
                         .select-wrap
                           = f.collection_select :product_state_id, ProductState.all, :id, :name, {}, {class: 'select-default-none'}
