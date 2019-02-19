@@ -1,25 +1,13 @@
 .logout-body
   .logout__default-container
+    - breadcrumb :logout
     = render 'products/topheader'
-    %nav.logout__container__bread-crumbs
-      %ul
-        %li
-          %a{href: "##"}
-            %span メルカリ
-          %i.fa.fa-chevron-right
-        %li
-          %a{href: "##"}
-            %span ログイン
-          %i.fa.fa-chevron-right
-        %li
-          %a{href: "##"}
-            %span ログアウト
     %main.logout__container__main.clearfix
       .logout__container__main-content
         %form.logout__container__main-content-inner{action: "##", method: "POST"}
           .logout__container__main-content-inner-content
-            %button.logout-btn{type: "submit"} ログアウト
-            %input{name: "##", type: "hidden", value: "##"}/
+            = link_to destroy_user_session_path, method: :delete, class: "mypage-nav-list-item" do
+              .logout-btn{type: "submit"} ログアウト
       %main.l-container.clearfix
         .l-side
           = render 'user-sidebar'
