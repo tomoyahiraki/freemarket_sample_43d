@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20190218085156) do
     t.text     "product_introduce", limit: 65535
     t.integer  "product_state_id",                null: false
     t.integer  "user_id",                         null: false
-    t.integer  "brand_id"
+    t.integer  "brand_id",                        null: false
     t.integer  "size_id",                         null: false
     t.integer  "category_id",                     null: false
     t.integer  "deliveryday_id",                  null: false
