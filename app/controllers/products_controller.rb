@@ -78,6 +78,14 @@ before_action :authenticate_user!, except: [:index]
     end
   end
 
+  def category_search
+    @categories = Category.where(parent_id: "#{params[:id]}")
+    # binding.pry
+    respond_to do |format|
+      format.json
+    end
+  end
+
   private
 
     def products_params
