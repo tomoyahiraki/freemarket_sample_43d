@@ -80,11 +80,11 @@
                           %i.icon-arrow-bottom
                         .category__select__second
                           .select-wrap
-                            = f.collection_select :category_id, Category.where(parent_id:1), :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'second-select'}
+                            %select#second-select.select-default-two{name: "product[category_id]"}
                             %i.icon-arrow-bottom
                         .category__select__third
                           .select-wrap
-                            = f.collection_select :category_id, Category.where(parent_id:15), :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'third-select'}
+                            %select#third-select.select-default-two{name: "product[category_id]"}
                             %i.icon-arrow-bottom
                       .category__select__size
                         %label.product_new_name_label サイズ
