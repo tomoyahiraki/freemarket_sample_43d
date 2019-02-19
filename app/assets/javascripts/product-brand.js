@@ -21,7 +21,7 @@ $(function() {
       dataType: 'json'
     })
 
-    .done(function(brands) {
+    .done(function(brands){
       $(".brand-search-result").empty();
       if (brands.length !== 0) {
         brands.forEach(function(brand){
@@ -37,12 +37,13 @@ $(function() {
     $(".brand-search-result").on("click", ".brand-search-result-list", function() {
       var selected_brand_id = $(this).attr('data-brand-id');
       var selected_brand_name = $(this).attr('data-brand-name');
-      var new_html =`<div class="select-default-brand select-default-brand-hidden">${selected_brand_name}</div>
-                    <input type="hidden" name="brand_id" value="${selected_brand_id}">`
-      $("input.select-default-brand").remove();
+      var new_html =`<div class="select-default-brand select-default-brand-name">${selected_brand_name}</div>
+                    <input name='product[brand_id]' type='hidden' class='select-default-brand-hidden' value='${selected_brand_id}]'>`
+      $(".select-default-brand").remove();
       $(".icon-arrow-bottom-brand").remove();
       $(".brand-search-result").remove();
       $("#brand-result").append(new_html);
+      console.log(new_html)
     });
 
 });
