@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190217040148) do
+ActiveRecord::Schema.define(version: 20190215124530) do
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20190217040148) do
     t.text     "product_introduce", limit: 65535
     t.integer  "product_state_id",                null: false
     t.integer  "user_id",                         null: false
-    t.integer  "brand_id",                        null: false
+    t.integer  "brand_id"
     t.integer  "size_id",                         null: false
     t.integer  "category_id",                     null: false
     t.integer  "deliveryday_id",                  null: false
@@ -145,11 +145,6 @@ ActiveRecord::Schema.define(version: 20190217040148) do
     t.string   "uid"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "postal_code",                         null: false
-    t.integer  "area_id",                             null: false
-    t.string   "city_name",                           null: false
-    t.string   "city_number",                         null: false
-    t.string   "building",                            null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def new
     @products = Product.new
     @products.images.new
-    # @categories = Category.find_by(parent_id: 0)
+    @categories = Category.all
   end
 
   def show
@@ -59,6 +59,7 @@ class ProductsController < ApplicationController
 
   def create
     @products = Product.create(products_params)
+    logger.debug @products.errors.inspect
     redirect_to action: 'index'
   end
 
@@ -73,7 +74,7 @@ class ProductsController < ApplicationController
   private
 
     def products_params
-       params.require(:product).permit(:product_state_id, :title, :product_old_id, :deliveryfee_id, :area_id, :price, :product_introduce, :shipment_id, :user_id, :brand_id, :size_id, :category_id, :deliveryday_id, images_attributes:[:image_url])
+       params.require(:product).permit(:product_state_id,:brand_id,:title, :product_old_id, :deliveryfee_id, :area_id, :price, :product_introduce, :shipment_id, :size_id, :category_id, :deliveryday_id, images_attributes:[:image_url])
     end
 
 end
