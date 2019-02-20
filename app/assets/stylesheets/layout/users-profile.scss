@@ -14,20 +14,29 @@
     .profile-user-name {
 
       .setting-profile-icon {
-        padding: 72px 16px 24px;
         background: url(user-backgorund);
         background-repeat: no-repeat;
         background-size: cover;
         text-align: center;
         font-size: 0;
+        position: relative;
 
-        figure {
-          display: inline-block;
-          overflow: hidden;
-          width: 60px;
+        .profile-edit-name {
           height: 60px;
-          border-radius: 50%;
-          vertical-align: middle;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          img {
+            display: inline-block;
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            vertical-align: middle;
+          }
         }
 
         .input-default {

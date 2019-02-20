@@ -21,9 +21,24 @@ crumb :show_creditcard do
   parent :users
 end
 
-crumb :update do
-  link "プロフィール", user_path
+crumb :post_creditcard do
+  link "クレジットカード情報入力", purchase_users_path
+  parent :show_creditcard
+end
+
+crumb :profile do
+  link "プロフィール", profile_users_path
   parent :users
+end
+
+crumb :lists do
+  link "出品した商品", lists_users_path
+  parent :users
+end
+
+crumb :userproduct do
+  link "出品商品画面", "/userproduct/:product_id/show"
+  parent :lists
 end
 
 crumb :product do |product|

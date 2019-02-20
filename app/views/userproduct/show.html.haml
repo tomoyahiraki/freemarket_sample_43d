@@ -1,3 +1,4 @@
+- breadcrumb :userproduct
 = render '/products/topheader'
 .item_information
   .item_information_main
@@ -6,7 +7,7 @@
     .item-main-content
       .item-photo
         .item-photo_main
-          .main-image{:style => "background-image: url(#{@product.images[0].image_url});"}
+          .main-image{:style => "background-image: url(#{@product.images[0].image});"}
       %table.item-detail-table
         %tbody
           %tr

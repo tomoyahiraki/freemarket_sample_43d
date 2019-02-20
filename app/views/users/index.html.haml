@@ -8,7 +8,8 @@
       %a.user-icon{:href => ""}
         %figure.user-image
           %img.user-image_top{:alt => "", :height => "60", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", :width => "60"}/
-        %h2.mypage-user-name yuko
+        %h2.mypage-user-name
+          = @users.nickname
         .mypage-number
           .mypage-number_detail
             評価
@@ -47,7 +48,7 @@
                   %span 2 日前
               %i.fa.fa-chevron-right
           %li.mypage-go-list
-            %a.mypage-go{:href => "/jp/mypage/notification/"} 一覧を見る
+            %a.mypage-go{:href => ""} 一覧を見る
         %ul#panel2.mypage-item-list.tab-pane
           %li.mypage-item-not-found.bold 現在、やることリストはありません
     %section.mypage-tab-container

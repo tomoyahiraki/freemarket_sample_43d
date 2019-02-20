@@ -56,7 +56,7 @@ before_action :authenticate_user!, except: [:index]
     currency: 'jpy',
     )
     @product.update(product_state_id: 2)
-    redirect_to action: 'index'
+    redirect_to action: 'index', notice: "購入・支払いが完了しました。"
   end
 
   def search
@@ -76,7 +76,6 @@ before_action :authenticate_user!, except: [:index]
 
   def brand_search
     @brands = Brand.where('name LIKE(?)', "#{params[:keyword]}%")
-    # binding.pry
     respond_to do |format|
       format.json
     end
@@ -84,6 +83,13 @@ before_action :authenticate_user!, except: [:index]
 
   def category_search
     @categories = Category.where(parent_id: "#{params[:id]}")
+    respond_to do |format|
+      format.json
+    end
+  end
+
+  def size_search
+    @sizes = Size.where(category_size_id: "#{params[:id]}")
     # binding.pry
     respond_to do |format|
       format.json

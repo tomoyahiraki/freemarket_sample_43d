@@ -1,6 +1,6 @@
 %header.header
   .header__all
-    .clearfix
+    .clearfix2
       %h1.l-left
         %a{href: "/"}
           %img{alt: "logo", height: "36", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3407889314", width: "134"}/
@@ -13,7 +13,8 @@
       %nav.l-left
         %ul.header__nav
           %li.submenu-trigger
-            カテゴリーから探す
+            %a{href: "/products/category_index"}
+              カテゴリーから探す
             %ul
               - @categories.each.with_index(0) do |category,i|
                 - if category.parent_id == 0
@@ -33,7 +34,8 @@
                                     %a.grandchildren-category-name{href: "/products/#{grandchild.id}/category"}
                                       = grandchild.name
           %li.submenu-trigger-brand
-            ブランドから探す
+            %a{href: "/"}
+              ブランドから探す
             %ul
               %li.submenu2-trigger-brand
                 %a.parent-category-name{href: "#"} シャネル
@@ -81,3 +83,4 @@
   .bread-crumbs-header
     %ul
       = breadcrumbs separator: " &#12297 "
+= render 'layouts/notification'

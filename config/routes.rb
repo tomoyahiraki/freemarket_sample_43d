@@ -15,11 +15,13 @@ Rails.application.routes.draw do
       get ':id/category' => 'products#category'
       get 'brand_search'
       get 'category_search'
+      get 'category_index'
     end
   end
 
   resources :users, only: [:index, :edit, :update, :show] do
     collection do
+      get 'profile'
       get 'purchase'
       patch 'purchase' => 'users#save'
       delete ':id' => 'users#delete'

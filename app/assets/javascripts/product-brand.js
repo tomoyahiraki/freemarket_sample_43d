@@ -43,7 +43,6 @@ $(function() {
       $(".icon-arrow-bottom-brand").remove();
       $(".brand-search-result").remove();
       $("#brand-result").append(new_html);
-      console.log(new_html)
     });
 
 });
