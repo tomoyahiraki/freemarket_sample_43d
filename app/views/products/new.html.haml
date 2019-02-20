@@ -16,7 +16,7 @@
                   %p.product_new_word 最大１０枚までアップロード出来ます
                   .content-update__container
                     = f.fields_for :images do |i|
-                      = i.file_field :image_url ,style: 'display: none;', class: 'image-upload', id: 'image_upload',multiple: true
+                      = i.file_field :image_url ,style: 'display: none;', class: 'image-upload', id: 'image_upload'
                     .content-update__container-items
                       .image__upload__imagebox
                         %ul.image__upload__imagebox-ul
