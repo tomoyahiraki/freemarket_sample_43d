@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-# before_action :move_to_index, except: :index
+before_action :authenticate_user!, except: [:create, :signininformation, :signinphonenumber, :signinlocation, :signincredit, :signincomplete]
 require "payjp"
 
   def index
