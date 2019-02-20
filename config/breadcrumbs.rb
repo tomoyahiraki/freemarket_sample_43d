@@ -49,6 +49,14 @@ crumb :category do |category_name|
   link category_name.name, "/products/:id/category"
 end
 
+crumb :category_index do
+  link "カテゴリー一覧", category_index_products_path
+end
+
+crumb :search do
+  link "#{params[:keyword]}", search_products_path
+end
+
 # If you want to split your breadcrumbs configuration over multiple files, you
 # can create a folder named `config/breadcrumbs` and put your configuration
 # files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that

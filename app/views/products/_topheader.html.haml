@@ -1,6 +1,6 @@
 %header.header
   .header__all
-    .clearfix2
+    .clearfix
       %h1.l-left
         %a{href: "/"}
           %img{alt: "logo", height: "36", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3407889314", width: "134"}/
@@ -79,7 +79,7 @@
             %li
               %a.sp-header-btn.header-login{:href => "/users/sign_up"} 新規会員登録
 
-- unless (controller_name == "products" && action_name == "index") || (controller_name == "products" && action_name == "search")
+- unless (controller_name == "products" && action_name == "index")
   .bread-crumbs-header
     %ul
       = breadcrumbs separator: " &#12297 "
