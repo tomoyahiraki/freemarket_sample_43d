@@ -4,12 +4,13 @@ class UsersController < ApplicationController
 require "payjp"
 
   def index
+    @users = User.find(current_user.id)
   end
 
   def edit
   end
 
-  def update
+  def profile
   end
 
   def login
@@ -50,7 +51,7 @@ require "payjp"
     Payjp.api_key = PAYJP_SECRET_KEY
     customer = Payjp::Customer.create(card: params[:payjp_token])
     @users.update_all(token_id: params[:payjp_token], customer_id: customer.id)
-    redirect_to users_path
+    redirect_to users_path, notice: "クレジットカード情報を登録しました。"
   end
 
   def lists
