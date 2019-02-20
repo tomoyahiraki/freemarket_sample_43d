@@ -1,0 +1,53 @@
+%body
+  .default-container
+    = render 'topheader'
+    %main.white{role: "main"}
+      .category-index
+        %h2.category-index_text カテゴリー一覧
+        .category-index_card
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box レディース
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box メンズ
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box ベビー・キッズ
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box インテリア・住まい・小物
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box 本・音楽・ゲーム
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box おもちゃ・ホビー・グッズ
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box コスメ・香水・美容
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box 家電・スマホ・カメラ
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box スポーツ・レジャー
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box ハンドメイド
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box チケット
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box 自転車・オートバイ
+          %a.category-index_card_name{:href => "#"}
+            .category-index_card_name_box その他
+        .category-index_list
+        - @categories.each.with_index(0) do |category,i|
+          - if category.parent_id == 0
+            .category-index_list_parent-category
+              = category.name
+            .category-index_list_category-box
+              - @categories.each.with_index(0) do |child,e|
+                - if @categories[i].id == child.parent_id
+                  .category-index_list_category-box_child-category
+                    = child.name
+                  .category-index_list_category-box_grandchild-category
+                    - @categories.each do |grandchild|
+                      - if @categories[e].id == grandchild.parent_id
+                        .category-index_list_category-box_grandchild-category_name
+                          %a.grandchildren-category-name{href: "/products/#{grandchild.id}/category"}
+                            = grandchild.name
+    .clearbox
+    = render 'topappbanner'
+    = render 'topfooter'
+    = render 'topcellbtn'
