@@ -149,7 +149,7 @@ p.product_new_word {
       }
   }
 
-    .content-category.clearfix {
+    .content-category.clearfix2 {
       padding: 40px;
       border-top: 1px solid #eee;
       @include clearfix();
@@ -199,12 +199,12 @@ p.product_new_word {
                   }
               }
           }
-      .clearfix.third{
+      .clearfix2.third{
         height: 300px;
       }
     }
 
-    .content-category.clearfix.second {
+    .content-category.clearfix2.second {
       padding: 40px;
       border-top: 1px solid #eee;
 
@@ -244,7 +244,7 @@ p.product_new_word {
         border: 0;
         width: 400px;
         height: 48px;
-        .clearfix.products_new_clearfix {
+        .clearfix2.products_new_clearfix {
           background-repeat: no-repeat;
           margin: 0;
           padding: 0;
@@ -353,7 +353,7 @@ p.product_new_word {
     font-size: 14px;
   }
 
-.content-category.clearfix.third {
+.content-category.clearfix2.third {
     height: 200px;
 }
 

@@ -68,7 +68,7 @@
                     %span.form-require 必須
                   = f.text_area(:product_introduce, rows: 5,class: 'textarea-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。')
 
-                .content-category.clearfix.first
+                .content-category.clearfix2.first
                   %h3.content-category-head 商品の詳細
                   .content-category-box
                     .content-category-group
@@ -107,7 +107,7 @@
                         .select-wrap
                           = f.collection_select :product_old_id, ProductOld.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
                           %i.icon-arrow-bottom
-                .content-category.clearfix.second
+                .content-category.clearfix2.second
                   %h3.content-category-head 配送について
                   = link_to '?', "/jp/help_center/article/68/", {class: "form-question", target: "_blank"}
                   .content-category-box
@@ -141,14 +141,14 @@
                         .select-wrap
                           = f.collection_select :product_state_id, ProductState.all, :id, :name, {}, {class: 'select-default-none'}
 
-                .content-category.clearfix.third
+                .content-category.clearfix2.third
                   .word-box
                     %h3.content-sub-head 販売価格（300~9,999,999）
                     = link_to '?', "/jp/help_center/article/68/", {class: "form-question", target: "_blank"}
                   .content-category-group
                     %ul.item-price-box
                       %li.price-box-group
-                        .clearfix.products_new_clearfix
+                        .clearfix2.products_new_clearfix
                           .left-box
                             %label.product_new_name_label 価格
                             %span.form-require 必須
