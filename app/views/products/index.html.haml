@@ -15,11 +15,7 @@
                 %section.items-box__contents
                   %a{href: "/products/#{ladysitem.id}"}
                     %figure.items-box__photo
-<<<<<<< HEAD
                       .lazyloaded{:style => "background-image: url(#{ladysitem.images[0].image})"}
-=======
-                      .lazyloaded{:style => "background-image: url(#{ladysitem.images[0].image_url})"}
->>>>>>> nagomuohta/master
                         - if ladysitem.product_state_id ==2
                           = image_tag('sold.png', :class => "sold-image-index")
                     .items-box__body
@@ -28,13 +24,10 @@
                       .items-box__num.clearfix
                         .items-box__price.font-2
                           = ladysitem.price
-<<<<<<< HEAD
                         .iine-wrapper
                           %span.fa.fa-heart.like-btn-index
                             %span.iinemaenum
                               = Favorite.where(product_id: ladysitem.id).count
-=======
->>>>>>> nagomuohta/master
                         %p.items-box__tax (税込)
               .view-all
                 %a{href: "/products/#{@ladys[0].category_id}/category"} すべての商品を見る
@@ -46,11 +39,7 @@
                 %section.items-box__contents
                   %a{href: "/products/#{mensitem.id}"}
                     %figure.items-box__photo
-<<<<<<< HEAD
                       .lazyloaded{:style => "background-image: url(#{mensitem.images[0].image})"}
-=======
-                      .lazyloaded{:style => "background-image: url(#{mensitem.images[0].image_url})"}
->>>>>>> nagomuohta/master
                         - if mensitem.product_state_id ==2
                           = image_tag('sold.png', :class => "sold-image-index")
                     .items-box__body
@@ -59,13 +48,10 @@
                       .items-box__num.clearfix
                         .items-box__price.font-2
                           = mensitem.price
-<<<<<<< HEAD
                         .iine-wrapper
                           %span.fa.fa-heart.like-btn-index
                             %span.iinemaenum
                               = Favorite.where(product_id: mensitem.id).count
-=======
->>>>>>> nagomuohta/master
                         %p.items-box__tax (税込)
               .view-all
                 %a{href: "/products/#{@mens[0].category_id}/category"} すべての商品を見る
@@ -77,11 +63,7 @@
                 %section.items-box__contents
                   %a{href: "/products/#{kidsitem.id}"}
                     %figure.items-box__photo
-<<<<<<< HEAD
                       .lazyloaded{:style => "background-image: url(#{kidsitem.images[0].image})"}
-=======
-                      .lazyloaded{:style => "background-image: url(#{kidsitem.images[0].image_url})"}
->>>>>>> nagomuohta/master
                         - if kidsitem.product_state_id ==2
                           = image_tag('sold.png', :class => "sold-image-index")
                     .items-box__body
@@ -90,13 +72,10 @@
                       .items-box__num.clearfix
                         .items-box__price.font-2
                           = kidsitem.price
-<<<<<<< HEAD
                         .iine-wrapper
                           %span.fa.fa-heart.like-btn-index
                             %span.iinemaenum
                               = Favorite.where(product_id: kidsitem.id).count
-=======
->>>>>>> nagomuohta/master
                         %p.items-box__tax (税込)
               .view-all
                 %a{href: "/products/#{@kids[0].category_id}/category"} すべての商品を見る
@@ -108,11 +87,7 @@
                 %section.items-box__contents
                   %a{href: "/products/#{cosmeitem.id}"}
                     %figure.items-box__photo
-<<<<<<< HEAD
                       .lazyloaded{:style => "background-image: url(#{cosmeitem.images[0].image})"}
-=======
-                      .lazyloaded{:style => "background-image: url(#{cosmeitem.images[0].image_url})"}
->>>>>>> nagomuohta/master
                         - if cosmeitem.product_state_id ==2
                           = image_tag('sold.png', :class => "sold-image-index")
                     .items-box__body
@@ -121,13 +96,10 @@
                       .items-box__num.clearfix
                         .items-box__price.font-2
                           = cosmeitem.price
-<<<<<<< HEAD
                         .iine-wrapper
                           %span.fa.fa-heart.like-btn-index
                             %span.iinemaenum
                               = Favorite.where(product_id: cosmeitem.id).count
-=======
->>>>>>> nagomuohta/master
                         %p.items-box__tax (税込)
               .view-all
                 %a{href: "/products/#{@cosme[0].category_id}/category"}  すべての商品を見る

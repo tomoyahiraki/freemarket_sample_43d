@@ -80,11 +80,7 @@
       %span.item-price-box-shipping-fee 送料込み
     - if @product.product_state_id == 1
       %button.buy-btn-red
-<<<<<<< HEAD
-        = link_to (':id/buy_confirm') do
-=======
         = link_to controller: 'products', action: 'buy_confirm', id: params[:id] do
->>>>>>> nagomuohta/master
           %p{style: "color: white;"} 購入画面に進む
     - elsif @product.product_state_id == 2
       .buy-btn-gray
