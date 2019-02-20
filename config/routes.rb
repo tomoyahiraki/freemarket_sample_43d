@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :edit, :update, :show] do
     collection do
+      get 'profile'
       get 'purchase'
       patch 'purchase' => 'users#save'
       delete ':id' => 'users#delete'

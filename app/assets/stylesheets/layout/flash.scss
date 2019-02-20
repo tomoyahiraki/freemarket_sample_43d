@@ -1,0 +1,15 @@
+.notification {
+  text-align: center;
+  .notice {
+    background-color: #CCFFCC;
+    color: #336633;
+    height: 60px;
+    line-height: 60px;
+  }
+  .alert {
+    background-color: #FFFFCC;
+    color: #FF6633;
+    height: 60px;
+    line-height: 60px;
+  }
+}
