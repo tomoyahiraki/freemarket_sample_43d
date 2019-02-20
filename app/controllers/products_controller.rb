@@ -7,6 +7,10 @@ before_action :authenticate_user!, except: [:index]
     @mens = Product.where(category_id:"2").order('id DESC').limit(4)
     @kids = Product.where(category_id:"3").order('id DESC').limit(4)
     @cosme = Product.where(category_id:"4").order('id DESC').limit(4)
+    @chanel = Product.where(brand_id:"556").order('id DESC').limit(4)
+    @lvmh = Product.where(brand_id:"1434").order('id DESC').limit(4)
+    @burberry = Product.where(brand_id:"957").order('id DESC').limit(4)
+    @gucci = Product.where(brand_id:"437").order('id DESC').limit(4)
   end
 
   def new

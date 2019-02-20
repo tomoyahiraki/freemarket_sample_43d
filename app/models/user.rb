@@ -11,7 +11,7 @@ class User < ApplicationRecord
   belongs_to :birth_day
   has_one :user_address
 
-    devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   def self.find_oauth(auth)
     uid = auth.uid

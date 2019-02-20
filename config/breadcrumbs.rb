@@ -27,9 +27,8 @@ crumb :update do
 end
 
 crumb :product do |product|
-  link "@#{product.name}", product_path(product)
+  link product.title, product_path(product)
 end
-
 
 # If you want to split your breadcrumbs configuration over multiple files, you
 # can create a folder named `config/breadcrumbs` and put your configuration
