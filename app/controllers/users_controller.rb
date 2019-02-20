@@ -24,6 +24,32 @@ require "payjp"
   def logout
   end
 
+  def create
+    if env['omniauth.auth'].present?
+        # Facebookログイン
+        @user  = User.from_omniauth(env['omniauth.auth'])
+        result = @user.save(context: :facebook_login)
+        fb       = "Facebook"
+    else
+        # 通常サインアップ
+        @user  = User.new(strong_params)
+        result = @user.save
+        fb       = ""
+    end
+    if result
+        sign_in @user
+        flash[:success] = "#{fb}ログインしました。"
+        redirect_to @user
+    else
+        if fb.present?
+            redirect_to auth_failure_path
+        else
+            render 'new'
+        end
+    end
+  end
+
+
   def show
     @users = User.find(current_user.id)
     @token = @users.token_id
@@ -99,7 +125,7 @@ require "payjp"
   private
 
   def users_params
-    params.require(:user).permit(:nickname, :email, :password, :first_name, :last_name, :kana_first_name, :kana_last_name, :birth_year_id, :birth_month_id, :birth_day_id, :telphone_number, :postal_code, :area_id, :city_name, :city_number, :building, :customer_id)
+    params.require(:user).permit(:nickname, :email, :password, :first_name, :last_name, :kana_first_name, :kana_last_name, :birth_year_id, :birth_month_id, :birth_day_id, :telphone_number, :postal_code, :area_id, :city_name, :city_number, :building, :customer_id, :provider, :uid)
   end
 
 end

@@ -260,6 +260,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET_KEY']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -275,6 +276,13 @@ Devise.setup do |config|
   # is mountable, there are some extra configurations to be taken into account.
   # The following options are available, assuming the engine is mounted as:
   #
+  config.omniauth :google_oauth2,
+                  Rails.application.secrets.google_client_id,
+                  Rails.application.secrets.google_client_secret
+  config.omniauth :facebook,
+                  Rails.application.secrets.facebook_client_id,
+                  Rails.application.secrets.facebook_client_secret
+
   #     mount MyEngine, at: '/my_engine'
   #
   # The router that invoked `devise_for`, in the example above, would be:
