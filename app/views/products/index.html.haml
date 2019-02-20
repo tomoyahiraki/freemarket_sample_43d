@@ -15,7 +15,7 @@
                 %section.items-box__contents
                   %a{href: "/products/#{ladysitem.id}"}
                     %figure.items-box__photo
-                      .lazyloaded{:style => "background-image: url(#{ladysitem.images[0].image_url})"}
+                      .lazyloaded{:style => "background-image: url(#{ladysitem.images[0].image})"}
                         - if ladysitem.product_state_id ==2
                           = image_tag('sold.png', :class => "sold-image-index")
                     .items-box__body
@@ -24,6 +24,10 @@
                       .items-box__num.clearfix
                         .items-box__price.font-2
                           = ladysitem.price
+                        .iine-wrapper
+                          %span.fa.fa-heart.like-btn-index
+                            %span.iinemaenum
+                              = Favorite.where(product_id: ladysitem.id).count
                         %p.items-box__tax (税込)
               .view-all
                 %a{href: "/products/#{@ladys[0].category_id}/category"} すべての商品を見る
@@ -35,7 +39,7 @@
                 %section.items-box__contents
                   %a{href: "/products/#{mensitem.id}"}
                     %figure.items-box__photo
-                      .lazyloaded{:style => "background-image: url(#{mensitem.images[0].image_url})"}
+                      .lazyloaded{:style => "background-image: url(#{mensitem.images[0].image})"}
                         - if mensitem.product_state_id ==2
                           = image_tag('sold.png', :class => "sold-image-index")
                     .items-box__body
@@ -44,6 +48,10 @@
                       .items-box__num.clearfix
                         .items-box__price.font-2
                           = mensitem.price
+                        .iine-wrapper
+                          %span.fa.fa-heart.like-btn-index
+                            %span.iinemaenum
+                              = Favorite.where(product_id: mensitem.id).count
                         %p.items-box__tax (税込)
               .view-all
                 %a{href: "/products/#{@mens[0].category_id}/category"} すべての商品を見る
@@ -55,7 +63,7 @@
                 %section.items-box__contents
                   %a{href: "/products/#{kidsitem.id}"}
                     %figure.items-box__photo
-                      .lazyloaded{:style => "background-image: url(#{kidsitem.images[0].image_url})"}
+                      .lazyloaded{:style => "background-image: url(#{kidsitem.images[0].image})"}
                         - if kidsitem.product_state_id ==2
                           = image_tag('sold.png', :class => "sold-image-index")
                     .items-box__body
@@ -64,6 +72,10 @@
                       .items-box__num.clearfix
                         .items-box__price.font-2
                           = kidsitem.price
+                        .iine-wrapper
+                          %span.fa.fa-heart.like-btn-index
+                            %span.iinemaenum
+                              = Favorite.where(product_id: kidsitem.id).count
                         %p.items-box__tax (税込)
               .view-all
                 %a{href: "/products/#{@kids[0].category_id}/category"} すべての商品を見る
@@ -75,7 +87,7 @@
                 %section.items-box__contents
                   %a{href: "/products/#{cosmeitem.id}"}
                     %figure.items-box__photo
-                      .lazyloaded{:style => "background-image: url(#{cosmeitem.images[0].image_url})"}
+                      .lazyloaded{:style => "background-image: url(#{cosmeitem.images[0].image})"}
                         - if cosmeitem.product_state_id ==2
                           = image_tag('sold.png', :class => "sold-image-index")
                     .items-box__body
@@ -84,6 +96,10 @@
                       .items-box__num.clearfix
                         .items-box__price.font-2
                           = cosmeitem.price
+                        .iine-wrapper
+                          %span.fa.fa-heart.like-btn-index
+                            %span.iinemaenum
+                              = Favorite.where(product_id: cosmeitem.id).count
                         %p.items-box__tax (税込)
               .view-all
                 %a{href: "/products/#{@cosme[0].category_id}/category"}  すべての商品を見る
@@ -97,7 +113,7 @@
               %section.items-box__contents
                 %a{href: "/products/#{chanelitem.id}"}
                   %figure.items-box__photo
-                    .lazyloaded{:style => "background-image: url(#{chanelitem.images[0].image_url})"}
+                    .lazyloaded{:style => "background-image: url(#{chanelitem.images[0].image})"}
                       - if chanelitem.product_state_id ==2
                         = image_tag('sold.png', :class => "sold-image-index")
                   .items-box__body
@@ -106,6 +122,10 @@
                     .items-box__num.clearfix
                       .items-box__price.font-2
                         = chanelitem.price
+                      .iine-wrapper
+                        %span.fa.fa-heart.like-btn-index
+                          %span.iinemaenum
+                            = Favorite.where(product_id: chanelitem.id).count
                       %p.items-box__tax (税込)
             .view-all
               %a{href: "#"} すべての商品を見る
@@ -116,7 +136,7 @@
               %section.items-box__contents
                 %a{href: "/products/#{lvmhitem.id}"}
                   %figure.items-box__photo
-                    .lazyloaded{:style => "background-image: url(#{lvmhitem.images[0].image_url})"}
+                    .lazyloaded{:style => "background-image: url(#{lvmhitem.images[0].image})"}
                       - if lvmhitem.product_state_id ==2
                         = image_tag('sold.png', :class => "sold-image-index")
                   .items-box__body
@@ -125,6 +145,10 @@
                     .items-box__num.clearfix
                       .items-box__price.font-2
                         = lvmhitem.price
+                      .iine-wrapper
+                        %span.fa.fa-heart.like-btn-index
+                          %span.iinemaenum
+                            = Favorite.where(product_id: lvmhitem.id).count
                       %p.items-box__tax (税込)
             .view-all
               %a{href: "#"} すべての商品を見る
@@ -135,7 +159,7 @@
               %section.items-box__contents
                 %a{href: "/products/#{burberryitem.id}"}
                   %figure.items-box__photo
-                    .lazyloaded{:style => "background-image: url(#{burberryitem.images[0].image_url})"}
+                    .lazyloaded{:style => "background-image: url(#{burberryitem.images[0].image})"}
                       - if burberryitem.product_state_id ==2
                         = image_tag('sold.png', :class => "sold-image-index")
                   .items-box__body
@@ -144,6 +168,10 @@
                     .items-box__num.clearfix
                       .items-box__price.font-2
                         = burberryitem.price
+                      .iine-wrapper
+                        %span.fa.fa-heart.like-btn-index
+                          %span.iinemaenum
+                            = Favorite.where(product_id: burberryitem.id).count
                       %p.items-box__tax (税込)
             .view-all
               %a{href: "#"} すべての商品を見る
@@ -154,7 +182,7 @@
               %section.items-box__contents
                 %a{href: "/products/#{gucciitem.id}"}
                   %figure.items-box__photo
-                    .lazyloaded{:style => "background-image: url(#{gucciitem.images[0].image_url})"}
+                    .lazyloaded{:style => "background-image: url(#{gucciitem.images[0].image})"}
                       - if gucciitem.product_state_id ==2
                         = image_tag('sold.png', :class => "sold-image-index")
                   .items-box__body
@@ -163,6 +191,10 @@
                     .items-box__num.clearfix
                       .items-box__price.font-2
                         = gucciitem.price
+                      .iine-wrapper
+                        %span.fa.fa-heart.like-btn-index
+                          %span.iinemaenum
+                            = Favorite.where(product_id: gucciitem.id).count
                       %p.items-box__tax (税込)
             .view-all
               %a{href: "#"} すべての商品を見る

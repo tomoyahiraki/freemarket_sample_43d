@@ -1,0 +1,71 @@
+.category-index{
+  width:700px;
+  margin:40px 370px 0px 370px;
+  &_text{
+    padding:8px 0px 8px 0px;
+    font-size:22px;
+  }
+  &_card{
+    height:250px;
+    width:700px;
+    &_name{
+      color: black;
+      max-height:40px;
+      &_box{
+        max-width: 240px;
+        height:40px;
+        line-height: 40px;
+        padding:0px 30px 0px 30px;
+        margin: 5px;
+        background-color: white;
+        text-align: center;
+        display: inline-block;
+      }
+    }
+  }
+  &_list{
+    margin:30px 0px 30px 0px;
+    &_parent-category{
+      width:640px;
+      height:33px;
+      line-height:33px;
+      padding:7px 30px 0px 30px;
+      background-color:#CC0000;
+      color:white;
+      font-weight: bold;
+      font-size:22px;
+      border-radius: 4px;
+    }
+    &_category-box{
+      width:700px;
+      padding:24px 30px 10px 30px;
+      background-color:white;
+      margin-bottom: 40px;
+      box-sizing:border-box;
+      &_all{
+        margin:8px 0px 8px 0px;
+      }
+      &_child-category{
+        width:640px;
+        height:34px;
+        padding:15px 0px 5px 0px;
+        font-weight:bold;
+        box-sizing:border-box;
+      }
+      &_grandchild-category{
+        width:600px;
+        padding:0px 30px 10px 30px;
+        margin-right: 0px;
+        &_name{
+          width:280px;
+          height: 32px;
+          line-height: 32px;
+          padding-right: 20px;
+          box-sizing:border-box;
+          font-size:16px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

@@ -7,12 +7,12 @@
     .item-main-content
       .item-photo
         .item-photo_main
-          .main-image{:style => "background-image: url(#{@product.images[0].image_url});"}
+          .main-image{:style => "background-image: url(#{@product.images[0].image});"}
             - if @product.product_state_id ==2
               = image_tag('sold.png', :class => "sold-image")
         .item-photo_sub
           = @product.images.each do |image|
-            .sub-image{:style => "background-image: url(#{image.image_url});", :src => "#{image.image_url}"}
+            .sub-image{:style => "background-image: url(#{image.image});", :src => "#{image.image}"}
       %table.item-detail-table
         %tbody
           %tr
@@ -36,14 +36,14 @@
               %a{:href => "#"}
                 %div
                   = @product.category.name
-              %a{:href => "#"}
-                .item-detail-table-sub-sub-category
-                  %i.fas.fa-angle-right.my-skyblue
-                  xx
-              %a{:href => "#"}
-                .item-detail-table-sub-sub-category
-                  %i.fas.fa-angle-right.my-skyblue
-                  xxx
+              -# %a{:href => "#"}
+              -#   .item-detail-table-sub-sub-category
+              -#     %i.fas.fa-angle-right.my-skyblue
+              -#     xx
+              -# %a{:href => "#"}
+              -#   .item-detail-table-sub-sub-category
+              -#     %i.fas.fa-angle-right.my-skyblue
+              -#     xxx
           %tr
             %th ブランド
             %td
@@ -156,7 +156,7 @@
         %section.items-box__contents
           %a{href: "/products/#{item.id}"}
             %figure.items-box__photo
-              .lazyloaded{:style => "background-image: url(#{item.images[0].image_url})"}
+              .lazyloaded{:style => "background-image: url(#{item.images[0].image})"}
             .items-box__body
               %h3.items-box__name.font-1
                 = item.title

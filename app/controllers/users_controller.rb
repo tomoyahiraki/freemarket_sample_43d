@@ -81,7 +81,7 @@ require "payjp"
   end
 
   def lists
-    @selllists = Product.where(user_id:"1")
+    @selllists = Product.where(user_id:current_user.id)
   end
 
 
