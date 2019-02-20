@@ -28,10 +28,10 @@
         .login__main__form
           %button#facebook-login.btn__sns.btn__sns-facebook
             %i.fab.fa-facebook-square
-            Facebookでログイン
+            = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path
           %button#google-login.btn__sns.btn__sns-google
             %i.fab.fa-google-plus
-            Googleでログイン
+            = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path
         %form{action: "##", method: "POST"}
           .login__main__form-inner
             .login__main__form-inner-group
