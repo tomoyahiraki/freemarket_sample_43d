@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get ':id/category' => 'products#category'
       get 'brand_search'
       get 'category_search'
-      get 'size_search'
+      get 'category_index'
     end
   end
 
