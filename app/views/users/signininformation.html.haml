@@ -21,12 +21,12 @@
             .signinone-form-group
               %label.product_new_name_label.content-update-head パスワード
               %span.form-require 必須
-              = f.password_field :password, class: "input-default signin-input", placeholder: "6文字以上", pattern: "^[a-zA-Z\d]{6,}$", required: ""
+              = f.password_field :password, class: "input-default signin-input", placeholder: "6文字以上", required: ""
 
             .signinone-form-group
               %label.product_new_name_label.content-update-head パスワード（確認）
               %span.form-require 必須
-              = f.password_field :password_confirmation, class: "input-default signin-input", placeholder: "6文字以上", pattern: "^[a-zA-Z\d]{6,}$", required: ""
+              = f.password_field :password_confirmation, class: "input-default signin-input", placeholder: "6文字以上", required: ""
 
             .signinone-form-group
               %h3.content-sub-head.signinone-h3 本人確認

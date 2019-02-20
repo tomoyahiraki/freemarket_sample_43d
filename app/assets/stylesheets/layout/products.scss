@@ -538,8 +538,10 @@ span.form-require-two {
     line-height: 1.5;
     cursor: pointer;
 
-    &-hidden{
+    &-name{
       line-height: 50px;
+    }
+    &-hidden{
     }
   }
 }

@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
 
-# before_action :move_to_index, except: :index
+before_action :authenticate_user!, except: [:create, :signininformation, :signinphonenumber, :signinlocation, :signincredit, :signincomplete]
 require "payjp"
 
   def index
+    @users = User.find(current_user.id)
   end
 
   def edit
   end
 
-  def update
+  def profile
   end
 
   def login
@@ -23,6 +24,32 @@ require "payjp"
 
   def logout
   end
+
+  def create
+    if env['omniauth.auth'].present?
+        # Facebookログイン
+        @user  = User.from_omniauth(env['omniauth.auth'])
+        result = @user.save(context: :facebook_login)
+        fb       = "Facebook"
+    else
+        # 通常サインアップ
+        @user  = User.new(strong_params)
+        result = @user.save
+        fb       = ""
+    end
+    if result
+        sign_in @user
+        flash[:success] = "#{fb}ログインしました。"
+        redirect_to @user
+    else
+        if fb.present?
+            redirect_to auth_failure_path
+        else
+            render 'new'
+        end
+    end
+  end
+
 
   def show
     @users = User.find(current_user.id)
@@ -50,7 +77,7 @@ require "payjp"
     Payjp.api_key = PAYJP_SECRET_KEY
     customer = Payjp::Customer.create(card: params[:payjp_token])
     @users.update_all(token_id: params[:payjp_token], customer_id: customer.id)
-    redirect_to users_path
+    redirect_to users_path, notice: "クレジットカード情報を登録しました。"
   end
 
   def lists
@@ -99,7 +126,7 @@ require "payjp"
   private
 
   def users_params
-    params.require(:user).permit(:nickname, :email, :password, :first_name, :last_name, :kana_first_name, :kana_last_name, :birth_year_id, :birth_month_id, :birth_day_id, :telphone_number, :postal_code, :area_id, :city_name, :city_number, :building, :customer_id)
+    params.require(:user).permit(:nickname, :email, :password, :first_name, :last_name, :kana_first_name, :kana_last_name, :birth_year_id, :birth_month_id, :birth_day_id, :telphone_number, :postal_code, :area_id, :city_name, :city_number, :building, :customer_id, :provider, :uid)
   end
 
 end

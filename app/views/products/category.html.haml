@@ -2,26 +2,25 @@
   .default-container
     = render 'topheader'
     %main.white{role: "main"}
-      .search-result
-        .search-result_main
-          %h2.search-result_main_text
-            -if @products[0].present?
-              = @products[0].category.name
-              %span の商品一覧
-            - else
-              条件に合致したアイテムは見つかりません
-          - @products.each do |product|
-            %section.items-box__contents
-              %a{href: "/products/#{product.id}"}
-                %figure.items-box__photo
-                  .lazyloaded{:style => "background-image: url(#{product.images[0].image_url})"}
-                .items-box__body
-                  %h3.items-box__name.font-1
-                    = product.title
-                  .items-box__num.clearfix
-                    .items-box__price.font-2
-                      = product.price
-                    %p.items-box__tax (税込)
+      .category-search-result
+        %h2.search-result_main_text
+          -if @products[0].present?
+            = @products[0].category.name
+            %span の商品一覧
+          - else
+            条件に合致したアイテムは見つかりません
+        - @products.each do |product|
+          %section.items-box__contents
+            %a{href: "/products/#{product.id}"}
+              %figure.items-box__photo
+                .lazyloaded{:style => "background-image: url(#{product.images[0].image_url})"}
+              .items-box__body
+                %h3.items-box__name.font-1
+                  = product.title
+                .items-box__num.clearfix
+                  .items-box__price.font-2
+                    = product.price
+                  %p.items-box__tax (税込)
     .clearbox
     = render 'topappbanner'
     = render 'topfooter'

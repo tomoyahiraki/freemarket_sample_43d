@@ -2,8 +2,9 @@ require 'carrierwave/storage/abstract'
 require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
-  if Rails.env.production?
+
       CarrierWave.configure do |config|
+        if Rails.env.production?
         config.storage = :fog
         config.fog_provider = 'fog/aws'
         config.fog_credentials = {
@@ -16,9 +17,5 @@ require 'carrierwave/storage/fog'
         config.fog_directory  = 'freemarket43d'
         config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket43d'
       end
-      else
-      CarrierWave.configure do |config|
-      config.storage = :file
     end
-  end
 
