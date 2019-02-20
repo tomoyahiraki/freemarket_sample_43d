@@ -43,6 +43,7 @@
 .pickup{
   &__container{
 	padding: 40px 0 ;
+  height:1900px;
   }
 
   &__head{
@@ -137,5 +138,11 @@
   position: absolute;
   bottom: 0;
   }
+}
+
+.sold-image-index{
+  height: 100px;
+  max-width: 100px;
+  position:absolute;
 }
 
