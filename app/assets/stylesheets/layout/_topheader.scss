@@ -61,7 +61,7 @@
   font-style: normal;
 }
 
-.clearfix{
+.clearfix2{
   @include clearfix();
   height:36px;
 }
@@ -234,6 +234,14 @@
 .submenu2-trigger:hover > ul,
 .submenu3-trigger:hover > ul,{
   display:block;
+}
+
+.submenu-trigger:hover >a{
+  color:#00CCFF;
+}
+
+.submenu-trigger-brand:hover >a{
+  color:#00CCFF;
 }
 
 .submenu-trigger-brand{

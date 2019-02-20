@@ -10,7 +10,7 @@
             %section.items-box__contents
               %a{href: "/products/#{product.id}"}
                 %figure.items-box__photo
-                  .lazyloaded{:style => "background-image: url(#{product.images[0].image_url})"}
+                  .lazyloaded{:style => "background-image: url(#{product.images[0].image})"}
                 .items-box__body
                   %h3.items-box__name.font-1
                     = product.title

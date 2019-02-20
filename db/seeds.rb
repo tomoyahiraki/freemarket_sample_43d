@@ -36,35 +36,35 @@
 
   require 'csv'
 
-  # csv_data = CSV.read('db/csv/categories.csv', headers: true)
-  # csv_data.each do |data|
-  #   Category.create(data.to_hash)
-  # end
+  csv_data = CSV.read('db/csv/categories.csv', headers: true)
+  csv_data.each do |data|
+    Category.create(data.to_hash)
+  end
 
-  #   csv_data = CSV.read('db/csv/size_table.csv', headers: true)
-  # csv_data.each do |data|
-  #   Size.create(data.to_hash)
-  # end
+    csv_data = CSV.read('db/csv/size_table.csv', headers: true)
+  csv_data.each do |data|
+    Size.create(data.to_hash)
+  end
 
-  # csv_data = CSV.read('db/csv/prefectures.csv', headers: true)
-  # csv_data.each do |data|
-  #   Area.create(data.to_hash)
-  # end
+  csv_data = CSV.read('db/csv/prefectures.csv', headers: true)
+  csv_data.each do |data|
+    Area.create(data.to_hash)
+  end
 
-  # csv_data = CSV.read('db/csv/birth_years.csv', headers: true)
-  # csv_data.each do |data|
-  #   BirthYear.create(data.to_hash)
-  # end
+  csv_data = CSV.read('db/csv/birth_years.csv', headers: true)
+  csv_data.each do |data|
+    BirthYear.create(data.to_hash)
+  end
 
-  # csv_data = CSV.read('db/csv/birth_months.csv', headers: true)
-  # csv_data.each do |data|
-  #   BirthMonth.create(data.to_hash)
-  # end
+  csv_data = CSV.read('db/csv/birth_months.csv', headers: true)
+  csv_data.each do |data|
+    BirthMonth.create(data.to_hash)
+  end
 
-  # csv_data = CSV.read('db/csv/birth_days.csv', headers: true)
-  # csv_data.each do |data|
-  #   BirthDay.create(data.to_hash)
-  # end
+  csv_data = CSV.read('db/csv/birth_days.csv', headers: true)
+  csv_data.each do |data|
+    BirthDay.create(data.to_hash)
+  end
 
 
   csv_data = CSV.read('db/csv/brand.csv', headers: true)
@@ -95,4 +95,9 @@
   csv_data = CSV.read('db/csv/shipment.csv', headers: true)
   csv_data.each do |data|
     Shipment.create(data.to_hash)
+  end
+
+  csv_data = CSV.read('db/csv/image.csv', headers: true)
+  csv_data.each do |data|
+    Image.create(data.to_hash)
   end
