@@ -16,7 +16,7 @@
                   %p.product_new_word 最大１０枚までアップロード出来ます
                   .content-update__container
                     = f.fields_for :images do |i|
-                      = i.file_field :image_url ,style: 'display: none;', class: 'image-upload', id: 'image_upload',multiple: true
+                      = i.file_field :image_url ,style: 'display: none;', class: 'image-upload', id: 'image_upload'
                     .content-update__container-items
                       .image__upload__imagebox
                         %ul.image__upload__imagebox-ul
@@ -80,27 +80,27 @@
                           %i.icon-arrow-bottom
                         .category__select__second
                           .select-wrap
-                            = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'second-select'}
+                            %select#second-select.select-default-two{name: "product[category_id]"}
                             %i.icon-arrow-bottom
                         .category__select__third
                           .select-wrap
-                            = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'third-select'}
+                            %select#third-select.select-default-two{name: "product[category_id]"}
                             %i.icon-arrow-bottom
                       .category__select__size
                         %label.product_new_name_label サイズ
                         %span.form-require 必須
                         .select-wrap
-                          = f.collection_select :size_id, Size.all, :id, :name, {}, {class: 'select-default'}
+                          = f.collection_select :size_id, Size.where(id:1..10), :id, :name, {}, {class: 'select-default'}
                           %i.icon-arrow-bottom
                       .category__select__brand
                         %label.product_new_name_label ブランド
                         %span.form-require-two 任意
                         .select-wrap
                           #brand-result
-                          %input.select-default-brand{placeholder:"例)シャネル", type:'text', name:'keyword'}
+                            = f.text_field :brand_id, placeholder:"例)シャネル", type:'text', name:'keyword',class:'select-default-brand'
+
                           %i.icon-arrow-bottom.icon-arrow-bottom-brand
                         %ul.brand-search-result
-
                       .category__select__old
                         %label.product_new_name_label 商品の状態
                         %span.form-require 必須

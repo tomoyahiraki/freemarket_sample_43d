@@ -16,7 +16,7 @@ before_action :authenticate_user!, except: [:index]
   def new
     @products = Product.new
     @products.images.new
-    # @categories = Category.find_by(parent_id: 0)
+    @categories = Category.all
   end
 
   def show
@@ -65,6 +65,8 @@ before_action :authenticate_user!, except: [:index]
 
   def create
     @products = Product.create(products_params)
+    # binding.pry
+    logger.debug @products.errors.inspect
     redirect_to action: 'index'
   end
 
@@ -81,9 +83,17 @@ before_action :authenticate_user!, except: [:index]
     end
   end
 
+  def category_search
+    @categories = Category.where(parent_id: "#{params[:id]}")
+    # binding.pry
+    respond_to do |format|
+      format.json
+    end
+  end
+
   private
 
     def products_params
-       params.require(:product).permit(:product_state_id, :title, :product_old_id, :deliveryfee_id, :area_id, :price, :product_introduce, :shipment_id, :user_id, :brand_id, :size_id, :category_id, :deliveryday_id, images_attributes:[:image_url])
+       params.require(:product).permit(:product_state_id,:brand_id,:title, :product_old_id, :deliveryfee_id, :area_id, :price, :product_introduce, :shipment_id, :size_id, :category_id, :deliveryday_id, images_attributes:[:image_url]).merge(user_id: current_user.id)
     end
 end
