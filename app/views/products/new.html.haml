@@ -13,7 +13,7 @@
                 .content-update-box
                   %label.product_new_name_label.content-update-head 出品画像
                   %span.form-require 必須
-                  %p.product_new_word 最大１０枚までアップロード出来ます
+                  %p.product_new_word 最大10枚までアップロード出来ます
                   .content-update__container
                     = f.fields_for :images do |i|
                       = i.file_field :image ,style: 'display: none;', class: 'image-upload', id: 'image_upload'
@@ -91,7 +91,6 @@
                         %span.form-require 必須
                         .select-wrap
                           %select#size-select.select-default{name: "product[size_id]"}
-                          -# = f.collection_select :size_id, Size.where(id:1..10), :id, :name, {}, {class: 'select-default'}
                           %i.icon-arrow-bottom
                       .category__select__brand
                         %label.product_new_name_label ブランド

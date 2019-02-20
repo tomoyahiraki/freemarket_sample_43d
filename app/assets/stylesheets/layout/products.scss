@@ -152,6 +152,7 @@ p.product_new_word {
     .content-category.clearfix {
       padding: 40px;
       border-top: 1px solid #eee;
+      @include clearfix();
 
         h3.content-category-head {
           float: left;
