@@ -2,7 +2,7 @@
   = render 'productheader'
   .products_buyconfirm_content
     %h2 購入を確定しますか？
-    = form_tag("products/:id/buy", method: "PATCH") do
+    = form_tag("buy", method: "PATCH") do
       .products_buyconfirm_content_item
         .products_buyconfirm_content_item_image
           = image_tag('dra.jpeg', :class => "products_buyconfirm_content_item_image_content")
@@ -19,7 +19,7 @@
               支払い金額
             .products_buyconfirm_content_item_form_total_right
               = "¥ #{@product.price}"
-          - if (@token.present? && @user.user_address.present?)
+          - if (@token.present? && @user.area_id.present?)
             %button.products_buyconfirm_content_item_form_buybtn{type: "submit"}
               購入画面に進む
           - else
@@ -31,12 +31,12 @@
         .products_buyconfirm_content_address_box
           %h3 配送先
           %address
-            = @user.user_address.postal_code
+            = @user.postal_code
             %br
-              = @user.user_address.area_id
-              = @user.user_address.city_name
-              = @user.user_address.city_number
-              = @user.user_address.building
+              = @user.area_id
+              = @user.city_name
+              = @user.city_number
+              = @user.building
             %br
               = @user.nickname
           %p
