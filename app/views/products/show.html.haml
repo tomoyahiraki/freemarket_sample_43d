@@ -80,8 +80,8 @@
       %span.item-price-box-shipping-fee 送料込み
     - if @product.product_state_id == 1
       %button.buy-btn-red
-        = link_to (':id/buy_confirm') do
-          %p{style: "color: black;"} 購入画面に進む
+        = link_to controller: 'products', action: 'buy_confirm', id: params[:id] do
+          %p{style: "color: white;"} 購入画面に進む
     - elsif @product.product_state_id == 2
       .buy-btn-gray
         売り切れ済み

@@ -1,20 +1,20 @@
 %main.contents
-  - breadcrumb :update
+  - breadcrumb :profile
   = render 'products/topheader'
 
 %main.l-container.clearfix
   .l-content
     %section.l-chapter-container
       %h2.l-chapter-head プロフィール
-      %form.profile-user-name{action: "https://www.mercari.com/jp/mypage/profile/", method: "POST"}
-        %input{name: "__csrf_value", type: "hidden", value: "16ba7f7b9c6d2d0b2cb924344d8613d8741640d62e977279e423cfe70662f156ef61cb58af0b0219d8b354f587ac674d2639574b9a1262f3b8c5d1c338fd61df8"}/
+      .profile-user-name
         .setting-profile-icon
-          %figure
-            %img{height: "60", src: "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", width: "60"}/
-          %input.input-default{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: "zepper00xx"}/
+          %section{class: "mypage-user-icon", style: "background-image:url(#{asset_path "user-background.jpg"})"}
+            .profile-edit-name
+              %img{height: "60", src: "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", width: "60"}
+              %input.input-default{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: "名無し"}
         .setting-profile-content
           %textarea.textarea-default{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-          %input{name: "after_save_callback", type: "hidden", value: "https://www.mercari.com/jp/mypage/profile/"}/
+          %input{name: "after_save_callback", type: "hidden", value: "https://www.mercari.com/jp/mypage/profile/"}
           %button.btn-default.btn-red{type: "submit"} 変更する
 
   .l-side

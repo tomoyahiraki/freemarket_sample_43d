@@ -56,7 +56,7 @@ before_action :authenticate_user!, except: [:index]
     currency: 'jpy',
     )
     @product.update(product_state_id: 2)
-    redirect_to action: 'index'
+    redirect_to action: 'index', notice: "購入・支払いが完了しました。"
   end
 
   def search

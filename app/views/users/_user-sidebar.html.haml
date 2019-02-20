@@ -19,7 +19,7 @@
         いいね！一覧
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-nav-list-item{:href => "/jp/sell/"}
+      %a.mypage-nav-list-item{:href => "/products/new/"}
         出品する
         %i.fa.fa-chevron-right
     %li
@@ -71,7 +71,7 @@
   %h3.mypage-nav-head 設定
   %ul.mypage-nav-list
     %li
-      %a.mypage-nav-list-item{:href => "/users/edit"}
+      %a.mypage-nav-list-item{:href => "/users/profile"}
         プロフィール
         %i.fa.fa-chevron-right
     %li
@@ -87,7 +87,7 @@
         メール/パスワード
         %i.fa.fa-chevron-right
     %li
-      %a.mypage-nav-list-item{:href => "/users/edit"}
+      %a.mypage-nav-list-item{:href => "/users/#{current_user.id}/edit"}
         本人情報
         %i.fa.fa-chevron-right
     %li
