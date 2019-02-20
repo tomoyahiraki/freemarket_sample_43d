@@ -90,7 +90,8 @@
                         %label.product_new_name_label サイズ
                         %span.form-require 必須
                         .select-wrap
-                          = f.collection_select :size_id, Size.where(id:1..10), :id, :name, {}, {class: 'select-default'}
+                          %select#size-select.select-default{name: "product[size_id]"}
+                          -# = f.collection_select :size_id, Size.where(id:1..10), :id, :name, {}, {class: 'select-default'}
                           %i.icon-arrow-bottom
                       .category__select__brand
                         %label.product_new_name_label ブランド

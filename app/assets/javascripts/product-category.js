@@ -14,7 +14,6 @@ $(function(){
     category_second_result.append(html);
   }
   $('#first-select').change(function(){
-  // console.log(first_selected)
     $('#second-select').show();
     $.ajax({
     type: 'GET',
@@ -66,11 +65,6 @@ $(function(){
         appendNoCategories("一致するカテゴリーはありません");
       }
     });
-  });
-
-  $('#third-select').change(function(){
-    $('.category__select__size').show();
-    $('.category__select__brand').show();
   });
 
 });

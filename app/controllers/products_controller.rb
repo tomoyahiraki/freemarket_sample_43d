@@ -76,7 +76,6 @@ before_action :authenticate_user!, except: [:index]
 
   def brand_search
     @brands = Brand.where('name LIKE(?)', "#{params[:keyword]}%")
-    # binding.pry
     respond_to do |format|
       format.json
     end
@@ -84,6 +83,13 @@ before_action :authenticate_user!, except: [:index]
 
   def category_search
     @categories = Category.where(parent_id: "#{params[:id]}")
+    respond_to do |format|
+      format.json
+    end
+  end
+
+  def size_search
+    @sizes = Size.where(category_size_id: "#{params[:id]}")
     # binding.pry
     respond_to do |format|
       format.json
