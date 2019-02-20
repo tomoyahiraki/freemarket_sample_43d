@@ -37,14 +37,15 @@ before_action :authenticate_user!, except: [:index]
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @products = Product.find(params[:id])
   end
 
   def update
-    product = Product.find(params[:id])
-    if product.user.id == current_user.id
-      product.update
+    @product = Product.find(params[:id])
+    if @product.user.id == current_user.id
+      @product.update(products_params)
     end
+    redirect_to controller: 'userproduct', action: 'show', product_id: params[:id]
   end
 
   def buy_confirm
