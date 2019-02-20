@@ -8,13 +8,15 @@
         %h2.pickup__head ピックアップカテゴリー
         %section.pickup__head__container.clearfix
           %h3.pickup__head-item
-            %a{href: "##"} レディース 新着アイテム
+            %a{href: "/products/#{@ladys[0].category_id}/category"} レディース 新着アイテム
           .items-box.clearfix
             - @ladys.each do |ladysitem|
               %section.items-box__contents
                 %a{href: "/products/#{ladysitem.id}"}
                   %figure.items-box__photo
                     .lazyloaded{:style => "background-image: url(#{ladysitem.images[0].image_url})"}
+                      - if ladysitem.product_state_id ==2
+                        = image_tag('sold.png', :class => "sold-image-index")
                   .items-box__body
                     %h3.items-box__name.font-1
                       = ladysitem.title
@@ -23,15 +25,17 @@
                         = ladysitem.price
                       %p.items-box__tax (税込)
             .view-all
-              %a{href: "##"} すべての商品を見る
+              %a{href: "/products/#{@ladys[0].category_id}/category"} すべての商品を見る
           %h3.pickup__head-item
-            %a{href: "##"} メンズ 新着アイテム
+            %a{href: "/products/#{@mens[0].category_id}/category"} メンズ 新着アイテム
           .items-box.clearfix
             - @mens.each do |mensitem|
               %section.items-box__contents
                 %a{href: "/products/#{mensitem.id}"}
                   %figure.items-box__photo
                     .lazyloaded{:style => "background-image: url(#{mensitem.images[0].image_url})"}
+                      - if mensitem.product_state_id ==2
+                        = image_tag('sold.png', :class => "sold-image-index")
                   .items-box__body
                     %h3.items-box__name.font-1
                       = mensitem.title
@@ -40,15 +44,17 @@
                         = mensitem.price
                       %p.items-box__tax (税込)
             .view-all
-              %a{href: "##"} すべての商品を見る
+              %a{href: "/products/#{@mens[0].category_id}/category"} すべての商品を見る
           %h3.pickup__head-item
-            %a{href: "##"} ベビー・キッズ 新着アイテム
+            %a{href: "/products/#{@kids[0].category_id}/category"} ベビー・キッズ 新着アイテム
           .items-box.clearfix
             - @kids.each do |kidsitem|
               %section.items-box__contents
                 %a{href: "/products/#{kidsitem.id}"}
                   %figure.items-box__photo
                     .lazyloaded{:style => "background-image: url(#{kidsitem.images[0].image_url})"}
+                      - if kidsitem.product_state_id ==2
+                        = image_tag('sold.png', :class => "sold-image-index")
                   .items-box__body
                     %h3.items-box__name.font-1
                       = kidsitem.title
@@ -57,15 +63,17 @@
                         = kidsitem.price
                       %p.items-box__tax (税込)
             .view-all
-              %a{href: "##"} すべての商品を見る
+              %a{href: "/products/#{@kids[0].category_id}/category"} すべての商品を見る
           %h3.pickup__head-item
-            %a{href: "##"} コスメ・香水・美容 新着アイテム
+            %a{href: "/products/#{@cosme[0].category_id}/category"} コスメ・香水・美容 新着アイテム
           .items-box.clearfix
             - @cosme.each do |cosmeitem|
               %section.items-box__contents
                 %a{href: "/products/#{cosmeitem.id}"}
                   %figure.items-box__photo
                     .lazyloaded{:style => "background-image: url(#{cosmeitem.images[0].image_url})"}
+                      - if cosmeitem.product_state_id ==2
+                        = image_tag('sold.png', :class => "sold-image-index")
                   .items-box__body
                     %h3.items-box__name.font-1
                       = cosmeitem.title
@@ -74,7 +82,86 @@
                         = cosmeitem.price
                       %p.items-box__tax (税込)
             .view-all
-              %a{href: "##"} すべての商品を見る
+              %a{href: "/products/#{@cosme[0].category_id}/category"}  すべての商品を見る
+      %section.pickup__container
+        %h2.pickup__head ピックアップブランド
+        %section.pickup__head__container.clearfix
+          %h3.pickup__head-item
+            %a{href: "##"} シャネル 新着アイテム
+          .items-box.clearfix
+            - @chanel.each do |chanelitem|
+              %section.items-box__contents
+                %a{href: "/products/#{chanelitem.id}"}
+                  %figure.items-box__photo
+                    .lazyloaded{:style => "background-image: url(#{chanelitem.images[0].image_url})"}
+                      - if chanelitem.product_state_id ==2
+                        = image_tag('sold.png', :class => "sold-image-index")
+                  .items-box__body
+                    %h3.items-box__name.font-1
+                      = chanelitem.title
+                    .items-box__num.clearfix
+                      .items-box__price.font-2
+                        = chanelitem.price
+                      %p.items-box__tax (税込)
+            .view-all
+              %a{href: "#"} すべての商品を見る
+          %h3.pickup__head-item
+            %a{href: "##"} ルイヴィトン 新着アイテム
+          .items-box.clearfix
+            - @lvmh.each do |lvmhitem|
+              %section.items-box__contents
+                %a{href: "/products/#{lvmhitem.id}"}
+                  %figure.items-box__photo
+                    .lazyloaded{:style => "background-image: url(#{lvmhitem.images[0].image_url})"}
+                      - if lvmhitem.product_state_id ==2
+                        = image_tag('sold.png', :class => "sold-image-index")
+                  .items-box__body
+                    %h3.items-box__name.font-1
+                      = lvmhitem.title
+                    .items-box__num.clearfix
+                      .items-box__price.font-2
+                        = lvmhitem.price
+                      %p.items-box__tax (税込)
+            .view-all
+              %a{href: "#"} すべての商品を見る
+          %h3.pickup__head-item
+            %a{href: "##"} バーバリー 新着アイテム
+          .items-box.clearfix
+            - @burberry.each do |burberryitem|
+              %section.items-box__contents
+                %a{href: "/products/#{burberryitem.id}"}
+                  %figure.items-box__photo
+                    .lazyloaded{:style => "background-image: url(#{burberryitem.images[0].image_url})"}
+                      - if burberryitem.product_state_id ==2
+                        = image_tag('sold.png', :class => "sold-image-index")
+                  .items-box__body
+                    %h3.items-box__name.font-1
+                      = burberryitem.title
+                    .items-box__num.clearfix
+                      .items-box__price.font-2
+                        = burberryitem.price
+                      %p.items-box__tax (税込)
+            .view-all
+              %a{href: "#"} すべての商品を見る
+          %h3.pickup__head-item
+            %a{href: "##"} グッチ 新着アイテム
+          .items-box.clearfix
+            - @gucci.each do |gucciitem|
+              %section.items-box__contents
+                %a{href: "/products/#{gucciitem.id}"}
+                  %figure.items-box__photo
+                    .lazyloaded{:style => "background-image: url(#{gucciitem.images[0].image_url})"}
+                      - if gucciitem.product_state_id ==2
+                        = image_tag('sold.png', :class => "sold-image-index")
+                  .items-box__body
+                    %h3.items-box__name.font-1
+                      = gucciitem.title
+                    .items-box__num.clearfix
+                      .items-box__price.font-2
+                        = gucciitem.price
+                      %p.items-box__tax (税込)
+            .view-all
+              %a{href: "#"} すべての商品を見る
     = render 'topappbanner'
     = render 'topfooter'
     = render 'topcellbtn'
