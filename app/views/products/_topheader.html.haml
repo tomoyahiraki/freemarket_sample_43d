@@ -2,7 +2,7 @@
   .header__all
     .clearfix
       %h1.l-left
-        %a{href: "#"}
+        %a{href: "/"}
           %img{alt: "logo", height: "36", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3407889314", width: "134"}/
       = form_tag('/products/search', method: :get, class: "search-form") do
         %input.input-default2{:name => "keyword", :placeholder => "キーワードから探す", :type => "text", :value => ""}/
@@ -13,42 +13,52 @@
       %nav.l-left
         %ul.header__nav
           %li.submenu-trigger
-            カテゴリ一覧
+            カテゴリーから探す
             %ul
               - @categories.each.with_index(0) do |category,i|
                 - if category.parent_id == 0
                   %li.submenu2-trigger
-                    %a{href: "/products/#{category.id}/category"}
+                    %a.parent-category-name{href: "/products/#{category.id}/category"}
                       = category.name
                     %ul
                       - @categories.each.with_index(0) do |child,e|
                         - if @categories[i].id == child.parent_id
                           %li.submenu3-trigger
-                            %a{href: "/products/#{child.id}/category"}
+                            %a.children-category-name{href: "/products/#{child.id}/category"}
                               = child.name
                             %ul
                               - @categories.each do |grandchild|
                                 - if @categories[e].id == grandchild.parent_id
                                   %li.submenu4-trigger
-                                    %a{href: "/products/#{grandchild.id}/category"}
+                                    %a.grandchildren-category-name{href: "/products/#{grandchild.id}/category"}
                                       = grandchild.name
-          %li
-            %h2
-              %a.header__nav-root{href: "##"} ブランドから探す
+          %li.submenu-trigger-brand
+            ブランドから探す
+            %ul
+              %li.submenu2-trigger-brand
+                %a.parent-category-name{href: "#"} シャネル
+              %li.submenu2-trigger-brand
+                %a.parent-category-name{href: "#"} ルイ ヴィトン
+              %li.submenu2-trigger-brand
+                %a.parent-category-name{href: "#"} バーバリー
+              %li.submenu2-trigger-brand
+                %a.parent-category-name{href: "#"} グッチ
+              %li.submenu2-trigger-brand
+                %a.parent-category-name{href: "#"} ブランド一覧
 
       - if user_signed_in?
         .l-right
           %ul.header__user-nav
             %li
-              %a.header__nav-root{href: "users"}
+              %a.header__nav-root{href: "/users"}
                 %figure
                   %div
-                    %img{alt: "aa", src: "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", width: "32"}/
+                    %img{alt: "aa", src: "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", width: "32", height: "32"}/
                 .header__nav-root-mypage マイページ
               %div
             %li
               %a.header__nav-root{href: "##"}
-                %i.fa.fa-bell-o
+                %i.far.fa-bell
                 %span お知らせ
                 .header__nav-count
               %ul

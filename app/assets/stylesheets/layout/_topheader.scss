@@ -16,16 +16,17 @@
 
 .l-right{
   float: right;
+  max-height: 38px;
 }
 
 .input-default2{
-  border-radius: 4px;
   border:1px solid #ccc;
   width:840px;
   height: 36px;
   padding: 9px 32px 9px 8px;
   background: #fafafa;
   box-sizing: border-box;
+  border-right-style:none;
 }
 
 .search-form{
@@ -37,7 +38,7 @@
   width:36px;
   height: 36px;
   background: #fafafa;
-  border-radius: 4px;
+  border-left-style:none;
 }
 
 .fa-search{
@@ -62,10 +63,12 @@
 
 .clearfix{
   @include clearfix();
+  height:36px;
 }
 
 .header{
-  background: #f5f5f5;
+  background: white;
+  max-height: 90px;
   @include clearfix();
 
   &__all{
@@ -80,8 +83,9 @@
 
   &__nav{
 	&-box{
-	  // margin: 8px 0 0;
+	  margin: 8px 0 0;
 	  // @include clearfix();
+    max-height: 38px;
     }
     li{
 	  // position: relative;
@@ -89,6 +93,9 @@
 	  // padding: 0 0 0 16px;
 	  // vertical-align: middle;
     max-height: 38px;
+    float: left;
+    z-index: 9999;
+    // display: inline-block;
 	}
 
 	a{
@@ -139,9 +146,9 @@
 	}
 	div{
 	  display: inline-block;
-      margin: 0 0 0 8px;
-      font-size: 14px;
-      vertical-align: middle;
+    margin: 0 0 0 8px;
+    font-size: 14px;
+    vertical-align: middle;
 	}
 
   }
@@ -151,7 +158,9 @@
   position:relative;
   width:126px;
   height:38px;
-  line-height:38px;
+  line-height: 38px;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .submenu2-trigger{
@@ -163,22 +172,36 @@
 
 .submenu3-trigger{
   width:200px;
-  height:38px;
-  line-height:38px;
+  height:32px;
+  line-height:32px;
   padding-left: 16px;
 }
 
 .submenu4-trigger{
-  width:200px;
-  height:38px;
-  line-height:38px;
+  width:240px;
+  height:32px;
+  line-height:32px;
   padding-left: 16px;
+}
+
+.submenu2-trigger:hover{
+  background-color: #EE0000;
+}
+
+.submenu2-trigger:hover > a{
+  color:white;
+}
+
+.submenu3-trigger:hover,
+.submenu4-trigger:hover{
+  background-color: #EEEEEE;
 }
 
 .submenu-trigger > ul{
   background-color:white;
-  min-height:570px;
+  min-height:500px;
   min-width:200px;
+  border:solid 0.3px #EEEEEE;
 }
 
 .submenu2-trigger > ul{
@@ -188,6 +211,7 @@
   background-color:white;
   min-height:570px;
   min-width:200px;
+  border:solid 0.3px #EEEEEE;
 }
 
 .submenu3-trigger > ul{
@@ -197,6 +221,7 @@
   background-color:white;
   min-height:570px;
   min-width:200px;
+  border:solid 0.3px #EEEEEE;
 }
 
 .submenu-trigger > ul,
@@ -211,6 +236,46 @@
   display:block;
 }
 
+.submenu-trigger-brand{
+  position:relative;
+  width:126px;
+  height:38px;
+  line-height: 38px;
+  font-size: 14px;
+  font-weight: 400;
+  padding-left:16px;
+}
+
+.submenu-trigger-brand > ul{
+  background-color:white;
+  min-height:190px;
+  min-width:200px;
+  border:solid 0.3px #EEEEEE;
+}
+
+.submenu-trigger-brand > ul{
+  display:none;
+}
+
+.submenu-trigger-brand:hover > ul{
+  display:block;
+}
+
+.submenu2-trigger-brand{
+  width:200px;
+  height:38px;
+  line-height:38px;
+  padding-left: 16px;
+  box-sizing:border-box;
+}
+
+.submenu2-trigger-brand:hover{
+  background-color: #EE0000;
+}
+
+.submenu2-trigger-brand:hover > a{
+  color:white;
+}
 
 // パンくず設置
 .bread-crumbs-header{
@@ -261,3 +326,11 @@ a.sp-header-btn.header-login {
     line-height: 26px;
     font-size: 14px;
 }
+
+.brand-search{
+  float:right;
+  height:38px;
+  line-height:38px;
+  padding-left:16px;
+}
+

@@ -73,3 +73,9 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'payjp'
 gem 'gretel'
+
+gem 'dotenv-rails'
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
