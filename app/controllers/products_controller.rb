@@ -61,6 +61,7 @@ before_action :authenticate_user!, except: [:index]
 
   def create
     @products = Product.create(products_params)
+    # binding.pry
     logger.debug @products.errors.inspect
     redirect_to action: 'index'
   end
@@ -72,6 +73,14 @@ before_action :authenticate_user!, except: [:index]
 
   def brand_search
     @brands = Brand.where('name LIKE(?)', "#{params[:keyword]}%")
+    # binding.pry
+    respond_to do |format|
+      format.json
+    end
+  end
+
+  def category_search
+    @categories = Category.where(parent_id: "#{params[:id]}")
     # binding.pry
     respond_to do |format|
       format.json

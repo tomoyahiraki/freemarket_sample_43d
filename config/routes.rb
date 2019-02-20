@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get '_topheader'
       get ':id/category' => 'products#category'
       get 'brand_search'
+      get 'category_search'
     end
   end
 

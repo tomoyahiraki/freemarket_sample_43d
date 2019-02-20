@@ -16,7 +16,7 @@
                   %p.product_new_word 最大１０枚までアップロード出来ます
                   .content-update__container
                     = f.fields_for :images do |i|
-                      = i.file_field :image_url ,style: 'display: none;', class: 'image-upload', id: 'image_upload',multiple: true
+                      = i.file_field :image_url ,style: 'display: none;', class: 'image-upload', id: 'image_upload'
                     .content-update__container-items
                       .image__upload__imagebox
                         %ul.image__upload__imagebox-ul
@@ -80,11 +80,11 @@
                           %i.icon-arrow-bottom
                         .category__select__second
                           .select-wrap
-                            = f.collection_select :category_id, Category.where(parent_id:1), :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'second-select'}
+                            %select#second-select.select-default-two{name: "product[category_id]"}
                             %i.icon-arrow-bottom
                         .category__select__third
                           .select-wrap
-                            = f.collection_select :category_id, Category.where(parent_id:15), :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'third-select'}
+                            %select#third-select.select-default-two{name: "product[category_id]"}
                             %i.icon-arrow-bottom
                       .category__select__size
                         %label.product_new_name_label サイズ
