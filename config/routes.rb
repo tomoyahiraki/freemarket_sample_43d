@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'brand_search'
       get 'category_search'
       get 'category_index'
+      get 'size_search'
     end
   end
 
