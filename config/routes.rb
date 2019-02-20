@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :products, only: [:new, :show, :destroy, :create] do
+  resources :products do
     collection do
       get ':id/buy_confirm' => 'products#buy_confirm'
       patch ':id/buy' => 'products#buy'

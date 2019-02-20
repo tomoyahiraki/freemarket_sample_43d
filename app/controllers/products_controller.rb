@@ -32,6 +32,17 @@ before_action :authenticate_user!, except: [:index]
     redirect_to action: 'index'
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    product = Product.find(params[:id])
+    if product.user.id == current_user.id
+      product.update
+    end
+  end
+
   def buy_confirm
     @product = Product.find(params[:id])
     @user = User.find(current_user.id)
@@ -82,4 +93,5 @@ before_action :authenticate_user!, except: [:index]
     def products_params
        params.require(:product).permit(:product_state_id, :title, :product_old_id, :deliveryfee_id, :area_id, :price, :product_introduce, :shipment_id, :user_id, :brand_id, :size_id, :category_id, :deliveryday_id, images_attributes:[:image_url])
     end
+
 end
