@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
   var form = $("#add-card-form");
-  Payjp.setPublicKey('PAYJP_PUBLIC_KEY');
+  Payjp.setPublicKey('pk_test_1b1063d6c69a3590e18f6dd7');
 
   $("#add-card-form").on("click", "#submit-button", function(e) {
     e.preventDefault();
@@ -12,7 +12,6 @@ $(document).on('turbolinks:load', function() {
         exp_year: parseInt($("#payment_card_expire_yy").val())
     };
     Payjp.createToken(card, function(s, response) {
-      console.log(response);
       if (response.error) {
         alert("error")
         form.find('button').prop('disabled', false);
