@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
 before_action :authenticate_user!, except: [:index]
+protect_from_forgery except: [:buy_confirm, :buy]
 
   def index
     @ladys = Product.where(category_id:"1").order('id DESC').limit(4)
@@ -68,7 +69,7 @@ before_action :authenticate_user!, except: [:index]
     currency: 'jpy',
     )
     @product.update(product_state_id: 2)
-    redirect_to action: 'index', notice: "購入・支払いが完了しました。"
+    redirect_to action: 'index'
   end
 
   def search

@@ -69,7 +69,15 @@
       = link_to controller: 'products', action: 'edit', id: params[:product_id] do
         %p{style: 'color:white;'} 商品の編集
     .edit-btn-wrapper_or or
-    .edit-btn-wrapper_stop 出品を停止する
+    .edit-btn-wrapper_stop
+      - if (@product.product_state_id == 1)
+        = link_to  "/userproduct/#{@product.id}", method: :patch do
+          %p{style: 'color:white;'} 出品を停止する
+      - elsif (@product.product_state_id == 3)
+        = link_to "/userproduct/#{@product.id}", method: :patch do
+          %p{style: 'color:white;'} 出品を再開する
+      - else
+        %p 購入済み
     .edit-btn-wrapper_delete
       = link_to 'この商品を削除する',"/products/#{@product.id}", method: :delete, :style=>"color:white;"
 
