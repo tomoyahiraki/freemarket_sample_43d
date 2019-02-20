@@ -45,7 +45,6 @@ crumb :product do |product|
   link product.title, product_path(product)
 end
 
-
 # If you want to split your breadcrumbs configuration over multiple files, you
 # can create a folder named `config/breadcrumbs` and put your configuration
 # files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that

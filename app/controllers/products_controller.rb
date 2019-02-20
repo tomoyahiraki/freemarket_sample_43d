@@ -7,6 +7,10 @@ before_action :authenticate_user!, except: [:index]
     @mens = Product.where(category_id:"2").order('id DESC').limit(4)
     @kids = Product.where(category_id:"3").order('id DESC').limit(4)
     @cosme = Product.where(category_id:"4").order('id DESC').limit(4)
+    @chanel = Product.where(brand_id:"556").order('id DESC').limit(4)
+    @lvmh = Product.where(brand_id:"1434").order('id DESC').limit(4)
+    @burberry = Product.where(brand_id:"957").order('id DESC').limit(4)
+    @gucci = Product.where(brand_id:"437").order('id DESC').limit(4)
   end
 
   def new
@@ -61,7 +65,6 @@ before_action :authenticate_user!, except: [:index]
 
   def create
     @products = Product.create(products_params)
-    # binding.pry
     logger.debug @products.errors.inspect
     redirect_to action: 'index'
   end
@@ -90,6 +93,6 @@ before_action :authenticate_user!, except: [:index]
   private
 
     def products_params
-       params.require(:product).permit(:product_state_id,:brand_id,:title, :product_old_id, :deliveryfee_id, :area_id, :price, :product_introduce, :shipment_id, :size_id, :category_id, :deliveryday_id, images_attributes:[:image_url]).merge(user_id: current_user.id)
+       params.require(:product).permit(:product_state_id,:brand_id,:title, :product_old_id, :deliveryfee_id, :area_id, :price, :product_introduce, :shipment_id, :size_id, :category_id, :deliveryday_id, images_attributes:[:image]).merge(user_id: current_user.id)
     end
 end

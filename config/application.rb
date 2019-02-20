@@ -13,5 +13,6 @@ module FreemarketSample43d
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = :ja
     config.logger = Logger.new(STDOUT)
+    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
   end
 end

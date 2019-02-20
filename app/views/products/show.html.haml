@@ -10,8 +10,6 @@
           .main-image{:style => "background-image: url(#{@product.images[0].image_url});"}
             - if @product.product_state_id ==2
               = image_tag('sold.png', :class => "sold-image")
-            - else
-              ""
         .item-photo_sub
           = @product.images.each do |image|
             .sub-image{:style => "background-image: url(#{image.image_url});", :src => "#{image.image_url}"}
