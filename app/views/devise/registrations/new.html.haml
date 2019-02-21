@@ -37,9 +37,9 @@
             メールアドレスで登録
           %button#facebook-login.btn__sns-2.btn__sns-2-facebook-2
             %i.fab.fa-facebook-square
-            = link_to "Facebookで登録", user_facebook_omniauth_authorize_path
+            = link_to "Facebookで登録", user_facebook_omniauth_authorize_path, class: "snsbuttonwhite"
           %button#google-login.btn__sns-2.btn__sns-2-google-2
             %i.fab.fa-google-plus
-            = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path
+            = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, class: "snsbuttonwhite"
     %footer.login__footer
       = render 'products/productfooter'
