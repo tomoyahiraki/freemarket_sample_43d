@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  MAX_IMAGE_CREATE_LENGTH = 4
+  MAX_IMAGE_CREATE_LENGTH = 100
 
   belongs_to :user
   belongs_to :brand
