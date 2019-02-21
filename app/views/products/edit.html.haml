@@ -9,11 +9,11 @@
             .content_inside
               %h2.title 商品の情報を入力
               .content-update-form
-              = form_for(@products) do |f|
+              = form_for(@products, url: "/products/#{@products.id}") do |f|
                 .content-update-box
                   %label.product_new_name_label.content-update-head 出品画像
                   %span.form-require 必須
-                  %p.product_new_word 最大10枚までアップロード出来ます
+                  %p.product_new_word 最大１０枚までアップロード出来ます
                   .content-update__container
                     = f.fields_for :images do |i|
                       = i.file_field :image ,style: 'display: none;', class: 'image-upload', id: 'image_upload'
@@ -168,7 +168,7 @@
                   %p.product_new_word 禁止されている出品、行為を必ずご確認ください。
                   %p.product_new_word またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
                   %p.product_new_word また、出品をもちまして加盟店規約に同意したことになります。
-                = f.submit "出品する" ,class:'btn-default-red'
+                = f.submit "変更する" ,class:'btn-default-red'
                 %button.btn-default.btn-gray もどる
 
     = render 'productfooter'
