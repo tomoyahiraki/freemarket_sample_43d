@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :products, only: [:new, :show, :destroy, :create] do
+  resources :products do
     collection do
       get ':id/buy_confirm' => 'products#buy_confirm'
       patch ':id/buy' => 'products#buy'
@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   end
 
   get "userproduct/:product_id/show" => "userproduct#show"
+  patch 'userproduct/:product_id' => 'userproduct#stop'
 
   post "favorites/:product_id/create" => "favorites#create"
   post "favorites/:product_id/destroy" => "favorites#destroy"

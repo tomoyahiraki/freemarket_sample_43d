@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
 before_action :authenticate_user!, except: [:create, :signininformation, :signinphonenumber, :signinlocation, :signincredit, :signincomplete]
+protect_from_forgery except: [:show, :delete,:save]
 require "payjp"
 
   def index
