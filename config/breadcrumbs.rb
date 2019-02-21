@@ -23,7 +23,7 @@ end
 
 crumb :post_creditcard do
   link "クレジットカード情報入力", purchase_users_path
-  parent :show_creditcard
+  parent :users
 end
 
 crumb :profile do
@@ -43,6 +43,18 @@ end
 
 crumb :product do |product|
   link product.title, product_path(product)
+end
+
+crumb :category do |category_name|
+  link category_name.name, "/products/:id/category"
+end
+
+crumb :category_index do
+  link "カテゴリー一覧", category_index_products_path
+end
+
+crumb :search do
+  link "#{params[:keyword]}", search_products_path
 end
 
 # If you want to split your breadcrumbs configuration over multiple files, you

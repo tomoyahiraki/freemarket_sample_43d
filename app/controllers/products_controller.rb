@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
 before_action :authenticate_user!, except: [:index]
+protect_from_forgery except: [:buy_confirm, :buy]
 
   def index
     @ladys = Product.where(category_id:"1").order('id DESC').limit(4)
@@ -36,6 +37,18 @@ before_action :authenticate_user!, except: [:index]
     redirect_to action: 'index'
   end
 
+  def edit
+    @products = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.user.id == current_user.id
+      @product.update(products_params)
+    end
+    redirect_to controller: 'userproduct', action: 'show', product_id: params[:id]
+  end
+
   def buy_confirm
     @product = Product.find(params[:id])
     @user = User.find(current_user.id)
@@ -56,7 +69,7 @@ before_action :authenticate_user!, except: [:index]
     currency: 'jpy',
     )
     @product.update(product_state_id: 2)
-    redirect_to action: 'index', notice: "購入・支払いが完了しました。"
+    redirect_to action: 'index'
   end
 
   def search
@@ -101,4 +114,5 @@ before_action :authenticate_user!, except: [:index]
     def products_params
        params.require(:product).permit(:product_state_id,:brand_id,:title, :product_old_id, :deliveryfee_id, :area_id, :price, :product_introduce, :shipment_id, :size_id, :category_id, :deliveryday_id, images_attributes:[:image]).merge(user_id: current_user.id)
     end
+
 end

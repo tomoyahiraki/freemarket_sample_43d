@@ -1,0 +1,174 @@
+%body.products_new
+  %main.contents
+    = render 'productheader'
+
+    .content-main_products_new
+      %section.content-delete-side.buy-item-content
+        .sell-content
+          %div.sell-content_div{"data-reactroot" => ""}
+            .content_inside
+              %h2.title 商品の情報を入力
+              .content-update-form
+              = form_for(@products, url: "/products/#{@products.id}") do |f|
+                .content-update-box
+                  %label.product_new_name_label.content-update-head 出品画像
+                  %span.form-require 必須
+                  %p.product_new_word 最大１０枚までアップロード出来ます
+                  .content-update__container
+                    = f.fields_for :images do |i|
+                      = i.file_field :image ,style: 'display: none;', class: 'image-upload', id: 'image_upload'
+                    .content-update__container-items
+                      .image__upload__imagebox
+                        %ul.image__upload__imagebox-ul
+                          %li.image__upload__imagebox-ul-one
+                            .image__upload__imagebox-container
+                              %img.image__upload__imagebox-container-1{src:'',style: ""}
+                            .image__upload__imagebox-button
+                              = link_to '編集', "##", {class: "image__upload__imagebox-button-edit"}
+                              = link_to '削除', "##", {class: "image__upload__imagebox-button-delete"}
+                          %li.image__upload__imagebox-ul-two
+                            .image__upload__imagebox-container
+                              %img.image__upload__imagebox-container-2{src:'',style: ""}
+                            .image__upload__imagebox-button
+                              = link_to '編集', "##", {class: "image__upload__imagebox-button-edit"}
+                              = link_to '削除', "##", {class: "image__upload__imagebox-button-delete"}
+                          %li.image__upload__imagebox-ul-three
+                            .image__upload__imagebox-container
+                              %img.image__upload__imagebox-container-3{src:'',style: ""}
+                            .image__upload__imagebox-button
+                              = link_to '編集', "##", {class: "image__upload__imagebox-button-edit"}
+                              = link_to '削除', "##", {class: "image__upload__imagebox-button-delete"}
+                          %li.image__upload__imagebox-ul-four
+                            .image__upload__imagebox-container
+                              %img.image__upload__imagebox-container-4{src:'',style: ""}
+                            .image__upload__imagebox-button
+                              = link_to '編集', "##", {class: "image__upload__imagebox-button-edit"}
+                              = link_to '削除', "##", {class: "image__upload__imagebox-button-delete"}
+
+                    .content-update__container-uploadbox
+                      .product-image-upload{onClick: "$('#image_upload').click()"}
+                        .image-upload_text
+                          .word-drop.drug-drop-text ドラッグアンドドロップ
+                          %p.product_new_word.drug-drop-text またはクリックしてファイルをアップロード
+
+                    .content-update__container-uploadbox-2
+                      .product-image-upload{onClick: "$('#image_upload').click()"}
+                        .image-upload_text
+                          .word-drop.drug-drop-text ドラッグアンドドロップ
+                          %p.product_new_word.drug-drop-text またはクリックしてファイルをアップロード
+
+
+                .content-category
+                  #productname.content-category-group
+                    %label.product_new_name_label 商品名
+                    %span.form-require 必須
+                  = f.text_field :title ,placeholder:"商品名（必須 40文字まで)" ,id:'product-name' ,class:'input-default'
+                  #especially.content-category-group
+                    %label.product_new_name_label.first 商品の説明
+                    %span.form-require 必須
+                  = f.text_area(:product_introduce, rows: 5,class: 'textarea-default', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。')
+
+                .content-category.clearfix2.first
+                  %h3.content-category-head 商品の詳細
+                  .content-category-box
+                    .content-category-group
+                      .category__select
+                        %label.product_new_name_label カテゴリー
+                        %span.form-require 必須
+                        .select-wrap
+                          = f.collection_select :category_id, Category.where(parent_id: 0), :id, :name, {prompt: "---"}, {class: 'select-default-two', id:'first-select'}
+                          %i.icon-arrow-bottom
+                        .category__select__second
+                          .select-wrap
+                            %select#second-select.select-default-two{name: "product[category_id]"}
+                            %i.icon-arrow-bottom
+                        .category__select__third
+                          .select-wrap
+                            %select#third-select.select-default-two{name: "product[category_id]"}
+                            %i.icon-arrow-bottom
+                      .category__select__size
+                        %label.product_new_name_label サイズ
+                        %span.form-require 必須
+                        .select-wrap
+                          %select#size-select.select-default{name: "product[size_id]"}
+                          %i.icon-arrow-bottom
+                      .category__select__brand
+                        %label.product_new_name_label ブランド
+                        %span.form-require-two 任意
+                        .select-wrap
+                          #brand-result
+                            = f.text_field :brand_id, placeholder:"例)シャネル", type:'text', name:'keyword',class:'select-default-brand'
+
+                          %i.icon-arrow-bottom.icon-arrow-bottom-brand
+                        %ul.brand-search-result
+                      .category__select__old
+                        %label.product_new_name_label 商品の状態
+                        %span.form-require 必須
+                        .select-wrap
+                          = f.collection_select :product_old_id, ProductOld.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
+                          %i.icon-arrow-bottom
+                .content-category.clearfix2.second
+                  %h3.content-category-head 配送について
+                  = link_to '?', "/jp/help_center/article/68/", {class: "form-question", target: "_blank"}
+                  .content-category-box
+                    .content-category-group
+                      %label.product_new_name_label 配送料の負担
+                      %span.form-require 必須
+                      .select-wrap
+                        = f.collection_select :deliveryfee_id, Deliveryfee.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
+                        %i.icon-arrow-bottom
+
+                      .content-category-group
+                        %label.product_new_name_label 配送の方法
+                        %span.form-require 必須
+                        .select-wrap
+                          = f.collection_select :shipment_id, Shipment.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
+                          %i.icon-arrow-bottom
+
+                      .content-category-group
+                        %label.product_new_name_label 発送元の地域
+                        %span.form-require 必須
+                        .select-wrap
+                          = f.collection_select :area_id, Area.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
+                          %i.icon-arrow-bottom
+
+                      .content-category-group
+                        %label.product_new_name_label 発送までの日数
+                        %span.form-require 必須
+                        .select-wrap
+                          = f.collection_select :deliveryday_id, Deliveryday.all, :id, :name, {prompt: "---"}, {class: 'select-default'}
+
+                        .select-wrap
+                          = f.collection_select :product_state_id, ProductState.all, :id, :name, {}, {class: 'select-default-none'}
+
+                .content-category.clearfix2.third
+                  .word-box
+                    %h3.content-sub-head 販売価格（300~9,999,999）
+                    = link_to '?', "/jp/help_center/article/68/", {class: "form-question", target: "_blank"}
+                  .content-category-group
+                    %ul.item-price-box
+                      %li.price-box-group
+                        .clearfix2.products_new_clearfix
+                          .left-box
+                            %label.product_new_name_label 価格
+                            %span.form-require 必須
+                          .middle-box ¥
+                          .right-box
+                            = f.text_field :price ,class:'input-under', id:'input-price'
+                        .clearfix-middle
+                          .left-box.middle 販売手数料（10%）
+                          #output-price-tax.right-box.middle -
+                        .bold-products_new
+                          .left-box-under 販売利益
+                          #output-price.right-box-under _
+
+                .modal{role: "dialog", tabindex: "-1"}
+                  .modal-inner
+                .content-category.content-btn-box
+                  %p.product_new_word 禁止されている出品、行為を必ずご確認ください。
+                  %p.product_new_word またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+                  %p.product_new_word また、出品をもちまして加盟店規約に同意したことになります。
+                = f.submit "変更する" ,class:'btn-default-red'
+                %button.btn-default.btn-gray もどる
+
+    = render 'productfooter'
