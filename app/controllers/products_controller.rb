@@ -46,6 +46,7 @@ protect_from_forgery except: [:buy_confirm, :buy]
     if @product.user.id == current_user.id
       @product.update(products_params)
     end
+    # binding.pry
     redirect_to controller: 'userproduct', action: 'show', product_id: params[:id]
   end
 
