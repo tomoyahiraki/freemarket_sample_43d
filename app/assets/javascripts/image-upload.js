@@ -14,7 +14,7 @@ $(function(){
       return function(e){
         $('.image__upload__imagebox-ul-one').show();
         $('.image__upload__imagebox-ul-one').css('display', 'inline-block');
-        // $('.content-update__container-uploadbox').show();
+        // $('.content-update__container-uploadbox-2').show();
         $('.content-update__container-uploadbox').css('width', '80%');
         $('.content-update__container-uploadbox').css('float', 'right');
         // $('.content-update__container-uploadbox').css('display', 'none');
